@@ -1,0 +1,275 @@
+\OriginalSection{2}{Morse 函数}
+
+我们希望把一个给定的配边分解成若干较简单配边的复合。例如，图~2 中的三元组可以像图~3 那样分解。下面把这一想法说得精确些。
+
+\begin{center}
+  \FigTwoThree
+\end{center}
+
+\Definition{2.1}设 $W$ 是光滑流形，$f:W\to\R$ 是光滑函数。若在某个坐标系中
+\[
+  \left.\frac{\partial f}{\partial x_1}\right|_p
+  =\left.\frac{\partial f}{\partial x_2}\right|_p
+  =\cdots=
+  \left.\frac{\partial f}{\partial x_n}\right|_p=0,
+\]
+则称 $p\in W$ 是 $f$ 的一个\emph{临界点}。若相应的\Term{Hessian 矩阵}{Hessian matrix}还有
+\[
+  \det\left(\left.\frac{\partial^2f}{\partial x_i\partial x_j}\right|_p\right)\neq0,
+\]
+则称该临界点\emph{非退化}。
+
+例如，若图~2 中的 $f$ 是高度函数（向 $z$ 轴的投影），那么 $f$ 有四个临界点 $p_1,p_2,p_3,p_4$，且它们全都非退化。
+
+\Lemma{2.2（Morse）}若 $p$ 是 $f$ 的非退化临界点，则在 $p$ 附近的某个坐标系中，存在 $0\leq\lambda\leq n$，使
+\[
+  f(x_1,\ldots,x_n)=\text{常数}-x_1^2-\cdots-x_\lambda^2
+  +x_{\lambda+1}^2+\cdots+x_n^2.
+\]
+把 $\lambda$ 定义为临界点 $p$ 的\emph{指标}。
+
+\Proof 见 Milnor~\cite[p.~6]{ref04}。
+\EndProof
+
+\Definition{2.3}光滑流形三元组 $(W;V_0,V_1)$ 上的一个\emph{Morse 函数}，是满足下列条件的光滑函数 $f:W\to[a,b]$：
+\begin{enumerate}[label=(\arabic*)]
+  \item $f^{-1}(a)=V_0$，$f^{-1}(b)=V_1$；
+  \item $f$ 的所有临界点都在内部（即位于 $W\setminus\partial W$），并且都是非退化的。
+\end{enumerate}
+
+由\Term{Morse 引理}{Morse lemma}，Morse 函数的临界点都是孤立的。由于 $W$ 紧，这样的临界点只有有限多个。
+
+\Definition{2.4}$(W;V_0,V_1)$ 的\emph{\Term{Morse 数}{Morse number}} $\mu$，是所有 Morse 函数 $f$ 的临界点个数的最小值。
+
+下面的存在性定理说明这个定义确有意义。
+
+\Theorem{2.5}每个光滑流形三元组 $(W;V_0,V_1)$ 都有 Morse 函数。
+
+证明占用以下五页。先证一个边界附近的结论。
+
+\Lemma{2.6}存在光滑函数 $f:W\to[0,1]$，满足
+\[
+  f^{-1}(0)=V_0,\qquad f^{-1}(1)=V_1,
+\]
+并且 $f$ 在 $W$ 的边界的某个邻域中没有临界点。
+
+\Proof 取坐标邻域 $U_1,\ldots,U_k$ 覆盖 $W$。可以假定没有一个 $U_i$ 同时与 $V_0,V_1$ 相交，并且当 $U_i$ 与 $\partial W$ 相交时，坐标映射 $h_i:U_i\to\R^n_+$ 把 $U_i$ 映到开单位球与 $\R^n_+$ 的交上。
+
+在每个 $U_i$ 上定义映射 $f_i:U_i\to[0,1]$ 如下。若 $U_i$ 与 $V_0$（相应地，与 $V_1$）相交，令 $f_i=Lh_i$，其中
+\[
+  L(x_1,\ldots,x_n)=x_n
+  \quad\text{（相应地，$L(x_1,\ldots,x_n)=1-x_n$）}.
+\]
+若 $U_i$ 不与 $\partial W$ 相交，则恒取 $f_i=\tfrac12$。选取从属于覆盖 $\{U_i\}$ 的\Term{单位分解}{partition of unity} $\{\phi_i\}$（见 Munkres~\cite[p.~18]{ref05}），并定义
+\[
+  f(p)=\phi_1(p)f_1(p)+\cdots+\phi_k(p)f_k(p),
+\]
+其中在 $U_i$ 外把 $f_i(p)$ 理解为 $0$。显然，$f$ 是到 $[0,1]$ 的良定义光滑映射，且 $f^{-1}(0)=V_0$、$f^{-1}(1)=V_1$。
+
+最后验证 $df$ 在 $\partial W$ 上不为零。设 $q\in V_0$（相应地，$q\in V_1$）。对某个 $i$ 有 $\phi_i(q)>0$ 且 $q\in U_i$。写
+\[
+  h_i(p)=(x_1(p),\ldots,x_n(p)).
+\]
+则
+\[
+\frac{\partial f}{\partial x_n}
+=\sum_{j=1}^k f_j\frac{\partial\phi_j}{\partial x_n}
++\sum_{j=1}^k\phi_j\frac{\partial f_j}{\partial x_n}.
+\]
+在 $q$ 处，所有 $f_j(q)$ 都取同一个值 $0$（相应地，$1$），而
+\[
+  \sum_{j=1}^k\frac{\partial\phi_j}{\partial x_n}
+  =\frac{\partial}{\partial x_n}\left(\sum_{j=1}^k\phi_j\right)=0.
+\]
+故第一项在 $q$ 处为零。$\frac{\partial f_i}{\partial x_n}(q)$ 等于 $1$（相应地，$-1$），并且容易看出，对 $j=1,\ldots,k$，各 $\frac{\partial f_j}{\partial x_n}(q)$ 都与它同号。因此 $\frac{\partial f}{\partial x_n}(q)\neq0$。于是 $df$ 在 $\partial W$ 上不为零，从而在 $\partial W$ 的某个邻域内也不为零。
+\EndProof
+
+证明的其余部分较为困难。我们将在 $W$ 内部逐步改变 $f$，消去退化临界点。为此需要三个关于欧氏空间的引理。
+
+\par\medskip\noindent\phantomsection\label{lem:2-A}\textbf{引理 A（M. Morse）.}\quad
+若 $f$ 是从 $\R^n$ 的开子集 $U$ 到实数直线的 $C^2$ 映射，则对几乎所有线性映射 $L:\R^n\to\R$，函数 $f+L$ 只有非退化临界点。
+
+这里“几乎所有”是指除去 $\Hom_{\R}(\R^n,\R)\cong\R^n$ 中一个测度为零的集合。
+
+\Proof 考虑流形 $U\times\Hom_{\R}(\R^n,\R)$ 及其子流形
+\[
+  M=\{(x,L)\mid d(f(x)+L(x))=0\}.
+\]
+由于 $d(f(x)+L(x))=0$ 等价于 $L=-df(x)$，对应
+\[
+  x\longmapsto(x,-df(x))
+\]
+显然是 $U$ 到 $M$ 的微分同胚。每个 $(x,L)\in M$ 对应于 $f+L$ 的一个临界点；这个临界点恰在矩阵
+\[
+  \left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)
+\]
+奇异时退化。
+
+考虑投影 $\pi:M\to\Hom_{\R}(\R^n,\R)$，$(x,L)\mapsto L$。由于 $L=-df(x)$，该投影就是 $x\mapsto-df(x)$。因此 $\pi$ 在 $(x,L)\in M$ 处是临界的，当且仅当
+\[
+  d\pi=-\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)
+\]
+奇异。于是，$f+L$ 在某个 $x$ 处有退化临界点，当且仅当 $L$ 是
+\[
+  \pi:M\longrightarrow\Hom_{\R}(\R^n,\R)\cong\R^n
+\]
+的某个临界点的像。但由\Term{Sard 定理}{Sard's theorem}（见 de Rham~\cite[p.~10]{ref01}）：
+
+\par\smallskip\noindent\textbf{Sard 定理.}\quad 若 $\pi:M^n\to\R^n$ 是任意 $C^1$ 映射，则 $\pi$ 的临界点集合之像在 $\R^n$ 中是\Term{零测集}{set of measure zero}。
+
+结论立即得到。
+\EndProof
+
+\par\medskip\noindent\phantomsection\label{lem:2-B}\textbf{引理 B.}\quad
+设 $K$ 是 $\R^n$ 中开集 $U$ 的紧子集。若 $f:U\to\R$ 是 $C^2$ 的，并且在 $K$ 中只有非退化临界点，则存在 $\delta>0$，使得只要 $g:U\to\R$ 是 $C^2$ 的，并且在 $K$ 的每一点满足
+\begin{align}
+  \left|\frac{\partial f}{\partial x_i}-\frac{\partial g}{\partial x_i}\right|&<\delta, \tag{1}\\
+  \left|\frac{\partial^2f}{\partial x_i\partial x_j}
+  -\frac{\partial^2g}{\partial x_i\partial x_j}\right|&<\delta,
+  \qquad i,j=1,\ldots,n, \tag{2}
+\end{align}
+那么 $g$ 在 $K$ 中同样只有非退化临界点。
+
+\Proof 令
+\[
+  |df|=\left(\left(\frac{\partial f}{\partial x_1}\right)^2+
+  \cdots+\left(\frac{\partial f}{\partial x_n}\right)^2\right)^{1/2}.
+\]
+函数
+\[
+  |df|+\left|\det\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)\right|
+\]
+在 $K$ 上严格为正。记其在 $K$ 上的最小值为 $\mu>0$。取充分小的 $\delta>0$，使 (1) 蕴含
+\[
+  \bigl||df|-|dg|\bigr|<\frac\mu2,
+\]
+而 (2) 蕴含
+\[
+\left|
+ \left|\det\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)\right|
+ -\left|\det\left(\frac{\partial^2g}{\partial x_i\partial x_j}\right)\right|
+\right|<\frac\mu2.
+\]
+于是在 $K$ 的每一点，
+\begin{align*}
+ |dg|+\left|\det\left(\frac{\partial^2g}{\partial x_i\partial x_j}\right)\right|
+ &>|df|+\left|\det\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)\right|-\frac\mu2-\frac\mu2\\
+ &\geq0.
+\end{align*}
+结论随即成立。
+\EndProof
+
+\par\medskip\noindent\phantomsection\label{lem:2-C}\textbf{引理 C.}\quad
+设 $h:U\to U'$ 是 $\R^n$ 的一个开子集到另一个开子集的微分同胚，并把紧集 $K\subset U$ 映到 $K'\subset U'$。给定 $\varepsilon>0$，存在 $\delta>0$，使得若光滑映射 $f:U'\to\R$ 在 $K'$ 的每一点满足
+\[
+ |f|<\delta,\qquad
+ \left|\frac{\partial f}{\partial x_i}\right|<\delta,\qquad
+ \left|\frac{\partial^2f}{\partial x_i\partial x_j}\right|<\delta,
+ \quad i,j=1,\ldots,n,
+\]
+则 $f\circ h$ 在 $K$ 的每一点满足
+\[
+ |f\circ h|<\varepsilon,\qquad
+ \left|\frac{\partial(f\circ h)}{\partial x_i}\right|<\varepsilon,\qquad
+ \left|\frac{\partial^2(f\circ h)}{\partial x_i\partial x_j}\right|<\varepsilon,
+ \quad i,j=1,\ldots,n.
+\]
+
+\Proof $f\circ h$ 及其一、二阶偏导数，都是 $f$ 与 $h$ 的零至二阶偏导数的多项式函数；当 $f$ 的各偏导数为零时，这些多项式也为零。另一方面，$h$ 的各偏导数在紧集 $K$ 上有界。结论随即成立。
+\EndProof
+
+紧流形（可带边界）$M$ 上的光滑实值函数集合 $F(M,\R)$ 的 \Term{$C^2$ 拓扑}{$C^2$ topology}可定义如下。取有限坐标覆盖 $\{U_\alpha\}$，坐标映射为 $h_\alpha:U_\alpha\to\R^n$；再取 $\{U_\alpha\}$ 的一个紧致加细 $\{C_\alpha\}$（参见 Munkres~\cite[p.~7]{ref05}）。对每个正常数 $\delta>0$，定义 $F(M,\R)$ 的子集 $N(\delta)$：映射 $g:M\to\R$ 属于 $N(\delta)$，当且仅当对所有 $\alpha$，在 $h_\alpha(C_\alpha)$ 的每一点都有
+\[
+ |g_\alpha|<\delta,\qquad
+ \left|\frac{\partial g_\alpha}{\partial x_i}\right|<\delta,\qquad
+ \left|\frac{\partial^2g_\alpha}{\partial x_i\partial x_j}\right|<\delta,
+ \tag{$\star$}
+\]
+其中 $g_\alpha=g\circ h_\alpha^{-1}$，且 $i,j=1,\ldots,n$。
+
+在加法群 $F(M,\R)$ 中，把各 $N(\delta)$ 取作零函数的邻域基，由此得到的拓扑称为 $C^2$ 拓扑。形如 $f+N(\delta)=N(f,\delta)$ 的集合构成任意 $f\in F(M,\R)$ 的邻域基；$g\in N(f,\delta)$ 意味着对所有 $\alpha$，在 $h_\alpha(C_\alpha)$ 的每一点有
+\[
+ |f_\alpha-g_\alpha|<\delta,
+\]
+以及相应的一、二阶偏导数之差的绝对值都小于 $\delta$。
+
+还应验证这样构造的拓扑 $\mathcal T$ 不依赖于坐标覆盖及其紧致加细的具体选择。设 $\mathcal T'$ 是以同样步骤由另一组选择定义的拓扑，并用撇号表示与它对应的对象。只需证明：对 $\mathcal T$ 中任意给定的 $N(\delta)$，都能找到 $\mathcal T'$ 中的 $N'(\delta')\subset N(\delta)$。这是\NamedRef{lem:2-C}{引理 C}的直接推论。
+
+先考虑闭流形 $M$，也就是三元组 $(M;\varnothing,\varnothing)$，因为这一情形稍简单。
+
+\Theorem{2.7}若 $M$ 是无边界紧流形，则在 $C^2$ 拓扑下，Morse 函数在 $F(M,\R)$ 中组成一个开稠密子集。
+
+\Proof 取有限多个坐标邻域 $(U_1,h_1),\ldots,(U_k,h_k)$ 覆盖 $M$，并取紧集 $C_i\subset U_i$，使 $C_1,\ldots,C_k$ 覆盖 $M$。若 $f$ 在 $S\subset M$ 上没有退化临界点，就称 $f$ 在 $S$ 上\emph{良好}。
+
+\textbf{(I) Morse 函数的集合是开的。}若 $f:M\to\R$ 是 Morse 函数，由\NamedRef{lem:2-B}{引理 B}，$F(M,\R)$ 中存在 $f$ 的邻域 $N_i$，使该邻域内的每个函数都在 $C_i$ 上良好。因此在 $f$ 的邻域 $N=N_1\cap\cdots\cap N_k$ 中，每个函数都在 $C_1\cup\cdots\cup C_k=M$ 上良好。
+
+\textbf{(II) Morse 函数的集合是稠密的。}设 $N$ 是 $f\in F(M,\R)$ 的一个给定邻域。取光滑函数 $\lambda:M\to[0,1]$，使它在 $C_1$ 的一个邻域中等于 $1$，在 $M\setminus U_1$ 的一个邻域中等于 $0$。由\NamedRef{lem:2-A}{引理 A}，对几乎所有线性映射 $L:\R^n\to\R$，函数
+\[
+  f_1(p)=f(p)+\lambda(p)L(h_1(p))
+\]
+在 $C_1$ 上良好。若 $L$ 的系数充分小，则 $f_1\in N$。事实上，$f_1$ 只在紧集 $K=\operatorname{Supp}\lambda\subset U_1$ 上与 $f$ 不同。写 $L(x)=\sum\ell_i x_i$，则在 $h_1(K)$ 上
+\[
+ (f_1\circ h_1^{-1})-(f\circ h_1^{-1})
+ = (\lambda\circ h_1^{-1})\sum\ell_i x_i.
+\]
+把 $\ell_i$ 取充分小，可使这个差及其一、二阶偏导数处处小于任意预先指定的 $\varepsilon$；再把 $\varepsilon$ 取充分小，由\NamedRef{lem:2-C}{引理 C}即得 $f_1\in N$。
+
+再次应用\NamedRef{lem:2-B}{引理 B}，可取 $f_1$ 的邻域 $N_1\subset N$，使 $N_1$ 中每个函数在 $C_1$ 上仍然良好。对 $f_1,N_1$ 重复整个过程，得到 $N_1$ 中在 $C_2$ 上良好的函数 $f_2$，以及邻域 $N_2\subset N_1$，其中每个函数都在 $C_2$ 上良好。由于 $f_2\in N_1$，它自动也在 $C_1$ 上良好。最终得到
+\[
+ f_k\in N_k\subset N_{k-1}\subset\cdots\subset N_1\subset N,
+\]
+且 $f_k$ 在 $C_1\cup\cdots\cup C_k=M$ 上良好。
+\EndProof
+
+\Theorem{2.8}任意三元组 $(W;V_0,V_1)$ 上都存在 Morse 函数。
+
+\Proof \LemRef{2.6} 给出函数 $f:W\to[0,1]$，满足
+\begin{enumerate}[label=(\roman*)]
+  \item $f^{-1}(0)=V_0$，$f^{-1}(1)=V_1$；
+  \item $f$ 在 $\partial W$ 的某个邻域中没有临界点。
+\end{enumerate}
+设 $U$ 是 $\partial W$ 的一个开邻域，$f$ 在其中没有临界点。由于 $W$ 是正规空间，可取 $\partial W$ 的开邻域 $V$，使 $\overline V\subset U$。用有限多个坐标邻域 $\{U_i\}$ 覆盖 $W$，使每个 $U_i$ 或者包含在 $U$ 中，或者包含在 $W\setminus\overline V$ 中。取其紧致加细 $\{C_i\}$，并令 $C_0$ 为所有包含在 $U$ 中的 $C_i$ 之并。
+
+由\NamedRef{lem:2-B}{引理 B}，在 $f$ 的一个充分小邻域 $N$ 中，没有函数能在 $C_0$ 中有退化临界点。又因为 $f$ 在紧集 $W\setminus V$ 上与 $0,1$ 都隔开一个正距离，所以存在 $f$ 的邻域 $N'$，使每个 $g\in N'$ 都在 $W\setminus V$ 上满足 $0<g<1$。令 $N_0=N\cap N'$。不妨设 $W\setminus\overline V$ 中的坐标邻域是 $U_1,\ldots,U_k$。完全重复上一定理的步骤，得到
+\[
+  f_k\in N_k\subset N_{k-1}\subset\cdots\subset N_0,
+\]
+且 $f_k$ 在 $C_0\cup C_1\cup\cdots\cup C_k=W$ 上良好。由于 $f_k\in N_0\subset N'$ 且 $f_k|_V=f|_V$，$f_k$ 满足 (i)、(ii)，因而是 $(W;V_0,V_1)$ 上的 Morse 函数。
+\EndProof
+
+\Remark 在 $C^2$ 拓扑下，Morse 函数在所有光滑映射 $f:(W;V_0,V_1)\to([0,1];0,1)$ 中组成开稠密子集；这不难证明。
+
+在某些场合，使用任意两个临界点都不在同一高度上的 Morse 函数会比较方便。
+
+\Lemma{2.9}设 $f:W\to[0,1]$ 是三元组 $(W;V_0,V_1)$ 上的 Morse 函数，临界点为 $p_1,\ldots,p_k$。则 $f$ 可由一个 Morse 函数 $g$ 逼近；$g$ 与 $f$ 有相同临界点，并且当 $i\neq j$ 时 $g(p_i)\neq g(p_j)$。
+
+\Proof 假设 $f(p_1)=f(p_2)$。构造光滑函数 $\lambda:W\to[0,1]$，使 $\lambda$ 在 $p_1$ 的一个邻域 $U$ 中等于 $1$，在更大的邻域 $N$ 外等于 $0$；这里 $N\subset W\setminus\partial W$，且 $N$ 不包含任何 $p_i$（$i\neq1$）。取充分小的 $\varepsilon_1>0$，使 $f_0=f+\varepsilon_1\lambda$ 的值仍在 $[0,1]$ 中，并且 $f_0(p_1)\neq f_0(p_i)$（$i\neq1$）。
+
+在 $W$ 上引入\Term{Riemann 度量}{Riemannian metric}（见 Munkres~\cite[p.~24]{ref05}）。在紧集 $K=\overline{\{0<\lambda<1\}}$ 上取常数 $c,c'$，使
+\[
+  0<c\leq|\operatorname{grad}f|,\qquad |\operatorname{grad}\lambda|\leq c',
+\]
+其中 $\operatorname{grad}$ 表示\Term{梯度}{gradient}。
+令 $0<\varepsilon<\min(\varepsilon_1,c/c')$。则 $f_1=f+\varepsilon\lambda$ 仍是 Morse 函数，与 $f$ 有相同临界点，并且
+\[
+ |\operatorname{grad}(f+\varepsilon\lambda)|
+ \geq|\operatorname{grad}f|-|\varepsilon\operatorname{grad}\lambda|
+ >c-\varepsilon c'>0
+\]
+于 $K$ 上；在 $K$ 外则 $|\operatorname{grad}f_1|=|\operatorname{grad}f|$。继续归纳便得到把所有临界点高度分开的 Morse 函数 $g$。
+\EndProof
+
+现在利用 Morse 函数，可把任何复杂配边表示成较简单配边的复合。
+
+\Definition{2.10}给定光滑函数 $f:W\to\R$，$f$ 的临界点的像称为 $f$ 的\emph{\Term{临界值}{critical value}}。
+
+\Lemma{2.11}设 $f:(W;V_0,V_1)\to([0,1];0,1)$ 是 Morse 函数，并设 $0<c<1$，其中 $c$ 不是 $f$ 的临界值。则 $f^{-1}[0,c]$ 与 $f^{-1}[c,1]$ 都是带边界光滑流形。
+
+因此，从 $V_0$ 到 $V_1$ 的配边 $(W;V_0,V_1;\operatorname{Id},\operatorname{Id})$ 可以表示成两个配边的复合：一个从 $V_0$ 到 $f^{-1}(c)$，另一个从 $f^{-1}(c)$ 到 $V_1$。结合\LemRef{2.9} 得到：
+
+\Corollary{2.12}任意配边都可以表示成 Morse 数为 $1$ 的配边的复合。
+
+\par\medskip\noindent\textit{\LemRef{2.11} 的证明.}\quad 这由\Term{隐函数定理}{implicit function theorem}立即得到。事实上，若 $w\in f^{-1}(c)$，则在 $w$ 附近的某个坐标系 $x_1,\ldots,x_n$ 中，$f$ 局部形如投影
+\[
+  \R^n\longrightarrow\R,\qquad(x_1,\ldots,x_n)\longmapsto x_n.\qedhere
+\]

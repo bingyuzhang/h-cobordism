@@ -1,0 +1,513 @@
+\OriginalSection{6}{加强的消去定理}
+
+除非另有说明，本讲义一律采用整数系数的奇异同调。
+
+设 $M,M'$ 是光滑 $(r+s)$-流形 $V$ 中维数分别为 $r,s$ 的光滑子流形，二者横截相交于 $p_1,\ldots,p_k$。假设 $M$ 已\Term{定向}{oriented}，$M'$ 在 $V$ 中的\Term{法丛}{normal bundle} $\nu(M')$ 也已定向。在 $p_i$ 处，取张成 $T_{p_i}M$ 的正向 $r$-标架 $\xi_1,\ldots,\xi_r$。由于交是横截的，这些向量在 $p_i$ 处给出 $\nu(M')$ 纤维的一组基。
+
+\Definition{6.1}若 $\xi_1,\ldots,\xi_r$ 在 $p_i$ 处给出 $\nu(M')$ 纤维的正向基，则定义 $M,M'$ 在 $p_i$ 处的\emph{\Term{相交数}{intersection number}}为 $+1$；若给出负向基，则定义为 $-1$。$M$ 与 $M'$ 的相交数 $M'\mathbin{\boldsymbol\cdot}M$，定义为各交点处相交数之和。
+
+\RemarkLabel{1}在 $M'\mathbin{\boldsymbol\cdot}M$ 中，约定把法丛已定向的流形写在前面。
+
+\RemarkLabel{2}\label{rem:6-1-2}若 $V$ 已定向，则子流形 $N$ 可定向，当且仅当其法丛可定向。事实上，给定 $N$ 的定向，便可自然地定向 $\nu(N)$，反之亦然：要求在 $N$ 的每一点，先列出 $N$ 的正向切标架，再列出 $\nu(N)$ 的正向标架，所得标架应与 $V$ 的定向一致。
+
+因此，当 $V$ 已定向时，可以自然地定向 $\nu(M)$ 与 $M'$。在这些定向下，
+\[
+  M\mathbin{\boldsymbol\cdot}M'
+  =(-1)^{rs}M'\mathbin{\boldsymbol\cdot}M.
+\]
+若所给定向与上述约定并不相容，只要 $V$ 可定向，仍有
+\[
+  M\mathbin{\boldsymbol\cdot}M'
+  =\pm M'\mathbin{\boldsymbol\cdot}M.
+\]
+
+现设 $M,M',V$ 都是无边界的紧连通流形。下面的引理说明：对 $M$ 作变形或对 $M'$ 作\Term{周遭同痕}{ambient isotopy}时，相交数 $M'\mathbin{\boldsymbol\cdot}M$ 不变；它也为 $V$ 中不必横截相交的两个互补维闭连通子流形定义了相交数。引理基于\Term{Thom 同构定理}{Thom isomorphism theorem}的一个推论（见 Milnor~\cite{ref19} 的附录）以及\Term{管状邻域定理}{tubular neighborhood theorem}（见 Munkres~\cite[p.~46]{ref05}、Lang~\cite[p.~73]{ref03} 或 Milnor~\cite[p.~19]{ref12}）。
+
+\Lemma{6.2（不证）}在上述 $M',V$ 的条件下，有自然同构
+\[
+  \psi:H_0(M')\longrightarrow H_r(V,V\setminus M').
+\]
+
+令 $\alpha$ 为 $H_0(M')\cong\Z$ 的典范生成元，$[M]\in H_r(M)$ 为定向生成元。
+
+\Lemma{6.3}在由包含映射诱导的序列
+\[
+  H_r(M)\xrightarrow{g}H_r(V)
+  \xrightarrow{g'}H_r(V,V\setminus M')
+\]
+中，
+\[
+  g'\circ g([M])
+  =(M'\mathbin{\boldsymbol\cdot}M)\,\psi(\alpha).
+\]
+
+\Proof 在 $M$ 中取两两不交的开 $r$-胞腔 $U_1,\ldots,U_k$，分别包含 $p_1,\ldots,p_k$。Thom 同构的自然性表明，由包含映射诱导的同构
+\[
+  H_r(U_i,U_i\setminus\{p_i\})
+  \longrightarrow H_r(V,V\setminus M')
+\]
+把定向生成元 $\gamma_i$ 映到 $\varepsilon_i\psi(\alpha)$，其中 $\varepsilon_i$ 是 $M,M'$ 在 $p_i$ 处的相交数。下图交换；其中标出的同构来自切除，其余映射均由包含诱导，因而结论成立。
+\[
+\begin{tikzcd}[column sep=4.0em,row sep=3.0em]
+  H_r(M) \arrow[r,"g"] \arrow[d]
+    & H_r(V) \arrow[r,"g'"]
+    & H_r(V,V\setminus M') \\
+  H_r\bigl(M,M\setminus(M\cap M')\bigr)
+    \arrow[rr,"\cong"']
+    && \displaystyle\bigoplus_{i=1}^k
+       H_r\bigl(U_i,U_i\setminus\{p_i\}\bigr) \arrow[u]
+\end{tikzcd}
+\qedhere
+\]
+
+
+
+现在可以加强第一消去\ThmRef{5.4}。回到前述情形（见\TranslatedPage{sec5:page45-setup}）\OriginalPageNote{45}{sec5:page45-setup}：$(W^n;V_0,V_1)$ 是三元组，Morse 函数 $f$ 有类梯度向量场 $\xi$；$p,p'$ 是 $f$ 的两个临界点，指标分别为 $\lambda,\lambda+1$，且
+\[
+  f(p)<\tfrac12<f(p').
+\]
+给 $V=f^{-1}(\tfrac12)$ 中的左球面 $S'_L$ 以及右球面 $S_R$ 在 $V$ 中的法丛分别选定向。
+
+\Theorem{6.4（第二消去定理）}设 $W,V_0,V_1$ 单连通，且
+\[
+  \lambda\geq2,
+  \qquad
+  \lambda+1\leq n-3.
+\]
+若
+\[
+  S_R\mathbin{\boldsymbol\cdot}S'_L=\pm1,
+\]
+则 $W^n$ 微分同胚于 $V_0\times[0,1]$。事实上，可在 $V$ 附近修改 $\xi$，使 $V$ 中的左、右球面只在一点横截相交；随后\ThmRef{5.4} 的结论即适用。
+
+\RemarkLabel{1}\label{rem:6-4-1}水平集 $V=f^{-1}(\tfrac12)$ 也单连通。事实上，两次应用 van Kampen 定理（Crowell 与 Fox~\cite[p.~63]{ref17}）可得
+\[
+  \pi_1(V)\cong
+  \pi_1\bigl(D_R^{n-\lambda}(p)\cup V\cup D_L^{\lambda+1}(q)\bigr);
+\]
+这里用到了 $\lambda\geq2$、$n-\lambda\geq3$。而由\ThmRef{3.4}，包含
+\[
+  D_R(p)\cup V\cup D_L(q)\subset W
+\]
+是同伦等价。合并两点便知 $\pi_1(V)=1$。
+
+\RemarkLabel{2}\label{rem:6-4-2}当 $\lambda=0$ 或 $\lambda=n-1$ 时，定理结论显然成立。借助下面的\ThmRef{6.6}，还可验证只需一个维数条件 $n\geq6$，定理即成立；这里不核验 $\lambda=1$ 与 $\lambda=n-2$ 两种情形。我们只需把三元组反向，便得到下述推广。
+
+\Corollary{6.5}若维数条件改为
+\[
+  \lambda\geq3,
+  \qquad
+  \lambda+1\leq n-2,
+\]
+\ThmRef{6.4} 仍成立。
+
+\Proof 给 $S_R$ 以及 $S'_L$ 在 $V$ 中的法丛 $\nu(S'_L)$ 定向。$W$ 单连通，因而可定向；所以 $V$ 可定向。由注记 2（见\TranslatedPage{rem:6-1-2}）\OriginalPageNote{67}{rem:6-1-2}，
+\[
+  S'_L\mathbin{\boldsymbol\cdot}S_R
+  =\pm S_R\mathbin{\boldsymbol\cdot}S'_L
+  =\pm1.
+\]
+现在对三元组 $(W^n;V_1,V_0)$、Morse 函数 $-f$ 和类梯度向量场 $-\xi$ 应用\ThmRef{6.4}，即得推论。
+\EndProof
+
+\ThmRef{6.4} 的证明以如下精细的结果为基础；该结果实质上出自 Whitney~\cite{ref07}。
+
+\Theorem{6.6}\label{barden:thm66-start}设 $M,M'$ 是无边界光滑 $(r+s)$-流形 $V$ 中维数分别为 $r,s$ 的光滑闭子流形，二者横截相交。假设 $M$ 已定向，$M'$ 在 $V$ 中的法丛也已定向。再设
+\[
+  r+s\geq5,
+  \qquad s\geq3;
+\]
+当 $r=1$ 或 $2$ 时，另要求包含映射诱导的同态
+\[
+  \pi_1(V\setminus M')\longrightarrow\pi_1(V)
+\]
+是单射。
+
+设 $p,q\in M\cap M'$ 的相交数相反，并存在一条在 $V$ 中可缩的闭路 $L$：它先沿 $M$ 中从 $p$ 到 $q$ 的光滑嵌入弧，再沿 $M'$ 中从 $q$ 到 $p$ 的光滑嵌入弧；两条弧都避开
+$(M\cap M')\setminus\{p,q\}$。则存在恒等映射 $\operatorname{Id}:V\to V$ 的同痕 $h_t$（$0\leq t\leq1$），满足：
+\begin{enumerate}[label=(\roman*)]
+  \item 在 $(M\cap M')\setminus\{p,q\}$ 附近，整个同痕保持各点不动；
+  \item $h_1(M)\cap M'=(M\cap M')\setminus\{p,q\}$。
+\end{enumerate}
+\label{barden:thm66-end}
+
+\begin{center}
+  \FigSixOne
+
+  \phantomsection\label{fig:6.1}图 6.1
+\end{center}
+
+\Remark 若 $M,M'$ 连通、$r\geq2$，且 $V$ 单连通，则无须另行假设闭路 $L$ 的存在。事实上，在
+\[
+  S=(M\cap M')\setminus\{p,q\}
+\]
+时，分别在 $M\setminus S$ 与 $M'\setminus S$ 上取完备 Riemann 度量，应用 Hopf--Rinow 定理（见 Milnor~\cite[p.~62]{ref04}），可在 $M$ 中找到从 $p$ 到 $q$ 的光滑嵌入弧，在 $M'$ 中找到从 $q$ 到 $p$ 的光滑嵌入弧；它们组成避开 $S$ 的闭路 $L$。若 $V$ 单连通，$L$ 当然可缩。
+
+\par\medskip\noindent\textit{\ThmRef{6.4} 的证明.}\quad
+由\ThmRef{5.2}，可先在 $V$ 附近调整 $\xi$，使 $S_R$ 与 $S'_L$ 横截相交。若 $S_R\cap S'_L$ 不止一点，而
+$S_R\mathbin{\boldsymbol\cdot}S'_L=\pm1$，则交集中有一对点 $p_1,q_1$ 的相交数相反。若\ThmRef{6.6} 可用于此处，则应用\LemRef{4.7} 在 $V$ 附近调整 $\xi$ 后，$S_R$ 与 $S'_L$ 的交点减少两个。有限次重复，最终它们只在一点横截相交，定理便得证。
+
+\label{barden:page72}由\RemRef{rem:6-4-1}{注记 1}，$V$ 单连通，所以当 $\lambda\geq3$ 时，\ThmRef{6.6} 的条件显然全部满足。当 $\lambda=2$ 时，还须证明
+\[
+  \pi_1(V\setminus S_R)\longrightarrow\pi_1(V)=1
+\]
+是单射，即 $\pi_1(V\setminus S_R)=1$。$\xi$ 的轨线给出
+$V_0\setminus S_L$ 到 $V\setminus S_R$ 的微分同胚，其中 $S_L$ 是 $p$ 在 $V_0$ 中的左 $1$-球面。取 $S_L$ 在 $V_0$ 中的乘积邻域 $N$。由于
+\[
+  n-\lambda-1=n-3\geq3,
+\]
+有 $\pi_1(N\setminus S_L)\cong\Z$。对覆盖
+\[
+  V_0=(V_0\setminus S_L)\cup N,
+  \qquad
+  (V_0\setminus S_L)\cap N=N\setminus S_L
+\]
+应用 van Kampen 定理，可得 $\pi_1(V_0\setminus S_L)=1$。故 $\pi_1(V\setminus S_R)=1$。除\ThmRef{6.6} 尚待证明外，\ThmRef{6.4} 已证。\label{barden:page73}
+\EndProof
+
+\par\medskip\noindent\textit{\ThmRef{6.6} 的证明.}\quad
+设 $p,q$ 处的相交数分别为 $+1,-1$。令 $C,C'$ 分别为 $M,M'$ 中从 $p$ 到 $q$ 的光滑嵌入弧，并在两端略作延长。取平面中的开弧 $C_0,C'_0$，使它们横截交于 $a,b$，并围成带两个角的圆盘 $D$，如\FigRef{6.2}。选取嵌入
+\[
+  \phi_1:C_0\cup C'_0\longrightarrow M\cup M',
+\]
+把 $C_0,C'_0$ 分别映到 $C,C'$，并令 $a,b$ 分别对应于 $p,q$。下述引理把这一标准模型嵌入 $V$，定理将由此迅速推出。
+
+\Lemma{6.7}存在 $D$ 的某个邻域 $U$，使
+$\phi_1|_{U\cap(C_0\cup C'_0)}$ 延拓为嵌入
+\[
+  \phi:U\times\R^{r-1}\times\R^{s-1}\longrightarrow V,
+\]
+并且
+\begin{align*}
+  \phi^{-1}(M)&=(U\cap C_0)\times\R^{r-1}\times\{0\},\\
+  \phi^{-1}(M')&=(U\cap C'_0)\times\{0\}\times\R^{s-1}.
+\end{align*}
+
+\begin{center}
+  \FigSixTwo
+
+  \phantomsection\label{fig:6.2}图 6.2：标准模型
+\end{center}
+
+暂且承认\LemRef{6.7}。我们构造同痕 $F_t:V\to V$，使 $F_0$ 为恒等映射，
+\[
+  F_1(M)\cap M'=(M\cap M')\setminus\{p,q\},
+\]
+且 $0\leq t\leq1$ 时，$F_t$ 在 $\phi$ 的像外恒等。
+
+令 $W=\phi(U\times\R^{r-1}\times\R^{s-1})$，并在 $V\setminus W$ 上定义 $F_t$ 为恒等映射。在平面模型 $U$ 上取同痕 $G_t:U\to U$，满足：
+\begin{enumerate}[label=\arabic*)]
+  \item $G_0$ 是恒等映射；
+  \item $0\leq t\leq1$ 时，$G_t$ 在 $\overline U\setminus U$ 的某个邻域内恒等；
+  \item $G_1(U\cap C_0)\cap C'_0=\varnothing$。
+\end{enumerate}
+
+\begin{center}
+  \FigSixThree
+
+  \phantomsection\label{fig:6.3}图 6.3
+\end{center}
+
+\label{proof:thm6-6-page74}取光滑函数
+\[
+  \rho:\R^{r-1}\times\R^{s-1}\longrightarrow[0,1]
+\]
+使对 $x\in\R^{r-1}$、$y\in\R^{s-1}$，
+\[
+  \rho(x,y)=
+  \begin{cases}
+    1,&|x|^2+|y|^2\leq1,\\
+    0,&|x|^2+|y|^2\geq2.
+  \end{cases}
+\]
+定义
+\[
+  H_t(u,x,y)=\bigl(G_{t\rho(x,y)}(u),x,y\bigr).
+\]
+于是对 $w\in W$，
+\[
+  F_t(w)=\phi\circ H_t\circ\phi^{-1}(w)
+\]
+给出所需同痕。除\LemRef{6.7} 尚待证明外，\ThmRef{6.6} 已证。
+\EndProof
+
+\Lemma{6.8}在 $V$ 上存在 Riemann 度量，满足：
+\begin{enumerate}[label=\arabic*)]
+  \item 对相应的联络（见 Milnor~\cite[p.~44]{ref04}），$M,M'$ 都是 $V$ 的\Term{全测地子流形}{totally geodesic submanifold}；即 $V$ 中一条测地线若在某点与 $M$ 或 $M'$ 相切，就全部落在相应的子流形中；
+  \item $p,q$ 各有坐标邻域 $N_p,N_q$，其中该度量为欧氏度量，而且
+  \[
+    N_p\cap C,\quad N_p\cap C',\quad
+    N_q\cap C,\quad N_q\cap C'
+  \]
+  都是直线段。
+\end{enumerate}
+
+\par\medskip\noindent\textit{证明（E. Feldman）.}\quad 已知 $M,M'$ 横截交于 $p_1,\ldots,p_k$，其中 $p=p_1$、$q=p_2$。用 $V$ 中的坐标邻域 $W_1,\ldots,W_m$ 覆盖 $M\cup M'$，相应的坐标微分同胚为
+\[
+  h_i:W_i\longrightarrow\R^{r+s},
+  \qquad i=1,\ldots,m,
+\]
+并使：
+\begin{enumerate}[label=(\alph*)]
+  \item 存在两两不交的坐标邻域 $N_1,\ldots,N_k$，满足
+  \[
+    p_i\in N_i\subset\overline N_i\subset W_i,
+    \qquad
+    N_i\cap W_j=\varnothing
+  \]
+  对 $i=1,\ldots,k$、$j=k+1,\ldots,m$ 成立；
+  \item 对 $i=1,\ldots,k$，
+  \[
+    h_i(W_i\cap M)\subset\R^r\times\{0\},
+    \qquad
+    h_i(W_i\cap M')\subset\{0\}\times\R^s;
+  \]
+  \item 当 $i=1,2$ 时，$h_i(W_i\cap C)$ 与 $h_i(W_i\cap C')$ 都是 $\R^{r+s}$ 中的直线段。
+\end{enumerate}
+
+在开集 $W_0=W_1\cup\cdots\cup W_m$ 上，用单位分解拼合各 $h_i$ 诱导的度量，得到 Riemann 度量 $\langle\vec v,\vec w\rangle$。由 (a)，该度量在各 $N_i$ 上为欧氏度量。
+
+利用\Term{指数映射}{exponential map}（见 Lang~\cite[p.~73]{ref03}），按此度量在 $W_0$ 中构造 $M,M'$ 的开管状邻域 $T,T'$。把它们取得足够细，可使
+\[
+  T\cap T'\subset N_1\cup\cdots\cup N_k,
+\]
+并且对每个 $i$，存在依赖于 $i$ 的 $\varepsilon,\varepsilon'>0$，使
+\[
+  h_i(T\cap T'\cap N_i)
+  =\mathring D^r_\varepsilon\times\mathring D^s_{\varepsilon'}
+  \subset\R^r\times\R^s.
+\]
+
+\begin{center}
+  \FigSixFour
+
+  \phantomsection\label{fig:6.4}图 6.4
+\end{center}
+
+令 $A:T\to T$ 为光滑对合，在 $T$ 的每条纤维上取对径映射。定义 $T$ 上的新 Riemann 度量
+\[
+  \langle\vec v,\vec w\rangle_A
+  =\frac12\bigl(
+    \langle\vec v,\vec w\rangle
+    +\langle A_*\vec v,A_*\vec w\rangle
+  \bigr).
+\]
+
+\par\medskip\noindent\textbf{断言.}\quad
+对于新度量，$M$ 是 $T$ 的全测地子流形。
+
+\Proof 设 $\omega$ 是 $T$ 中在某点 $z\in M$ 与 $M$ 相切的测地线。$A$ 在新度量下是等距映射，故把测地线映到测地线。$M$ 是 $A$ 的不动点集，所以 $A(\omega)$ 与 $\omega$ 在 $A(z)=z$ 处有相同的切向量。由测地线的唯一性，$A$ 在 $\omega$ 上恒等，因而 $\omega\subset M$。断言得证。
+\EndProof
+
+同样在 $T'$ 上定义新度量 $\langle\vec v,\vec w\rangle_{A'}$。由 (b) 及 $T\cap T'$ 的形状，这两个新度量在 $T\cap T'$ 上都与旧度量相同，故合起来给出 $T\cup T'$ 上的度量。取开集 $O$，使
+\[
+  M\cup M'\subset O\subset\overline O\subset T\cup T',
+\]
+再把该度量在 $O$ 上的限制延拓到整个 $V$，便得到满足 (1)、(2) 的度量。
+\EndProof
+
+\par\medskip\noindent\textit{\LemRef{6.7} 的证明.}\quad
+证明占本节余下部分。取\LemRef{6.8} 给出的 $V$ 上 Riemann 度量。记
+\[
+  \tau(p),\tau(q),\tau'(p),\tau'(q)
+\]
+为弧 $C,C'$（均从 $p$ 定向到 $q$）在 $p,q$ 处的单位切向量。$C$ 可缩，所以其上与 $M$ 正交的向量丛平凡。由此沿 $C$ 构造与 $M$ 正交的单位向量场，使它在 $N_p\cap C$ 上等于 $\tau'(p)$ 的平行移动，在 $N_q\cap C$ 上等于 $-\tau'(q)$ 的平行移动。在模型中构造相应的向量场（见\FigRef{6.5}）。
+
+\begin{center}
+  \FigSixFive
+
+  \phantomsection\label{fig:6.5}图 6.5
+\end{center}
+
+由指数映射，$C_0$ 在平面中有一个邻域，使 $\phi_1|_{C_0}$ 延拓为该邻域到 $V$ 中的嵌入。指数映射先给出局部嵌入，再应用下述引理；其初等证明见 Munkres~\cite[p.~49, Lemma~5.7]{ref05}，但该处的原陈述有误。
+
+\Lemma{6.9}设 $A_0$ 是紧致度量空间 $A$ 的闭子集，$f:A\to B$ 是\Term{局部同胚}{local homeomorphism}，并且 $f|_{A_0}$ 为一一映射。则 $A_0$ 有邻域 $W$，使 $f|_W$ 为一一映射。
+
+类似地，沿 $C'$ 取与 $M'$ 正交的单位向量场，使它在 $N_p\cap C'$ 上为 $\tau(p)$ 的平行移动，在 $N_q\cap C'$ 上为 $-\tau(q)$ 的平行移动，从而把 $\phi_1|_{C'_0}$ 延拓到 $C'_0$ 的一个邻域。当 $r=1$ 时，这一步之所以可行，正因为 $p,q$ 处的相交数相反。
+
+由 $V$ 上度量的性质 (2)（见\LemRef{6.8}），两个嵌入在 $C_0\cap C'_0$ 的一个邻域内一致，因而合成闭环形邻域 $N$ 到 $V$ 中的嵌入
+\[
+  \phi_2:N\longrightarrow V,
+\]
+满足
+\[
+  \phi_2^{-1}(M)=N\cap C_0,
+  \qquad
+  \phi_2^{-1}(M')=N\cap C'_0.
+\]
+令 $S$ 为 $N$ 的内边界，$D_0\subset D$ 为平面中以 $S$ 为边界的圆盘（见\FigRef{6.5}）。
+
+给定闭路 $L$ 与 $\phi_2(S)$ 同伦，所以后者在 $V$ 中可缩。下面说明它事实上在 $V\setminus(M\cup M')$ 中也可缩。
+
+\Lemma{6.10}设 $V_1^n$ 是光滑流形，$n\geq5$；$M_1$ 是余维至少为 $3$ 的光滑子流形。若 $V_1\setminus M_1$ 中的一条闭路在 $V_1$ 中可缩，则它在 $V_1\setminus M_1$ 中也可缩。
+
+证明前先回忆 Whitney 的两个定理。
+
+\Lemma{6.11（见 Milnor~\cite[pp.~62--63]{ref15}）}设 $f:M_1\to M_2$ 是光滑流形间的连续映射，并在闭子集 $A\subset M_1$ 上光滑。则存在光滑映射 $g:M_1\to M_2$，使 $g\simeq f$，且 $g|_A=f|_A$。
+
+\Lemma{6.12（见 Whitney~\cite{ref16} 与 Milnor~\cite[p.~63]{ref15}）}设 $f:M_1\to M_2$ 是光滑流形间的光滑映射，并在闭子集 $A\subset M_1$ 上为嵌入。若
+\[
+  \dim M_2\geq2\dim M_1+1,
+\]
+则存在逼近 $f$ 的嵌入 $g:M_1\to M_2$，使 $g\simeq f$，且 $g|_A=f|_A$。
+
+\par\medskip\noindent\textit{\LemRef{6.10} 的证明.}\quad
+设
+\[
+  g:(D^2,S^1)\longrightarrow(V_1,V_1\setminus M_1)
+\]
+给出 $V_1\setminus M_1$ 中某条闭路在 $V_1$ 中的缩约。由于
+$\dim(V_1\setminus M_1)\geq5$，上述引理给出光滑嵌入
+\[
+  h:(D^2,S^1)\longrightarrow(V_1,V_1\setminus M_1),
+\]
+使 $g|_{S^1}$ 与 $h|_{S^1}$ 在 $V_1\setminus M_1$ 中同伦。
+
+$h(D^2)$ 可缩，故其法丛平凡。因此存在 $D^2\times\R^{n-2}$ 到 $V_1$ 中的嵌入 $H$，使
+\[
+  H(u,0)=h(u),\qquad u\in D^2.
+\]
+取 $\varepsilon>0$ 充分小，使 $|\vec x|<\varepsilon$ 时
+$H(S^1\times\{\vec x\})\subset V_1\setminus M_1$。因 $M_1$ 的余维至少为 $3$，可取（参见\LemRef{4.6}）
+\[
+  \vec x_0\in\R^{n-2},
+  \qquad |\vec x_0|<\varepsilon,
+  \qquad H(D^2\times\{\vec x_0\})\cap M_1=\varnothing.
+\]
+于是在 $V_1\setminus M_1$ 中，
+\[
+  g|_{S^1}\simeq h|_{S^1}
+  =H|_{S^1\times\{0\}}
+  \simeq H|_{S^1\times\{\vec x_0\}}
+  \simeq\text{常值映射}.
+\]
+\LemRef{6.10} 得证。
+\EndProof
+
+现在证明 $\phi_2(S)$ 在 $V\setminus(M\cup M')$ 中可缩。若 $r\geq3$，由\LemRef{6.10}，它先在 $V\setminus M'$ 中可缩；若 $r=2$，同一结论来自假设
+\[
+  \pi_1(V\setminus M')\longrightarrow\pi_1(V)
+\]
+为单射。又因 $s\geq3$，再在 $V\setminus M'$ 中应用\LemRef{6.10}，便知 $\phi_2(S)$ 在
+\[
+  (V\setminus M')\setminus M=V\setminus(M\cup M')
+\]
+中可缩。
+
+于是可把 $\phi_2$ 连续延拓到 $U=N\cup D_0$：
+\[
+  \phi'_2:U\longrightarrow V,
+\]
+并使 $\Int D$ 映到 $V\setminus(M\cup M')$。对 $\phi'_2|_{\Int D}$ 应用\LemRef{6.11}、\LemRef{6.12}，可得到光滑嵌入
+\[
+  \phi_3:U\longrightarrow V,
+\]
+它在 $U\setminus\Int D$ 的某个邻域内与 $\phi_2$ 相同，并且当
+$u\notin C_0\cup C'_0$ 时，$\phi_3(u)\notin M\cup M'$。
+
+还需把 $\phi_3$ 延拓到 $U\times\R^{r-1}\times\R^{s-1}$。记
+$U'=\phi_3(U)$。为简化记号，以下仍以 $C,C',C_0,C'_0$ 分别表示
+$U'\cap C,U'\cap C',U\cap C_0,U\cap C'_0$。
+
+\Lemma{6.13}沿 $U'$ 存在光滑向量场
+\[
+  \xi_1,\ldots,\xi_{r-1},
+  \qquad
+  \eta_1,\ldots,\eta_{s-1},
+\]
+使：
+\begin{enumerate}[label=\arabic*)]
+  \item 它们构成标准正交组，并且都与 $U'$ 正交；
+  \item 沿 $C$，$\xi_1,\ldots,\xi_{r-1}$ 与 $M$ 相切；
+  \item 沿 $C'$，$\eta_1,\ldots,\eta_{s-1}$ 与 $M'$ 相切。
+\end{enumerate}
+
+\Proof 思路是分步构造 $\xi_1,\ldots,\xi_{r-1}$：先沿 $C$ 平行移动，再用一次向量丛论证延拓到 $C\cup C'$，最后再用一次延拓到 $U'$。
+
+令 $\tau,\tau'$ 分别为沿 $C,C'$ 的单位速度向量场；令 $\nu'$ 为沿 $C'$ 的单位向量场，它与 $U'$ 相切，并在 $U'$ 内指向 $C'$ 的内法方向。则
+\[
+  \nu'(p)=\tau(p),
+  \qquad
+  \nu'(q)=-\tau(q).
+\]
+
+\begin{center}
+  \FigSixSix
+
+  \phantomsection\label{fig:6.6}图 6.6
+\end{center}
+
+在 $p$ 处取 $r-1$ 个向量 $\xi_1(p),\ldots,\xi_{r-1}(p)$，使它们与 $M$ 相切、与 $U'$ 正交，并使 $r$-标架
+\[
+  \tau(p),\xi_1(p),\ldots,\xi_{r-1}(p)
+\]
+在 $T_pM$ 中为正向。沿 $C$ 平行移动这 $r-1$ 个向量，得到光滑向量场 $\xi_1,\ldots,\xi_{r-1}$。平行移动保持内积（见 Milnor~\cite[p.~48]{ref04}），故满足 (1)；沿全测地子流形中的曲线作平行移动，会把切向量仍送到该子流形的切向量（见 Helgason~\cite[p.~80]{ref14}），故满足 (2)。对\LemRef{6.8} 中所构造的度量，(2) 也可由 $M$ 的管状邻域上的对径等距映射 $A$ 直接推出。由连续性，标架 $\tau,\xi_1,\ldots,\xi_{r-1}$ 沿 $C$ 处处是 $TM$ 中的正向标架。
+
+现在沿 $N_p\cap C'$ 平行移动 $\xi_1(p),\ldots,\xi_{r-1}(p)$，沿 $N_q\cap C'$ 平行移动 $\xi_1(q),\ldots,\xi_{r-1}(q)$。由假设，$M,M'$ 在 $p,q$ 处的相交数分别为 $+1,-1$。这意味着标架
+\[
+  \tau(p),\xi_1(p),\ldots,\xi_{r-1}(p)
+\]
+在 $p$ 处的 $\nu(M')$ 中为正向，而相应的 $q$ 处标架为负向。结合
+$\nu'(p)=\tau(p)$、$\nu'(q)=-\tau(q)$，可知在 $N_p\cap C'$ 与 $N_q\cap C'$ 上，
+\[
+  \nu',\xi_1,\ldots,\xi_{r-1}
+\]
+都是 $\nu(M')$ 中的正向标架。
+
+$C'$ 上由与 $M'$、$U'$ 均正交的 $(r-1)$-标架
+$\zeta_1,\ldots,\zeta_{r-1}$ 组成、并使
+$\nu',\zeta_1,\ldots,\zeta_{r-1}$ 在 $\nu(M')$ 中为正向的向量丛是平凡丛，纤维为连通的 $SO(r-1)$。所以可把 $\xi_1,\ldots,\xi_{r-1}$ 延拓为 $C\cup C'$ 上满足 (1)、(2) 的光滑标架场。
+
+$U'$ 上与 $U'$ 正交的标准正交 $(r-1)$-标架丛是平凡丛，其纤维为 \Term{Stiefel 流形}{Stiefel manifold}
+\[
+  O(r+s-2)/O(s-1)
+  =V_{r-1}(\R^{r+s-2}).
+\]
+我们已在 $C\cup C'$ 上构造了该丛的光滑截面。把它投影到纤维，得到 $C\cup C'$ 到上述 Stiefel 流形的光滑映射。因 $s\geq3$，该纤维单连通（见 Steenrod~\cite[p.~103]{ref18}），所以映射可连续延拓到 $U'$；由\LemRef{6.11}，又可取光滑延拓。于是 $\xi_1,\ldots,\xi_{r-1}$ 在整个 $U'$ 上满足 (1)、(2)。
+
+最后，考虑 $U'$ 上的标准正交标架丛：其标架为
+$\eta_1,\ldots,\eta_{s-1}$，每个向量都与 $U'$ 及
+$\xi_1,\ldots,\xi_{r-1}$ 正交。$U'$ 可缩，故该丛平凡；取一条光滑截面。这样得到的
+\[
+  \xi_1,\ldots,\xi_{r-1},
+  \eta_1,\ldots,\eta_{s-1}
+\]
+满足 (1)。又因沿 $C'$，各 $\xi_i$ 都与 $M'$ 正交，故各 $\eta_j$ 满足 (3)。引理得证。
+\EndProof
+
+\par\medskip\noindent\textit{\LemRef{6.7} 证明的完成.}\quad\label{proof:lemma6-7-page83}
+定义映射 $U\times\R^{r-1}\times\R^{s-1}\to V$：
+\[
+  (u,x_1,\ldots,x_{r-1},y_1,\ldots,y_{s-1})
+  \longmapsto
+  \exp\left(
+    \sum_{i=1}^{r-1}x_i\xi_i(\phi_3(u))
+    +\sum_{j=1}^{s-1}y_j\eta_j(\phi_3(u))
+  \right).
+\]
+由\LemRef{6.9} 及该映射为局部微分同胚这一事实，在
+$\R^{r+s-2}=\R^{r-1}\times\R^{s-1}$ 的原点附近存在开 $\varepsilon$-邻域 $N_\varepsilon$，使该映射限制为嵌入
+\[
+  \phi_4:U\times N_\varepsilon\longrightarrow V.
+\]
+必要时把 $U$ 略缩小，仍记为 $U$。
+
+定义嵌入
+\[
+  \phi:U\times\R^{r-1}\times\R^{s-1}\longrightarrow V,
+  \qquad
+  \phi(u,z)=\phi_4\left(u,\frac{\varepsilon z}{\sqrt{1+|z|^2}}\right).
+\]
+因为 $M,M'$ 是 $V$ 的全测地子流形，
+\[
+  \phi(C_0\times\R^{r-1}\times\{0\})\subset M,
+  \qquad
+  \phi(C'_0\times\{0\}\times\R^{s-1})\subset M'.
+\]
+又因 $\phi(U\times\{0\})=U'$ 与 $M,M'$ 分别恰沿 $C,C'$ 横截相交，所以 $\varepsilon$ 充分小时，$\operatorname{Im}(\phi)$ 与 $M,M'$ 的交恰为上述乘积邻域。即
+\begin{align*}
+  \phi^{-1}(M)&=C_0\times\R^{r-1}\times\{0\},\\
+  \phi^{-1}(M')&=C'_0\times\{0\}\times\R^{s-1}.
+\end{align*}
+这正是所需嵌入，\LemRef{6.7} 得证。
+\EndProof

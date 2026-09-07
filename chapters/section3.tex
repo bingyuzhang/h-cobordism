@@ -1,0 +1,385 @@
+\OriginalSection{3}{初等配边}
+
+\Definition{3.1}设 $f$ 是三元组 $(W^n;V,V')$ 上的 Morse 函数。若 $W^n$ 上的向量场 $\xi$ 满足：
+\begin{enumerate}[label=(\Roman*)]
+  \item 在 $f$ 的临界点集合之外处处有 $\xi(f)>0$；
+  \item 对 $f$ 的每个临界点 $p$，在 $p$ 的某个邻域 $U$ 中存在坐标
+  \[
+    (\vec x,\vec y)=(x_1,\ldots,x_\lambda,x_{\lambda+1},\ldots,x_n),
+  \]
+  使
+  \[
+    f=f(p)-|\vec x|^2+|\vec y|^2,
+  \]
+  且 $\xi$ 在整个 $U$ 中的坐标为
+  \[
+    (-x_1,\ldots,-x_\lambda,x_{\lambda+1},\ldots,x_n),
+  \]
+\end{enumerate}
+则称 $\xi$ 是 $f$ 的一个\emph{类梯度向量场}。
+
+\Lemma{3.2}三元组 $(W^n;V,V')$ 上的每个 Morse 函数 $f$ 都有类梯度向量场 $\xi$。
+
+\Proof 为简单起见，假设 $f$ 只有一个临界点 $p$；一般情形的证明相同。由 Morse \LemRef{2.2}，可在 $p$ 的邻域 $U_0$ 中选择坐标 $(\vec x,\vec y)$，使
+\[
+  f=f(p)-|\vec x|^2+|\vec y|^2
+\]
+在 $U_0$ 上成立。取 $p$ 的邻域 $U$，使 $\overline U\subset U_0$。
+
+每个 $p'\in W\setminus U_0$ 都不是 $f$ 的临界点。由隐函数定理，$p'$ 有邻域 $U'$ 和坐标 $x'_1,\ldots,x'_n$，使 $f=\text{常数}+x'_1$ 于 $U'$ 上成立。再利用 $W\setminus U_0$ 的紧性，选取邻域 $U_1,\ldots,U_k$，使
+\begin{enumerate}[label=(\roman*)]
+  \item $W\setminus U_0\subset U_1\cup\cdots\cup U_k$；
+  \item $U\cap U_i=\varnothing$，$i=1,\ldots,k$；
+  \item $U_i$ 上有坐标 $x^i_1,\ldots,x^i_n$，且 $f=\text{常数}+x^i_1$。
+\end{enumerate}
+在 $U_0$ 上取坐标为 $(-x_1,\ldots,-x_\lambda,x_{\lambda+1},\ldots,x_n)$ 的向量场；在 $U_i$ 上取 $\partial/\partial x^i_1$。用从属于覆盖 $U_0,U_1,\ldots,U_k$ 的单位分解把这些向量场拼合，得到 $W$ 上的向量场 $\xi$。容易验证它就是所需的类梯度向量场。
+\EndProof
+
+\Remark 从现在起，把三元组 $(W;V_0,V_1)$ 与配边
+\[
+  (W;V_0,V_1;\operatorname{Id}_0,\operatorname{Id}_1)
+\]
+视为同一对象，其中 $\operatorname{Id}_i:V_i\to V_i$ 是恒等映射。
+
+\Definition{3.3}若三元组 $(W;V_0,V_1)$ 微分同胚于
+\[
+  (V_0\times[0,1];V_0\times0,V_0\times1),
+\]
+则称它是一个\emph{\Term{乘积配边}{product cobordism}}。
+
+\Theorem{3.4}若三元组 $(W;V_0,V_1)$ 的 Morse 数 $\mu$ 为零，则 $(W;V_0,V_1)$ 是乘积配边。
+
+\Proof 设 $f:W\to[0,1]$ 是没有临界点的 Morse 函数。由\LemRef{3.2}，$f$ 有类梯度向量场 $\xi$。函数 $\xi(f):W\to\R$ 严格为正；逐点用正数 $1/\xi(f)$ 乘 $\xi$，可假定 $\xi(f)\equiv1$。
+
+若 $p\in\partial W$，则在 $p$ 附近的某个坐标系 $(x_1,\ldots,x_n)$（$x_n\geq0$）中，$f$ 与 $\xi$ 都可延拓到 $\R^n$ 的一个开子集。因此常微分方程的基本存在唯一性定理（例如见 Lang~\cite[p.~55]{ref03}）可在 $W$ 上局部应用。
+
+设 $\phi:[a,b]\to W$ 是 $\xi$ 的任意\Term{积分曲线}{integral curve}。则
+\[
+  \frac{d}{dt}(f\circ\phi)=\xi(f)=1,
+\]
+故 $f(\phi(t))=t+\text{常数}$。换参数 $\psi(s)=\phi(s-\text{常数})$，便有 $f(\psi(s))=s$。每条积分曲线都能唯一地延拓到一个极大区间；由于 $W$ 紧，该区间必为 $[0,1]$。因此，对每个 $y\in W$，存在唯一的极大积分曲线
+\[
+  \psi_y:[0,1]\longrightarrow W,
+\]
+通过 $y$ 且满足 $f(\psi_y(s))=s$。此外，$\psi_y(s)$ 关于两个变量都光滑（见\TranslatedPageRange{sec5:page53}{sec5:page54}）。\OriginalPageRangeNote{53--54}{sec5:page53}{sec5:page54}
+
+所需微分同胚为
+\[
+  h:V_0\times[0,1]\longrightarrow W,\qquad h(y_0,s)=\psi_{y_0}(s),
+\]
+其逆映射是
+\[
+  h^{-1}(y)=(\psi_y(0),f(y)).\qedhere
+\]
+
+\Corollary{3.5（领状领域定理）}设 $W$ 是紧的带边界光滑流形。则 $\partial W$ 有一个邻域，称为\emph{\Term{领状领域}{collar neighborhood}}，它微分同胚于 $\partial W\times[0,1)$。
+
+\Proof 由\LemRef{2.6}，存在光滑函数 $f:W\to\R_+$，满足 $f^{-1}(0)=\partial W$，且 $df$ 在 $\partial W$ 的某个邻域 $U$ 上不为零。若 $\varepsilon>0$ 是 $f$ 在紧集 $W\setminus U$ 上的一个正下界，则 $f$ 在 $f^{-1}[0,\varepsilon/2]$ 上是 Morse 函数。\ThmRef{3.4} 给出 $f^{-1}[0,\varepsilon/2)$ 与 $\partial W\times[0,1)$ 之间的微分同胚。
+\EndProof
+
+若连通闭子流形 $M^{n-1}\subset W^n\setminus\partial W^n$ 在 $W^n$ 中的某个邻域删去 $M^{n-1}$ 后分成两个分支，就称 $M^{n-1}$ 是\emph{\Term{双侧的}{two-sided}}。
+
+\Corollary{3.6（双侧领状领域定理）}设 $W$ 的光滑子流形 $M$ 的每个分支都紧且双侧。则 $M$ 在 $W$ 中有一个\emph{\Term{双侧领状领域}{bicollar neighborhood}}，它微分同胚于 $M\times(-1,1)$，并使 $M$ 对应于 $M\times0$。
+
+\Proof $M$ 的各分支可被 $W$ 中两两不交的开集覆盖，所以只需考虑 $M$ 只有一个分支的情形。取 $M$ 在 $W^n\setminus\partial W^n$ 中的开邻域 $U$，使 $\overline U$ 紧，并位于一个删去 $M$ 后分成两部分的邻域中。于是 $\overline U$ 分解成两个子流形 $U_1,U_2$，且 $U_1\cap U_2=M$ 是二者的边界。
+
+与\LemRef{2.6} 的证明一样，利用坐标覆盖和单位分解构造光滑映射 $\phi:U\to\R$，使 $d\phi$ 在 $M$ 上不为零，并且
+\[
+  \phi<0\text{ 于 }U\setminus U_1,\qquad
+  \phi=0\text{ 于 }M,\qquad
+  \phi>0\text{ 于 }U\setminus U_2.
+\]
+可取 $M$ 的开邻域 $V$，$\overline V\subset U$，使 $\phi$ 在 $V$ 中没有临界点。令 $2\varepsilon''>0$ 为 $\phi$ 在紧集 $U_1\setminus V$ 上的最小上界，令 $2\varepsilon'<0$ 为 $\phi$ 在紧集 $U_2\setminus V$ 上的最大下界。则 $\phi^{-1}[\varepsilon',\varepsilon'']$ 是 $V$ 中的紧 $n$ 维带边界子流形，且 $\phi$ 是其上的 Morse 函数。应用\ThmRef{3.4}，$\phi^{-1}(\varepsilon',\varepsilon'')$ 就是 $M$ 在 $V$ 中、从而也是在 $W$ 中的双侧领状领域。
+\EndProof
+
+\Remark 领状领域定理和双侧领状领域定理在没有紧性假设时仍然成立（Munkres~\cite[p.~51]{ref05}）。
+
+现在重述并证明\SecRef{1}的一个结果。
+
+\MilnorHeading{定理}{1.4}\phantomsection\label{thm:1.4-restated}设 $(W;V_0,V_1)$ 与 $(W';V'_1,V'_2)$ 是两个光滑流形三元组，$h:V_1\to V'_1$ 是微分同胚。则 $W\cup_hW'$ 上存在与 $W,W'$ 的给定结构相容的光滑结构 $\mathcal S$。在保持 $V_0$、$h(V_1)=V'_1$ 与 $V'_2$ 中各点不动的微分同胚意义下，$\mathcal S$ 是唯一的。
+
+\Proof \textit{存在性：}由\CorRef{3.5}，$V_1,V'_1$ 分别在 $W,W'$ 中有领状领域 $U_1,U'_1$，并有微分同胚
+\[
+ g_1:V_1\times(0,1]\to U_1,\qquad
+ g_2:V'_1\times[1,2)\to U'_1,
+\]
+满足 $g_1(x,1)=x$、$g_2(y,1)=y$。令 $j:W\to W\cup_hW'$ 与 $j':W'\to W\cup_hW'$ 为包含映射，定义
+\[
+g(x,t)=
+\begin{cases}
+ j(g_1(x,t)),&0<t\leq1,\\
+ j'(g_2(h(x),t)),&1\leq t<2.
+\end{cases}
+\]
+空间 $W\cup_hW'$ 被 $j(W\setminus V_1)$、$j'(W'\setminus V'_1)$ 与 $g(V_1\times(0,2))$ 覆盖；由 $j,j',g$ 在这三个开集上定义的光滑结构彼此相容，故得到所需结构。
+
+\textit{唯一性：}设 $\mathcal S$ 是 $W\cup_hW'$ 上与 $W,W'$ 的给定结构相容的任意光滑结构。由\CorRef{3.6}，$j(V_1)=j'(V'_1)$ 有双侧领状领域 $U$，并有关于 $\mathcal S$ 的微分同胚 $g:V_1\times(-1,1)\to U$，使 $g(x,0)=j(x)$。于是 $j^{-1}(U\cap j(W))$ 与 $(j')^{-1}(U\cap j'(W'))$ 分别是 $V_1,V'_1$ 的领状领域。所需唯一性实质上由 Munkres~\cite[p.~62]{ref05} 的定理 6.3 得到。
+\EndProof
+
+现设三元组 $(W;V_0,V_1)$、$(W';V'_1,V'_2)$ 分别有值域为 $[0,1]$、$[1,2]$ 的 Morse 函数 $f,f'$。在 $W,W'$ 上分别取类梯度向量场 $\xi,\xi'$，并作归一化，使除各临界点的小邻域外都有 $\xi(f)=1$、$\xi'(f')=1$。
+
+\Lemma{3.7}给定微分同胚 $h:V_1\to V'_1$，在 $W\cup_hW'$ 上存在唯一的、与 $W,W'$ 的给定结构相容的光滑结构，使 $f,f'$ 拼成 $W\cup_hW'$ 上的光滑函数，并使 $\xi,\xi'$ 拼成光滑向量场。
+
+\Proof 证明与上面\ThmRef{1.4} 相同，只是双侧领状领域上的光滑结构必须通过拼接 $V_1,V'_1$ 的领状领域中 $\xi,\xi'$ 的积分曲线来选取。这个条件也证明了唯一性。注意这里的唯一性比\ThmRef{1.4} 中的强得多。
+\EndProof
+
+这个构造立即给出：
+
+\Corollary{3.8}
+\[
+ \mu(W\cup_hW';V_0,V'_2)
+ \leq \mu(W;V_0,V_1)+\mu(W';V'_1,V'_2),
+\]
+其中 $\mu$ 表示三元组的 Morse 数。
+
+下面研究 Morse 数为 $1$ 的配边。设 $(W;V,V')$ 是带 Morse 函数 $f:W\to\R$ 与类梯度向量场 $\xi$ 的三元组。设 $p\in W$ 是临界点，$V_0=f^{-1}(c_0)$、$V_1=f^{-1}(c_1)$，其中 $c_0<f(p)<c_1$，并且 $c=f(p)$ 是区间 $[c_0,c_1]$ 中唯一的临界值。
+
+用 $\mathring D_r^q$ 表示 $\R^q$ 中以 $0$ 为中心、半径为 $r$ 的开球，并记 $\mathring D_1^q=\mathring D^q$。存在 $p$ 的邻域 $U$ 和坐标微分同胚 $g:\mathring D_{2\varepsilon}^n\to U$，使
+\[
+ f\circ g(\vec x,\vec y)=c-|\vec x|^2+|\vec y|^2,
+\]
+且 $\xi$ 的坐标为 $(-x_1,\ldots,-x_\lambda,x_{\lambda+1},\ldots,x_n)$。这里 $\vec x\in\R^\lambda$、$\vec y\in\R^{n-\lambda}$。令
+\[
+ V_{-\varepsilon}=f^{-1}(c-\varepsilon^2),\qquad
+ V_\varepsilon=f^{-1}(c+\varepsilon^2).
+\]
+可假定 $4\varepsilon^2<\min(|c-c_0|,|c-c_1|)$。情形如\FigRef{3.1}。
+
+\begin{center}
+ \FigThreeOne\\[-.4em]
+  \phantomsection\label{fig:3.1}\textbf{图 3.1}
+\end{center}
+
+以 $S^{q-1}$ 表示 $\R^q$ 中闭单位圆盘 $D^q$ 的边界。
+
+\Definition{3.9}\emph{\Term{特征嵌入}{characteristic embedding}}
+\[
+  \phi_L:S^{\lambda-1}\times\mathring D^{n-\lambda}\longrightarrow V_0
+\]
+构造如下。先定义嵌入
+\[
+\begin{aligned}
+ \phi:S^{\lambda-1}\times\mathring D^{n-\lambda}&\longrightarrow V_{-\varepsilon},\\
+ (u,\theta v)&\longmapsto g(\varepsilon u\cosh\theta,\varepsilon v\sinh\theta),
+\end{aligned}
+\]
+其中 $u\in S^{\lambda-1}$、$v\in S^{n-\lambda-1}$、$0\leq\theta<1$。从 $V_{-\varepsilon}$ 中的 $\phi(u,\theta v)$ 出发，$\xi$ 的积分曲线无奇点地向后通到 $V_0$ 中唯一确定的点 $\phi_L(u,\theta v)$。
+
+把 $p$ 在 $V_0$ 中的\emph{\Term{左球面}{left-hand sphere}} $S_L$ 定义为 $\phi_L(S^{\lambda-1}\times0)$。它正是 $V_0$ 与所有通向临界点 $p$ 的 $\xi$-积分曲线之交。\emph{\Term{左圆盘}{left-hand disk}} $D_L$ 是由这些积分曲线从 $S_L$ 到 $p$ 的线段之并所成的光滑嵌入圆盘，其边界为 $S_L$。
+
+类似地，先把 $\mathring D^\lambda\times S^{n-\lambda-1}$ 嵌入 $V_\varepsilon$，
+\[
+  (\theta u,v)\longmapsto g(\varepsilon u\sinh\theta,\varepsilon v\cosh\theta),
+\]
+再沿积分曲线把像移到 $V_1$，得到特征嵌入
+\[
+  \phi_R:\mathring D^\lambda\times S^{n-\lambda-1}\longrightarrow V_1.
+\]
+定义\Term{右球面}{right-hand sphere} $S_R=\phi_R(0\times S^{n-\lambda-1})$；它是\Term{右圆盘}{right-hand disk} $D_R$ 的边界，而 $D_R$ 由从 $p$ 到 $S_R$ 的积分曲线线段组成。
+
+\Definition{3.10}若三元组 $(W;V,V')$ 有一个恰有一个临界点 $p$ 的 Morse 函数，则称它是\emph{\Term{初等配边}{elementary cobordism}}。
+
+\Remark 由下面的\CorRef{3.15}，初等配边不是乘积配边；再由\ThmRef{3.4}，其 Morse 数等于 $1$。\CorRef{3.15} 还说明，初等配边的\emph{指标}——定义为 $p$ 关于该 Morse 函数的指标——是良定义的，即不依赖于 $f,p$ 的选择。
+
+\FigRef{3.2}画出了 $n=2$、$\lambda=1$ 的初等配边。
+
+\begin{center}
+ \FigThreeTwo\\[-.4em]
+  \phantomsection\label{fig:3.2}\textbf{图 3.2}
+\end{center}
+
+\Definition{3.11}设 $V$ 是 $(n-1)$ 维流形，$\phi:S^{\lambda-1}\times\mathring D^{n-\lambda}\to V$ 是嵌入。以 $\chi(V,\phi)$ 表示如下商流形：从不交并
+\[
+ \bigl(V\setminus\phi(S^{\lambda-1}\times0)\bigr)
+ \sqcup(\mathring D^\lambda\times S^{n-\lambda-1})
+\]
+出发，对每个 $u\in S^{\lambda-1}$、$v\in S^{n-\lambda-1}$、$0<\theta<1$，把 $\phi(u,\theta v)$ 与 $(\theta u,v)$ 等同。若 $V'$ 微分同胚于 $\chi(V,\phi)$，就说 $V'$ 可由 $V$ 施行型为 $(\lambda,n-\lambda)$ 的\emph{\Term{手术}{surgery}}得到。
+
+因此，在 $(n-1)$-流形上作手术，就是删去一个嵌入的 $(\lambda-1)$-球面，并代之以一个嵌入的 $(n-\lambda-1)$-球面。下面两个结果表明，这对应于越过 $n$-流形上 Morse 函数的一个指标为 $\lambda$ 的临界点。
+
+\Theorem{3.12}若 $V'=\chi(V,\phi)$ 可由 $V$ 施行型为 $(\lambda,n-\lambda)$ 的手术得到，则存在初等配边 $(W;V,V')$ 和 Morse 函数 $f:W\to\R$，它恰有一个指标为 $\lambda$ 的临界点。
+
+\Proof 令 $L_\lambda$ 为 $\R^\lambda\times\R^{n-\lambda}=\R^n$ 中满足
+\[
+ -1\leq-|\vec x|^2+|\vec y|^2\leq1,\qquad
+ |\vec x|\,|\vec y|<(\sinh1)(\cosh1)
+\]
+的点 $(\vec x,\vec y)$ 的集合。$L_\lambda$ 是有两个边界的可微流形。左边界 $-|\vec x|^2+|\vec y|^2=-1$ 在对应
+\[
+ (u,\theta v)\longleftrightarrow(u\cosh\theta,v\sinh\theta),
+ \qquad 0\leq\theta<1,
+\]
+下微分同胚于 $S^{\lambda-1}\times\mathring D^{n-\lambda}$；右边界 $-|\vec x|^2+|\vec y|^2=1$ 在对应
+\[
+ (\theta u,v)\longleftrightarrow(u\sinh\theta,v\cosh\theta)
+\]
+下微分同胚于 $\mathring D^\lambda\times S^{n-\lambda-1}$。
+
+考察曲面 $-|\vec x|^2+|\vec y|^2=\text{常数}$ 的正交\Term{轨线}{trajectory}。通过 $(\vec x,\vec y)$ 的轨线可参数化为
+\[
+  t\longmapsto(t\vec x,t^{-1}\vec y).
+\]
+若 $\vec x$ 或 $\vec y$ 为零，它是趋向原点的直线段；若二者都非零，它是一条双曲线，从左边界上唯一确定的点 $(u\cosh\theta,v\sinh\theta)$ 通到右边界上对应的点 $(u\sinh\theta,v\cosh\theta)$。
+
+如下构造 $n$-流形 $W=\omega(V,\phi)$。从不交并
+\[
+ \bigl(V\setminus\phi(S^{\lambda-1}\times0)\bigr)\times D^1
+ \sqcup L_\lambda
+\]
+出发。对 $u\in S^{\lambda-1}$、$v\in S^{n-\lambda-1}$、$0<\theta<1$ 与 $c\in D^1$，把第一项中的 $(\phi(u,\theta v),c)$ 与 $L_\lambda$ 中唯一满足下列条件的 $(\vec x,\vec y)$ 等同：
+\begin{enumerate}[label=(\arabic*)]
+ \item $-|\vec x|^2+|\vec y|^2=c$；
+ \item $(\vec x,\vec y)$ 位于通过 $(u\cosh\theta,v\sinh\theta)$ 的正交轨线上。
+\end{enumerate}
+容易看出，这个对应定义了微分同胚
+\[
+ \phi\bigl(S^{\lambda-1}\times(\mathring D^{n-\lambda}\setminus0)\bigr)\times D^1
+ \longleftrightarrow
+ L_\lambda\cap\bigl((\R^\lambda\setminus0)\times(\R^{n-\lambda}\setminus0)\bigr),
+\]
+故 $\omega(V,\phi)$ 是良定义的光滑流形。
+
+$\omega(V,\phi)$ 的两个边界分别对应 $c=-1$ 与 $c=1$。左边界可与 $V$ 自然等同：若 $z\notin\phi(S^{\lambda-1}\times0)$，使 $z$ 对应 $(z,-1)$；若 $z=\phi(u,\theta v)$，使它对应 $(u\cosh\theta,v\sinh\theta)\in L_\lambda$。右边界可与 $\chi(V,\phi)$ 自然等同：使 $z\in V\setminus\phi(S^{\lambda-1}\times0)$ 对应 $(z,1)$，并使 $(\theta u,v)$ 对应 $(u\sinh\theta,v\cosh\theta)$。
+
+定义 $f:\omega(V,\phi)\to\R$：
+\[
+f=
+\begin{cases}
+ c,&(z,c)\in\bigl(V\setminus\phi(S^{\lambda-1}\times0)\bigr)\times D^1,\\
+ -|\vec x|^2+|\vec y|^2,&(\vec x,\vec y)\in L_\lambda.
+\end{cases}
+\]
+容易验证 $f$ 是良定义的 Morse 函数，恰有一个指标为 $\lambda$ 的临界点。
+\EndProof
+
+\Theorem{3.13}设 $(W;V,V')$ 是初等配边，其特征嵌入为
+\[
+ \phi_L:S^{\lambda-1}\times\mathring D^{n-\lambda}\longrightarrow V.
+\]
+则 $(W;V,V')$ 微分同胚于三元组
+\[
+  (\omega(V,\phi_L);V,\chi(V,\phi_L)).
+\]
+
+\Proof 沿用\DefRef{3.9} 的记号，并令 $V=V_0$、$V'=V_1$。由\ThmRef{3.4}，
+\[
+ \bigl(f^{-1}[c_0,c-\varepsilon^2];V,V_{-\varepsilon}\bigr),
+ \qquad
+ \bigl(f^{-1}[c+\varepsilon^2,c_1];V_\varepsilon,V'\bigr)
+\]
+都是乘积配边。因此 $(W;V,V')$ 微分同胚于
+\[
+  (W_\varepsilon;V_{-\varepsilon},V_\varepsilon),
+  \qquad W_\varepsilon=f^{-1}[c-\varepsilon^2,c+\varepsilon^2].
+\]
+而 $(\omega(V,\phi_L);V,\chi(V,\phi_L))$ 显然微分同胚于
+\[
+ (\omega(V_{-\varepsilon},\phi);V_{-\varepsilon},\chi(V_{-\varepsilon},\phi)),
+\]
+所以只需证明后二者与 $(W_\varepsilon;V_{-\varepsilon},V_\varepsilon)$ 微分同胚。
+
+定义 $k:\omega(V_{-\varepsilon},\phi)\to W_\varepsilon$。对
+\[
+ (z,t)\in\bigl(V_{-\varepsilon}\setminus\phi(S^{\lambda-1}\times0)\bigr)\times D^1,
+\]
+令 $k(z,t)$ 为通过 $z$ 的积分曲线上满足
+\[
+  f(k(z,t))=\varepsilon^2t+c
+\]
+的唯一一点；对 $(\vec x,\vec y)\in L_\lambda$，令
+\[
+  k(\vec x,\vec y)=g(\varepsilon\vec x,\varepsilon\vec y).
+\]
+由 $\phi$ 与 $\omega(V_{-\varepsilon},\phi)$ 的定义，以及 $g$ 把 $L_\lambda$ 中的正交轨线送到 $W_\varepsilon$ 中的积分曲线这一事实，$k$ 是良定义的微分同胚。
+\EndProof
+
+\Theorem{3.14}设初等配边 $(W;V,V')$ 有一个恰有一个临界点、且该点指标为 $\lambda$ 的 Morse 函数。固定一个类梯度向量场，令 $D_L$ 为与之对应的左圆盘。则 $V\cup D_L$ 是 $W$ 的形变收缩核。
+
+\Corollary{3.15}$H_*(W,V)$ 在维数 $\lambda$ 上同构于 $\Z$，在其他维数上为零。$D_L$ 表示 $H_\lambda(W,V)$ 的一个生成元。
+
+\par\medskip\noindent\textit{推论的证明.}\quad 由\Term{切除性}{excision}，
+\[
+\begin{aligned}
+H_*(W,V)&\cong H_*(V\cup D_L,V)\\
+&\cong H_*(D_L,S_L)\\
+&\cong
+\begin{cases}
+\Z,&\text{维数为 }\lambda,\\
+0,&\text{其他维数}.
+\end{cases}\qedhere
+\end{aligned}
+\]
+
+\par\medskip\noindent\textit{\ThmRef{3.14} 的证明.}\quad 由\ThmRef{3.13}，可假定
+\[
+ W=\omega(V,\phi_L)
+ =\bigl(V\setminus\phi_L(S^{\lambda-1}\times0)\bigr)\times D^1\sqcup L_\lambda
+\]
+（经过恰当的等同之后），并且
+\[
+ D_L=\{(\vec x,\vec y)\in L_\lambda\mid |\vec y|=0\}.
+\]
+令
+\[
+ C=\{(\vec x,\vec y)\in L_\lambda\mid |\vec y|\leq\tfrac1{10}\},
+\]
+即 $D_L$ 的 $1/10$ 柱状邻域。先定义从 $W$ 到 $V\cup C$ 的形变收缩 $r_t$，再定义从 $V\cup C$ 到 $V\cup D_L$ 的形变收缩 $r'_t$，二者复合即为所需收缩。
+
+\textit{第一次收缩：}在 $L_\lambda$ 外沿轨线退回 $V$；在 $L_\lambda$ 中沿轨线走到 $C$ 或 $V$ 为止。具体地，对
+\[
+ (v,c)\in\bigl(V\setminus\phi_L(S^{\lambda-1}\times\mathring D^{n-\lambda})\bigr)\times D^1
+\]
+定义 $r_t(v,c)=(v,c-t(c+1))$；对 $(\vec x,\vec y)\in L_\lambda$ 定义
+\[
+r_t(\vec x,\vec y)=
+\begin{cases}
+(\vec x,\vec y),&|\vec y|\leq\tfrac1{10},\\
+(\vec x/\rho,\rho\vec y),&|\vec y|\geq\tfrac1{10},
+\end{cases}
+\]
+其中 $\rho=\rho(\vec x,\vec y,t)$ 是 $1/(10|\vec y|)$ 与下式关于 $\rho$ 的正实根二者中的较大者：
+\[
+ -\frac{|\vec x|^2}{\rho^2}+\rho^2|\vec y|^2
+ =(-|\vec x|^2+|\vec y|^2)(1-t)-t.
+\]
+当 $|\vec y|\geq1/10$ 时，该方程有唯一的连续变化的正根。因此 $r_t$ 是从 $W$ 到 $V\cup C$ 的良定义收缩。
+
+\begin{center}
+ \FigThreeThree\\[-.4em]
+ \phantomsection\label{fig:3.3}\textbf{图 3.3\quad 从 $W$ 到 $V\cup C$ 的收缩}
+\end{center}
+
+\textit{第二次收缩：}在 $C$ 外令 $r'_t$ 为恒等映射（情形 1）。在 $C$ 中沿竖直直线移向 $V\cup D_L$，并在 $V\cap C$ 附近放慢速度。对 $(\vec x,\vec y)\in C$ 定义
+\[
+r'_t(\vec x,\vec y)=
+\begin{cases}
+(\vec x,(1-t)\vec y),&|\vec x|^2\leq1\quad\text{（情形 2）},\\
+(\vec x,\alpha\vec y),&1\leq|\vec x|^2\leq1+\tfrac1{100}\quad\text{（情形 3）},
+\end{cases}
+\]
+其中
+\[
+ \alpha=(1-t)+t\left(\frac{|\vec x|^2-1}{|\vec y|^2}\right)^{1/2}.
+\]
+当 $|\vec x|^2\to1$、$|\vec y|^2\to0$ 时，$r'_t$ 仍连续；当 $|\vec x|^2=1$ 时两个定义相符。
+
+\begin{center}
+ \FigThreeFour\\[-.4em]
+ \phantomsection\label{fig:3.4}\textbf{图 3.4\quad 从 $V\cup C$ 到 $V\cup D_L$ 的收缩}
+\end{center}
+这就证明了\ThmRef{3.14}。
+\EndProof
+
+\Remark 最后简述怎样把上述大部分结果推广到多个临界点的情形。设 $(W;V,V')$ 是三元组，$f:W\to\R$ 是 Morse 函数，其临界点 $p_1,\ldots,p_k$ 位于同一高度，指标分别为 $\lambda_1,\ldots,\lambda_k$。选取类梯度向量场，得到两两不交的特征嵌入
+\[
+ \phi_i:S^{\lambda_i-1}\times\mathring D^{n-\lambda_i}\longrightarrow V,
+ \qquad i=1,\ldots,k.
+\]
+仿照\ThmRef{3.12}，以不交并
+\[
+ \left(V\setminus\bigcup_{i=1}^k\phi_i(S^{\lambda_i-1}\times0)\right)\times D^1
+ \sqcup L_{\lambda_1}\sqcup\cdots\sqcup L_{\lambda_k}
+\]
+构造光滑流形 $\omega(V;\phi_1,\ldots,\phi_k)$，并对每个 $i$ 沿相应的正交轨线作同样的等同。
+
+如\ThmRef{3.13} 的证明可知，$W$ 微分同胚于 $\omega(V;\phi_1,\ldots,\phi_k)$；如\ThmRef{3.14}，$V\cup D_1\cup\cdots\cup D_k$ 是 $W$ 的形变收缩核，其中 $D_i$ 是 $p_i$ 的左圆盘。若 $\lambda_1=\cdots=\lambda_k=\lambda$，则 $H_*(W,V)$ 在维数 $\lambda$ 上同构于 $\Z\oplus\cdots\oplus\Z$（$k$ 项），在其他维数上为零；$D_1,\ldots,D_k$ 表示 $H_\lambda(W,V)$ 的生成元。这些生成元实际上完全由给定的 Morse 函数决定，不依赖于类梯度向量场的选择（见~\cite[p.~20]{ref04}）。

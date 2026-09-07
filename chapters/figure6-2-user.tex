@@ -1,0 +1,56 @@
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_26kpy2v0r}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_26kpy2v0r}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,724); %set diagram left start at 0, and has height of 724
+
+%Shape: Ellipse [id:dp12751974195854354] 
+\draw  [pattern=_26kpy2v0r,pattern size=12pt,pattern thickness=0.22pt,pattern radius=0pt, pattern color={rgb, 255:red, 215; green, 215; blue, 215}] (100,371.8) .. controls (100,290.72) and (196.75,225) .. (316.1,225) .. controls (435.45,225) and (532.2,290.72) .. (532.2,371.8) .. controls (532.2,452.88) and (435.45,518.6) .. (316.1,518.6) .. controls (196.75,518.6) and (100,452.88) .. (100,371.8) -- cycle ;
+%Shape: Parabola [id:dp7097132516162088] 
+\draw   (584.7,459.6) .. controls (406.53,205.73) and (228.37,205.73) .. (50.2,459.6) ;
+%Shape: Parabola [id:dp18585049318765634] 
+\draw   (48.85,270) .. controls (227.02,523.87) and (405.18,523.87) .. (583.35,270) ;
+
+% Text Node
+%Straight Lines [id:da6462481686425137]
+\draw    (317.45,269.2) ;
+\draw [shift={(317.45,269.2)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da8521475132911274]
+\draw    (316.1,460.4) ;
+\draw [shift={(316.1,460.4)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+\draw (146,357.4) node [anchor=north west][inner sep=0.75pt]    {$a$};
+% Text Node
+\draw (481,357.4) node [anchor=north west][inner sep=0.75pt]    {$b$};
+% Text Node
+\draw (311,466.4) node [anchor=north west][inner sep=0.75pt]    {$C_{0}$};
+% Text Node
+\draw (300,244.4) node [anchor=north west][inner sep=0.75pt]    {$C'_{0}$};
+% Text Node
+\draw (194,266.4) node [anchor=north west][inner sep=0.75pt]    {$U$};
+
+\end{tikzpicture}

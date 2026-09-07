@@ -1,0 +1,79 @@
+% Pattern Info
+
+\tikzset{
+pattern size/.store in=\mcSize,
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness,
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius,
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_bni9gw1ql}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_bni9gw1ql}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,724); %set diagram left start at 0, and has height of 724
+
+%Shape: Ellipse [id:dp12751974195854354]
+\draw  [pattern=_bni9gw1ql,pattern size=12pt,pattern thickness=0.22pt,pattern radius=0pt, pattern color={rgb, 255:red, 215; green, 215; blue, 215}] (100,371.8) .. controls (100,290.72) and (196.75,225) .. (316.1,225) .. controls (435.45,225) and (532.2,290.72) .. (532.2,371.8) .. controls (532.2,452.88) and (435.45,518.6) .. (316.1,518.6) .. controls (196.75,518.6) and (100,452.88) .. (100,371.8) -- cycle ;
+%Shape: Parabola [id:dp7097132516162088]
+\draw   (584.7,459.6) .. controls (406.53,205.73) and (228.37,205.73) .. (50.2,459.6) ;
+%Shape: Parabola [id:dp18585049318765634]
+\draw   (48.85,270) .. controls (227.02,523.87) and (405.18,523.87) .. (583.35,270) ;
+
+% 以下五条样条以 x=316.1 为严格对称轴；左半边保留用户坐标，
+% 右半边的端点和 Bézier 控制点均取其镜像。
+%Curve Lines [id:da7533471946150027]
+\draw [color={rgb, 255:red, 139; green, 87; blue, 42 },draw opacity=1]
+  (237.07,443.33)
+  .. controls (249.23,452.47) and (284.1,432.67) .. (316.1,433.33)
+  .. controls (348.1,432.67) and (382.97,452.47) .. (395.13,443.33);
+%Curve Lines [id:da6025026154144115]
+\draw [color={rgb, 255:red, 139; green, 87; blue, 42 },draw opacity=1]
+  (185.73,414.67)
+  .. controls (220.4,440) and (279.57,392.33) .. (316.1,391.8)
+  .. controls (352.63,392.33) and (411.8,440) .. (446.47,414.67);
+%Curve Lines [id:da7505325398863362]
+\draw [color={rgb, 255:red, 139; green, 87; blue, 42 },draw opacity=1]
+  (158.4,394.67)
+  .. controls (193.07,420) and (279.57,352.33) .. (316.1,351.8)
+  .. controls (352.63,352.33) and (439.13,420) .. (473.8,394.67);
+%Curve Lines [id:da7650080957487818]
+\draw [color={rgb, 255:red, 139; green, 87; blue, 42 },draw opacity=1]
+  (135.07,373.33)
+  .. controls (152.4,386) and (184.04,351.77) .. (220.4,330.67)
+  .. controls (256.76,309.57) and (297.83,301.6) .. (316.1,301.33)
+  .. controls (334.37,301.6) and (375.44,309.57) .. (411.8,330.67)
+  .. controls (448.16,351.77) and (479.8,386) .. (497.13,373.33);
+%Curve Lines [id:da18903048061491867]
+\draw [color={rgb, 255:red, 139; green, 87; blue, 42 },draw opacity=1]
+  (113.07,350)
+  .. controls (121.73,356.33) and (130.94,341.73) .. (151.07,325.33)
+  .. controls (171.19,308.94) and (199.55,291.22) .. (217.73,280.67)
+  .. controls (235.91,270.12) and (296.13,253.6) .. (316.1,253.33)
+  .. controls (336.07,253.6) and (396.29,270.12) .. (414.47,280.67)
+  .. controls (432.65,291.22) and (461.01,308.94) .. (481.13,325.33)
+  .. controls (501.26,341.73) and (510.47,356.33) .. (519.13,350);
+
+% Text Node
+\draw (318.1,463.8) node [anchor=north west][inner sep=0.75pt]    {$C_{0}$};
+% Text Node
+\draw (305.43,275.13) node [anchor=north west][inner sep=0.75pt]    {$C'_{0}$};
+% Text Node
+\draw (271.2,233.93) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 139; green, 87; blue, 42 }  ,opacity=1 ]  {$G_{1}( U\cap C_{0})$};
+
+\end{tikzpicture}

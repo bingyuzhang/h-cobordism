@@ -1,0 +1,165 @@
+\OriginalSection{1}{配边范畴}
+
+先回顾若干熟悉的定义。记\Term{欧氏空间}{Euclidean space}为
+\[
+  \R^n=\{(x_1,\ldots,x_n)\mid x_i\in\R, i=1,\ldots,n\},
+\]
+其中 $\R$ 表示实数集；记\Term{欧氏半空间}{Euclidean half-space}为
+\[
+  \R^n_+=\{(x_1,\ldots,x_n)\in\R^n\mid x_n\geq0\}.
+\]
+
+\Definition{1.1}若 $V$ 是 $\R^n$ 的任意子集，则称映射 $f:V\to\R^m$ 是\emph{\Term{光滑的}{smooth}}，或是 $C^\infty$ 类\emph{可微的}，如果 $f$ 可以延拓为映射 $g:U\to\R^m$，其中 $U\supset V$ 是 $\R^n$ 中的开集，并且 $g$ 的所有阶偏导数都存在且连续。
+
+\Definition{1.2}\emph{光滑 $n$-流形}是一个具有可数基的\Term{拓扑流形}{topological manifold} $W$，连同 $W$ 上的一个\emph{\Term{光滑结构}{smooth structure}} $\mathcal S$。这里 $\mathcal S$ 是满足以下四个条件的二元组 $(U,h)$ 的集合：
+\begin{enumerate}[label=(\arabic*)]
+  \item 每个 $(U,h)\in\mathcal S$ 由开集 $U\subset W$（称为\emph{\Term{坐标邻域}{coordinate neighborhood}}）和一个\Term{同胚}{homeomorphism} $h$ 组成；$h$ 把 $U$ 映到 $\R^n$ 或 $\R^n_+$ 的一个开子集上。
+  \item $\mathcal S$ 中的坐标邻域覆盖 $W$。
+  \item 若 $(U_1,h_1)$ 与 $(U_2,h_2)$ 属于 $\mathcal S$，则
+  \[
+    h_1\circ h_2^{-1}:h_2(U_1\cap U_2)\longrightarrow \R^n\ \text{或}\ \R^n_+
+  \]
+  是光滑的。
+  \item 该集合对于性质 (3) 是极大的；即若向 $\mathcal S$ 添入任何不属于 $\mathcal S$ 的二元组 $(U,h)$，性质 (3) 就不再成立。
+\end{enumerate}
+
+$W$ 的\emph{\Term{边界}{boundary}}记作 $\partial W$\footnote{译注：原书部分位置用 $\operatorname{Bd}W$ 表示流形边界；本译本统一采用 $\partial W$。}，它由 $W$ 中所有不存在与 $\R^n$ 同胚之邻域的点组成（见 Munkres~\cite[p.~8]{ref05}）。
+
+\Definition{1.3}若 $W$ 是紧光滑 $n$-流形，并且 $\partial W$ 是两个既开又闭的子流形 $V_0,V_1$ 的不交并，则称 $(W;V_0,V_1)$ 为一个\emph{\Term{光滑流形三元组}{smooth manifold triad}}。
+
+若 $(W;V_0,V_1)$、$(W';V'_1,V'_2)$ 是两个光滑流形三元组，而 $h:V_1\to V'_1$ 是微分同胚（即 $h$ 与 $h^{-1}$ 都光滑的同胚），则可按 $h$ 把 $V_1$ 与 $V'_1$ 中的相应点等同起来，得到空间 $W\cup_hW'$，并构成第三个三元组
+\[
+  (W\cup_hW';V_0,V'_2).
+\]
+其依据是下述定理。
+
+\Theorem{1.4}在 $W\cup_hW'$ 上存在一个与给定结构相容的光滑结构 $\mathcal S$；换言之，每个包含映射
+\[
+  W\longrightarrow W\cup_hW',\qquad W'\longrightarrow W\cup_hW'
+\]
+都是到其像上的微分同胚。
+
+在保持 $V_0$、$h(V_1)=V'_1$ 与 $V'_2$ 中各点不动的微分同胚意义下，$\mathcal S$ 是唯一的。
+
+证明将在\SecRef{3}给出。
+
+\Definition{1.5}给定两个\Term{闭光滑 $n$-流形}{closed smooth $n$-manifold} $M_0,M_1$（即 $M_0,M_1$ 紧且 $\partial M_0=\partial M_1=\varnothing$），从 $M_0$ 到 $M_1$ 的一个\emph{\Term{配边}{cobordism}}是五元组
+\[
+  (W;V_0,V_1;h_0,h_1),
+\]
+其中 $(W;V_0,V_1)$ 是光滑流形三元组，并且 $h_i:V_i\to M_i$ 是微分同胚，$i=0,1$。
+
+从 $M_0$ 到 $M_1$ 的两个配边
+\[
+ (W;V_0,V_1;h_0,h_1),\qquad
+ (W';V'_0,V'_1;h'_0,h'_1)
+\]
+称为\emph{等价的}，如果存在微分同胚 $g:W\to W'$，把 $V_0$ 映到 $V'_0$、把 $V_1$ 映到 $V'_1$，并且对 $i=0,1$，下图交换：
+\[
+\begin{tikzcd}[column sep=4.2em,row sep=2.5em]
+  V_i \arrow[rr,"g|_{V_i}"] \arrow[dr,"h_i"']
+  && V'_i \arrow[dl,"h'_i"] \\
+  & M_i &
+\end{tikzcd}
+\]
+
+于是得到一个\Term{范畴}{category}（见 Eilenberg 与 Steenrod~\cite[p.~108]{ref02}），其\Term{对象}{object}是闭流形，\Term{态射}{morphism}是配边的等价类 $c$。也就是说，配边满足以下两个条件；它们分别容易地由\ThmRef{1.4} 与\CorRef{3.5} 推出。
+\begin{enumerate}[label=(\arabic*)]
+  \item 给定从 $M_0$ 到 $M_1$ 的配边等价类 $c$，以及从 $M_1$ 到 $M_2$ 的配边等价类 $c'$，存在一个良定义的、从 $M_0$ 到 $M_2$ 的等价类 $cc'$。这种\Term{复合}{composition}运算满足\Term{结合律}{associativity}。
+  \item 对每个闭流形 $M$，存在\Term{恒等配边}{identity cobordism}类
+  \[
+    \iota_M=[(M\times I;M\times0,M\times1;p_0,p_1)],
+    \qquad p_i(x,i)=x,
+  \]
+  其中 $x\in M$，$i=0,1$。也就是说，若 $c$ 是从 $M_1$ 到 $M_2$ 的配边类，则
+  \[
+    \iota_{M_1}c=c=c\iota_{M_2}.
+  \]
+\end{enumerate}
+
+可能有 $cc'=\iota_M$，但 $c\neq\iota_M$。例如，下图中 $c$ 取阴影部分，$c'$ 取无阴影部分；$c$ 有右逆 $c'$，却没有左逆。注意，配边中出现的流形不假定连通。
+\begin{center}
+  \FigOneShadow
+\end{center}
+
+固定 $M$，考虑从 $M$ 到自身的所有配边类。它们组成一个\Term{幺半群}{monoid} $H_M$，即带有满足结合律且具有单位元之复合运算的集合。$H_M$ 中可逆的配边组成一个\Term{群}{group} $G_M$。取下文中的 $M=M'$，便可构造 $G_M$ 的一些元素。
+
+给定微分同胚 $h:M\to M'$，定义 $c_h$ 为
+\[
+  (M\times I;M\times0,M\times1;j,h_1)
+\]
+的等价类，其中 $j(x,0)=x$ 且 $h_1(x,1)=h(x)$，$x\in M$。
+
+\Theorem{1.6}对于任意两个微分同胚 $h:M\to M'$ 与 $h':M'\to M''$，有
+\[
+  c_hc_{h'}=c_{h'\circ h}.
+\]
+
+\Proof 令 $W=M\times I\cup_hM'\times I$，并令
+\[
+  j_h:M\times I\longrightarrow W,\qquad
+  j_{h'}:M'\times I\longrightarrow W
+\]
+为 $c_hc_{h'}$ 定义中的包含映射。定义 $g:M\times I\to W$ 如下：
+\[
+g(x,t)=
+\begin{cases}
+  j_h(x,2t),&0\leq t\leq\tfrac12,\\
+  j_{h'}(h(x),2t-1),&\tfrac12\leq t\leq1.
+\end{cases}
+\]
+于是 $g$ 是良定义的，并且正是所需的等价。
+\EndProof
+
+\Definition{1.7}若存在映射 $f:M\times I\to M'$，使得
+\begin{enumerate}[label=(\arabic*)]
+  \item $f$ 光滑；
+  \item 对每个 $t$，由 $f_t(x)=f(x,t)$ 定义的 $f_t$ 都是微分同胚；
+  \item $f_0=h_0$ 且 $f_1=h_1$，
+\end{enumerate}
+则称两个微分同胚 $h_0,h_1:M\to M'$（光滑）\emph{\Term{同痕}{isotopic}}。
+
+若存在微分同胚 $g:M\times I\to M'\times I$，满足
+\[
+  g(x,0)=(h_0(x),0),\qquad g(x,1)=(h_1(x),1),
+\]
+则称 $h_0,h_1:M\to M'$ 是\emph{\Term{伪同痕的}{pseudo-isotopic}}\footnote{依 Munkres 的术语，$h_0$ 与 $h_1$ 是“$I$-cobordant”（见~\cite[p.~62]{ref05}）；依 Hirsch 的术语，$h_0$ 与 $h_1$ 是“concordant”。}。
+
+\Lemma{1.8}同痕与伪同痕都是\Term{等价关系}{equivalence relation}。
+
+\Proof 对称性与自反性显然。为证明传递性，设 $h_0,h_1,h_2:M\to M'$ 是微分同胚，并给定从 $h_0$ 到 $h_1$ 的同痕 $f:M\times I\to M'$ 和从 $h_1$ 到 $h_2$ 的同痕 $g:M\times I\to M'$。取光滑单调函数 $m:I\to I$，使
+\[
+ m(t)=0\quad(0\leq t\leq\tfrac13),\qquad
+ m(t)=1\quad(\tfrac23\leq t\leq1).
+\]
+所需的从 $h_0$ 到 $h_2$ 的同痕 $k:M\times I\to M'$ 定义为
+\[
+k(x,t)=
+\begin{cases}
+ f(x,m(2t)),&0\leq t\leq\tfrac12,\\
+ g(x,m(2t-1)),&\tfrac12\leq t\leq1.
+\end{cases}
+\]
+伪同痕的传递性较难证明，它由 Munkres~\cite[p.~59]{ref05} 的引理 6.1 推出。
+\EndProof
+
+显然，同痕的两个微分同胚也是伪同痕的。事实上，若 $f:M\times I\to M'$ 是同痕，则
+\[
+  \widehat f:M\times I\longrightarrow M'\times I,
+  \qquad \widehat f(x,t)=(f_t(x),t)
+\]
+由反函数定理可知是微分同胚，因而是 $h_0$ 与 $h_1$ 之间的伪同痕。（当 $M=S^n$、$n\geq8$ 时，逆命题由 J. Cerf~\cite{ref39} 证明。）由此以及下面的\ThmRef{1.9} 可知：若 $h_0$ 与 $h_1$ 同痕，则 $c_{h_0}=c_{h_1}$。
+
+\Theorem{1.9}
+\[
+  c_{h_0}=c_{h_1}\quad\Longleftrightarrow\quad
+  h_0\ \text{与}\ h_1\ \text{是伪同痕的}.
+\]
+
+\Proof 设 $g:M\times I\to M'\times I$ 是 $h_0$ 与 $h_1$ 之间的伪同痕。定义
+\[
+  h_0^{-1}\times1:M'\times I\longrightarrow M\times I,
+  \qquad (h_0^{-1}\times1)(x,t)=(h_0^{-1}(x),t).
+\]
+于是 $(h_0^{-1}\times1)\circ g$ 给出 $c_{h_1}$ 与 $c_{h_0}$ 之间的等价。逆向证明类似。
+\EndProof

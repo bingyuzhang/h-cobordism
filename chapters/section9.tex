@@ -1,0 +1,202 @@
+\OriginalSection{9}{\texorpdfstring{$h$}{h}-配边定理及若干应用}
+
+下面就是我们一直力图证明的定理。
+
+\Theorem{9.1（$h$-配边定理）}设三元组 $(W^n;V,V')$ 满足：
+\begin{enumerate}[label=(\arabic*)]
+  \item $W,V,V'$ 均单连通；
+  \item $H_*(W,V)=0$；
+  \item $\dim W=n\geq6$。
+\end{enumerate}
+则 $W$ 微分同胚于 $V\times[0,1]$。
+
+\Remark 条件 (2) 等价于
+\[
+  H_*(W,V')=0.
+\]
+事实上，$H_*(W,V)=0$ 由 Poincaré 对偶推出 $H^*(W,V')=0$，万有系数定理再推出 $H_*(W,V')=0$。反向同理。
+
+\Proof 给 $(W;V,V')$ 选取一个自指标 Morse 函数 $f$。\ThmRef{8.1} 可消去指标为 0 和 1 的临界点。把 $f$ 换成 $-f$，相当于把三元组翻转，此时原来指标为 $\lambda$ 的临界点变成指标为 $n-\lambda$ 的临界点。因此，原来指标为 $n,n-1$ 的临界点也可消去。现在应用\ThmRef{7.8}，即得结论。
+\EndProof
+
+\Definition{9.2}若 $V,V'$ 都是 $W$ 的形变收缩核，则称三元组 $(W;V,V')$ 为一个 \emph{$h$-配边}，并称 $V$ 与 $V'$ \emph{$h$-配边等价}。
+
+\Remark 有一个虽不用于下文但颇有意思的事实：把\ThmRef{9.1} 的条件 (2) 换成表面上更强的条件“$(W;V,V')$ 是 $h$-配边”，所得命题与原定理等价。事实上，条件 (1)、(2) 合在一起蕴含 $(W;V,V')$ 是 $h$-配边。因为
+\begin{enumerate}[label=(\roman*)]
+  \item $\pi_1(V)=0,\ \pi_1(W,V)=0,\ H_*(W,V)=0$
+\end{enumerate}
+由\Term{相对 Hurewicz 同构定理}{relative Hurewicz isomorphism theorem}（Hu~\cite[p.~166]{ref20}；Hilton~\cite[p.~103]{ref21}）推出
+\begin{enumerate}[label=(\roman*),start=2]
+  \item $\pi_i(W,V)=0,\quad i=0,1,2,\ldots$。
+\end{enumerate}
+由于 $(W,V)$ 是可三角剖分偶对（Munkres~\cite[p.~101]{ref05}），(ii) 蕴含存在强形变收缩 $W\to V$（见 Hilton~\cite[p.~98, Theorem~1.7]{ref21}）。又因条件 (2) 蕴含 $H_*(W,V')=0$，同理 $V'$ 也是 $W$ 的强形变收缩核。
+
+\ThmRef{9.1} 的一个重要推论是：
+
+\Theorem{9.3}\footnote{译注：原书此处误作“定理 9.2”；依本节的连续编号应为\ThmRef{9.3}。}两个维数不小于 5 的单连通闭光滑流形若 $h$-配边等价，则它们微分同胚。
+
+\par\bigskip\noindent\textbf{若干应用}\quad（另见 Smale~\cite{ref22,ref06}）
+
+\Proposition{A（光滑 $n$-圆盘 $D^n$ 的刻画，$n\geq6$）}设 $W^n$ 是紧致单连通光滑 $n$-流形，$n\geq6$，且其边界单连通。则下列四个断言等价：
+\begin{enumerate}[label=(A.\arabic*)]
+  \item $W^n$ 微分同胚于 $D^n$；
+  \item $W^n$ 同胚于 $D^n$；
+  \item $W^n$ 可缩；
+  \item $W^n$ 具有一点的整数同调。
+\end{enumerate}
+
+\Proof 显然
+\[
+  \text{(A.1)}\Longrightarrow\text{(A.2)}
+  \Longrightarrow\text{(A.3)}
+  \Longrightarrow\text{(A.4)}.
+\]
+只需证明 (A.4)$\Rightarrow$(A.1)。设 $D_0$ 是光滑嵌入 $\Int W$ 的 $n$-圆盘，则
+\[
+  (W\setminus\Int D_0;\partial D_0,V),
+  \qquad V=\partial W,
+\]
+满足 $h$-配边定理的条件。特别地，由切除，
+\[
+  H_*(W\setminus\Int D_0,\partial D_0)
+  \cong H_*(W,D_0)=0.
+\]
+所以配边 $(W^n;\varnothing,V)$ 是 $(D_0;\varnothing,\partial D_0)$ 与积配边 $(W\setminus\Int D_0;\partial D_0,V)$ 的复合。由\ThmRef{1.4}，$W$ 微分同胚于 $D_0$。
+\EndProof
+
+\Proposition{B（维数不小于 5 的广义 Poincaré 猜想；见 Smale~\cite{ref22}）}设 $M^n$ 是闭单连通光滑流形，$n\geq5$，并且具有 $n$-球面 $S^n$ 的整数同调。则 $M^n$ 同胚于 $S^n$；若 $n=5$ 或 $6$，则 $M^n$ 微分同胚于 $S^n$。
+
+\Corollary{9.4}\footnote{译注：原书此推论未标编号；依本节的连续编号应为\CorRef{9.4}。}若闭光滑流形 $M^n$（$n\geq5$）是\Term{同伦 $n$-球面}{homotopy $n$-sphere}，即具有 $S^n$ 的同伦型，则 $M^n$ 同胚于 $S^n$。
+
+\Remark 存在同胚于 $S^7$、但不微分同胚于 $S^7$ 的光滑 $7$-流形 $M^7$（见 Milnor~\cite{ref24}）。
+
+\Proof 先设 $n\geq6$。若 $D_0\subset M$ 是光滑 $n$-圆盘，则 $M\setminus\Int D_0$ 满足\PropRef{A} 的条件。特别地，
+\begin{align*}
+  H_i(M\setminus\Int D_0)
+  &\cong H^{n-i}(M\setminus\Int D_0,\partial D_0)
+    &&\text{（Poincaré 对偶，\ThmRef{7.5}）}\\
+  &\cong H^{n-i}(M,D_0)
+    &&\text{（切除）}\\
+  &\cong
+  \begin{cases}
+    0,&i>0,\\
+    \Z,&i=0
+  \end{cases}
+    &&\text{（正合序列）}.
+\end{align*}
+因此
+\[
+  M=(M\setminus\Int D_0)\cup D_0
+\]
+微分同胚于两个 $n$-圆盘 $D_1^n,D_2^n$ 沿边界微分同胚
+\[
+  h:\partial D_1^n\longrightarrow\partial D_2^n
+\]
+粘合所得的流形。
+
+\Remark\label{rem:twisted-sphere}这样的流形称为\emph{\Term{扭曲球面}{twisted sphere}}。显然，每个扭曲球面都是 Morse 数为 2 的闭流形，反之亦然。
+
+还需证明任一扭曲球面
+\[
+  M=D_1^n\cup_h D_2^n
+\]
+都同胚于 $S^n$。取嵌入 $g_1:D_1^n\to S^n$，把 $D_1^n$ 映到 $S^n\subset\R^{n+1}$ 的南半球，即
+\[
+  \{\vec x:|\vec x|=1,\ x_{n+1}\leq0\}.
+\]
+$D_2^n$ 的每一点都可写成 $tv$，其中 $0\leq t\leq1$、$v\in\partial D_2^n$。定义 $g:M\to S^n$：
+\[
+g(u)=
+\begin{cases}
+  g_1(u),&u\in D_1^n,\\[2mm]
+  \displaystyle
+  \sin\frac{\pi t}{2}\,g_1(h^{-1}(v))
+  +\cos\frac{\pi t}{2}\,e_{n+1},
+  &u=tv\in D_2^n,
+\end{cases}
+\]
+其中
+\[
+  e_{n+1}=(0,\ldots,0,1)\in\R^{n+1}.
+\]
+于是 $g$ 是良定义的连续双射，映满 $S^n$，故为同胚。$n\geq6$ 的情形得证。
+
+当 $n=5$ 时，应用：
+
+\Theorem{9.5（Kervaire 与 Milnor~\cite{ref25}；Wall~\cite{ref26}）}\footnote{译注：原书此处误作“定理 9.1”；依本节的连续编号应为\ThmRef{9.5}。}设 $M^n$ 是闭单连通光滑流形，并具有 $n$-球面 $S^n$ 的同调。若 $n=4,5$ 或 $6$，则 $M^n$ 是某个紧致、可缩光滑流形的边界。
+
+由\PropRef{A}，当 $n=5$ 或 $6$ 时，$M^n$ 实际上微分同胚于 $S^n$。
+\EndProof
+
+\Proposition{C（$5$-圆盘的刻画）}设 $W^5$ 是紧致单连通光滑流形，具有一点的整数同调，令 $V=\partial W$。
+\begin{enumerate}[label=(C.\arabic*)]
+  \item 若 $V$ 微分同胚于 $S^4$，则 $W$ 微分同胚于 $D^5$；
+  \item 若 $V$ 同胚于 $S^4$，则 $W$ 同胚于 $D^5$。
+\end{enumerate}
+
+\par\medskip\noindent\textit{(C.1) 的证明.}\quad 取微分同胚
+\[
+  h:V\longrightarrow\partial D^5=S^4,
+\]
+并构造光滑 $5$-流形
+\[
+  M=W\cup_hD^5.
+\]
+则 $M$ 单连通且具有球面的同调。\PropRef{B} 已证明 $M$ 实际上微分同胚于 $S^5$。下面应用：
+
+\Theorem{9.6（Palais~\cite{ref27}；Cerf~\cite{ref28}；Milnor~\cite[p.~11]{ref12}）}有定向连通 $n$-流形中，$n$-圆盘的任意两个保定向光滑嵌入都周遭同痕。
+
+因此存在微分同胚 $g:M\to M$，把 $D^5\subset M$ 映到某个圆盘 $D_1^5$，且
+\[
+  D_2^5=M\setminus\Int D_1^5
+\]
+也是圆盘。于是 $g$ 把 $W\subset M$ 微分同胚地映到 $D_2^5$。
+\EndProof
+
+\par\medskip\noindent\textit{(C.2) 的证明.}\quad 考虑 $W$ 的\Term{加倍流形}{double manifold} $D(W)$，即把两个 $W$ 沿边界粘合（见 Munkres~\cite[p.~54]{ref05}）。子流形
+\[
+  V\subset D(W)
+\]
+在 $D(W)$ 中有双侧领状领域；由\PropRef{B}，$D(W)$ 同胚于 $S^5$。Brown~\cite{ref23} 证明了：
+
+\Theorem{9.7}若拓扑嵌入 $S^n$ 的 $(n-1)$-球面 $\Sigma$ 有双侧领状领域，则存在同胚
+\[
+  h:S^n\longrightarrow S^n
+\]
+把 $\Sigma$ 映到 $S^{n-1}\subset S^n$。因此 $S^n\setminus\Sigma$ 有两个连通分支，每个分支的闭包都是以 $\Sigma$ 为边界的 $n$-圆盘。
+
+于是 $W$ 同胚于 $D^5$。这同时完成 (C.2) 和\PropRef{C} 的证明。
+\EndProof
+
+\Proposition{D（维数不小于 5 的\Term{可微 Schoenflies 定理}{differentiable Schoenflies theorem}）}设 $\Sigma$ 是光滑嵌入 $S^n$ 的 $(n-1)$-球面。若 $n\geq5$，则存在光滑周遭同痕把 $\Sigma$ 映到赤道 $S^{n-1}\subset S^n$。
+
+\Proof 由 Alexander 对偶，$S^n\setminus\Sigma$ 有两个连通分支；\CorRef{3.6} 因而表明 $\Sigma$ 在 $S^n$ 中有双侧领状领域。任取 $S^n\setminus\Sigma$ 的一个连通分支，它在 $S^n$ 中的闭包 $D_0$ 是以 $\Sigma$ 为边界的光滑单连通流形，并具有一点的整数同调。若 $n\geq5$，由\PropRef{A}、\PropRef{C}，$D_0$ 实际上微分同胚于 $D^n$。Palais–Cerf \ThmRef{9.6} 给出一个周遭同痕，把 $D_0$ 映到下半球，从而把 $\partial D_0=\Sigma$ 映到赤道。
+\EndProof
+
+\Remark 上述结论说明：若 $f:S^{n-1}\to S^n$ 是光滑嵌入，则 $f$ 光滑同痕于某个映到 $S^{n-1}\subset S^n$ 上的映射；但一般不能说 $f$ 光滑同痕于包含映射
+\[
+  \iota:S^{n-1}\longrightarrow S^n.
+\]
+例如，取
+\[
+  f=\iota\circ g,
+\]
+其中微分同胚 $g:S^{n-1}\to S^{n-1}$ 不能延拓为 $D^n\to D^n$ 的微分同胚，结论便不成立。（容易证明，$g$ 可延拓到 $D^n$，当且仅当扭曲球面 $D_1^n\cup_gD_2^n$ 微分同胚于 $S^n$。）事实上，若 $f$ 光滑同痕于 $\iota$，则由同痕扩张\ThmRef{5.8}，存在微分同胚 $d:S^n\to S^n$ 使
+\[
+  d\circ\iota=f=\iota\circ g.
+\]
+把 $d$ 限制在两个半球上，便得到 $g$ 到 $D^n$ 的两个微分同胚延拓。
+
+\par\bigskip\noindent\textbf{结语}\label{sec9:concluding-remarks}
+
+$h$-配边定理在维数 $n<6$ 时是否成立，仍是一个未决问题。设 $(W^n;V,V')$ 是 $h$-配边，$V$ 单连通且 $n<6$。
+
+\begin{itemize}
+  \item[$n=0,1,2$：]定理显然成立，或没有内容。
+
+  \item[$n=3$：]$V,V'$ 必为 $2$-球面。此时由经典 Poincaré 猜想即可容易推出定理：\emph{每个与 $S^3$ 同伦等价的紧光滑 $3$-流形都微分同胚于 $S^3$。}由于每个扭曲 $3$-球面（见\TranslatedPage{rem:twisted-sphere}）\OriginalPageNote{110}{rem:twisted-sphere}都微分同胚于 $S^3$（见 Smale~\cite{ref30}、Munkres~\cite{ref31}），$h$-配边定理实际上等价于这个猜想。
+
+  \item[$n=4$：]若经典 Poincaré 猜想成立，则 $V,V'$ 必为 $3$-球面。此时容易看出，$h$-配边定理等价于\emph{$4$-圆盘猜想}：\emph{每个以 $S^3$ 为边界的紧致可缩光滑 $4$-流形都微分同胚于 $D^4$。}Cerf~\cite{ref29} 的一个深刻定理表明，每个扭曲 $4$-球面都微分同胚于 $S^4$。所以，这个猜想又等价于：\emph{每个与 $S^4$ 同伦等价的紧光滑 $4$-流形都微分同胚于 $S^4$。}
+
+  \item[$n=5$：]\PropRef{C} 表明，当 $V,V'$ 都微分同胚于 $S^4$ 时，定理成立。然而，闭单连通 $4$-流形有许多类型。Barden（未发表）证明：若存在微分同胚 $f:V'\to V$，它与 $r|_{V'}$ 同伦，其中 $r:W\to V$ 是形变收缩，则 $W$ 微分同胚于 $V\times[0,1]$（见 Wall~\cite{ref38,ref37}）。
+\end{itemize}

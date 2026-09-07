@@ -1,0 +1,561 @@
+\OriginalSection{7}{中间维数临界点的消去}
+
+\Definition{7.1}设 $W$ 是紧致、有定向的光滑 $n$-流形，记 $X=\partial W$。如下约定赋予 $X$ 一个良定义的定向，称为\emph{\Term{诱导定向}{induced orientation}}：在 $x\in X$ 处，若切于 $X$ 的 $(n-1)$-标架 $\tau_1,\ldots,\tau_{n-1}$ 满足
+\[
+  \nu,\tau_1,\ldots,\tau_{n-1}
+\]
+在 $T_xW$ 中为正向，则称前一标架为正向；这里 $\nu$ 是 $x$ 处任一切于 $W$、不切于 $X$ 且指向 $W$ 外部的向量（即 $X$ 的外法向量）。
+
+也可等价地指定 $[X]\in H_{n-1}(X)$ 为 $X$ 的诱导\Term{定向生成元}{orientation generator}：在偶对 $(W,X)$ 的\Term{正合序列}{exact sequence}中，$[X]$ 是 $W$ 的定向生成元 $[W]\in H_n(W,X)$ 在\Term{边界同态}{boundary homomorphism}
+\[
+  \partial:H_n(W,X)\longrightarrow H_{n-1}(X)
+\]
+下的像。
+
+\Remark 紧流形 $M^n$ 的定向既可用切丛的有序标架指定，也可用生成元 $[M]\in H_n(M;\Z)$ 指定；二者之间有自然的一一对应（参见 Milnor~\cite[p.~21]{ref12}）。在此对应下，上述两种 $\partial W$ 定向彼此等价。下文一律采用第二种方式，证明从略。
+
+现设有 $n$ 维三元组
+\[
+  (W;V,V'),\qquad (W';V',V''),\qquad
+  (W\cup W';V,V'').
+\]
+设 $f$ 是 $W\cup W'$ 上的 Morse 函数：它在 $W$ 中的临界点为 $q_1,\ldots,q_\ell$，都处于同一水平集且指标为 $\lambda$；在 $W'$ 中的临界点为 $q'_1,\ldots,q'_m$，也处于同一水平集且指标为 $\lambda+1$；$V'$ 是夹在两个临界水平之间的非临界水平集。选定 $f$ 的一个类梯度向量场，并给 $W$ 中的左圆盘
+\[
+  D_L(q_1),\ldots,D_L(q_\ell)
+\]
+以及 $W'$ 中的左圆盘
+\[
+  D'_L(q'_1),\ldots,D'_L(q'_m)
+\]
+定向。
+
+要求 $D_L(q_i)$ 与 $D_R(q_i)$ 在 $q_i$ 处的相交数为 $+1$，这便确定了右圆盘 $D_R(q_i)$ 的法丛 $\nu D_R(q_i)$ 的定向。$V'$ 中右球面 $S_R(q_i)$ 的法丛 $\nu S_R(q_i)$，自然同构于 $\nu D_R(q_i)$ 在 $S_R(q_i)$ 上的限制，因而也获得定向。
+
+结合\DefRef{7.1} 可知：只要给 $W$ 与 $W'$ 中的左圆盘定向，$V'$ 中的左球面以及右球面的法丛便都有自然定向。因此，$V'$ 中左、右球面的相交数
+\[
+  S_R(q_i)\mathbin{\boldsymbol\cdot}S'_L(q'_j)
+\]
+均有明确含义。
+
+由\SecRef{3}，$H_\lambda(W,V)$ 与
+\[
+  H_{\lambda+1}(W\cup W',W)
+  \cong H_{\lambda+1}(W',V')
+\]
+都是\Term{自由阿贝尔群}{free abelian group}；相应的生成元分别由已定向的左圆盘
+\[
+  [D_L(q_1)],\ldots,[D_L(q_\ell)]
+\]
+和
+\[
+  [D'_L(q'_1)],\ldots,[D'_L(q'_m)]
+\]
+表示。
+
+\Lemma{7.2}设 $M$ 是嵌入 $V'$ 的有定向闭光滑 $\lambda$-流形，$[M]\in H_\lambda(M)$ 是其定向生成元；设
+\[
+  h:H_\lambda(M)\longrightarrow H_\lambda(W,V)
+\]
+由包含映射诱导。则
+\[
+  h([M])=
+  \sum_{i=1}^{\ell}
+  \bigl(S_R(q_i)\mathbin{\boldsymbol\cdot}M\bigr)[D_L(q_i)].
+\]
+
+\Corollary{7.3}在上述已定向左圆盘给出的基下，三元组
+\[
+  W\cup W'\supset W\supset V
+\]
+的边界同态
+\[
+  \partial:H_{\lambda+1}(W\cup W',W)
+  \longrightarrow H_\lambda(W,V)
+\]
+由相交数矩阵 $(a_{ij})$ 给出，其中
+\[
+  a_{ij}=S_R(q_i)\mathbin{\boldsymbol\cdot}S'_L(q'_j).
+\]
+
+\Proof 对基元 $[D'_L(q'_j)]\in H_{\lambda+1}(W\cup W',W)$，可将 $\partial$ 分解如下：
+\[
+\begin{tikzcd}[column sep=3.7em,row sep=2.6em]
+  &&& H_\lambda\bigl(S'_L(q'_j)\bigr) \arrow[d,"\iota_*"] \\
+  H_{\lambda+1}(W\cup W',W)
+    \arrow[r,"e","\cong"']
+    \arrow[rrrdd,"\partial"']
+  & H_{\lambda+1}(W',V')
+    \arrow[rr,"\partial"]
+    \arrow[rrd,"\partial"]
+  && H_\lambda(V') \arrow[d,"\iota_*"] \\
+  &&& H_\lambda(W) \arrow[d] \\
+  &&& H_\lambda(W,V)
+\end{tikzcd}
+\]
+这里 $e$ 是切除同构的逆，$\iota_*$ 由包含诱导。依照 $S'_L(q'_j)$ 的定向定义，
+\[
+  \partial\circ e\bigl([D'_L(q'_j)]\bigr)
+  =\iota_*\bigl([S'_L(q'_j)]\bigr).
+\]
+在\LemRef{7.2} 中取 $M=S'_L(q'_j)$，即得结论。
+\EndProof
+
+\par\medskip\noindent\textit{\LemRef{7.2} 的证明.}\quad 先设 $\ell=1$，一般情形完全类似。记
+\[
+  q=q_1,\qquad D_L=D_L(q_1),\qquad
+  D_R=D_R(q_1),\qquad S_R=S_R(q_1).
+\]
+所需证明为
+\[
+  h([M])=(S_R\mathbin{\boldsymbol\cdot}M)[D_L].
+\]
+考虑交换图
+\[
+\begin{tikzcd}[column sep=4.0em,row sep=2.15em]
+  & H_\lambda(M)
+      \arrow[d,"\iota_*"']
+      \arrow[rrd,"{\times(S_R\mathbin{\boldsymbol\cdot}M)}"]
+      \arrow[ldddd,"h"']
+  && {} \\
+  {} & H_\lambda(V') \arrow[d] \arrow[rr,"h_0"']
+  && H_\lambda(V',V'\setminus S_R) \arrow[d,"h_1"] \\
+  {} & H_\lambda(W) \arrow[ldd]
+  && H_\lambda\bigl(V\cup D_L,V\cup(D_L\setminus\{q\})\bigr)
+      \arrow[d,"h_2"] \\
+  {} & {} && H_\lambda(V\cup D_L,V) \arrow[d,"h_3"] \\
+  H_\lambda(W,V)
+  &&& H_\lambda(W,V) \arrow[lll,equal]
+\end{tikzcd}
+\]
+\ThmRef{3.14} 构造的形变收缩
+\[
+  r:W\longrightarrow V\cup D_L
+\]
+把 $V'\setminus S_R$ 映到 $V\cup(D_L\setminus\{q\})$，故由 $r|_{V'}$ 诱导的 $h_1$ 有定义。显然的形变收缩
+\[
+  V\cup(D_L\setminus\{q\})\longrightarrow V
+\]
+诱导同构 $h_2$；其余同态都由包含诱导。由于 $\iota$ 与 $r|_{V'}:V'\to W$ 同伦，且把图中 $\iota$ 换成 $r|_{V'}$ 后，相应的空间与映射图逐点交换，所以上图交换。
+
+由\LemRef{6.3}，
+\[
+  h_0([M])=(S_R\mathbin{\boldsymbol\cdot}M)\,\psi(\alpha),
+\]
+其中 $\alpha\in H_0(S_R)$ 是典范生成元，
+\[
+  \psi:H_0(S_R)\longrightarrow H_\lambda(V',V'\setminus S_R)
+\]
+是 Thom 同构。因此，由图的交换性，只需证明
+\begin{equation}
+  h_3\circ h_2\circ h_1\bigl(\psi(\alpha)\bigr)=[D_L].
+  \tag{$*$}\label{eq:7-star}
+\end{equation}
+
+类 $\psi(\alpha)$ 可由任一已定向的 $\lambda$-圆盘 $D^\lambda$ 表示；该圆盘与 $S_R$ 在一点横截相交，且
+\[
+  S_R\mathbin{\boldsymbol\cdot}D^\lambda=+1.
+\]
+参照\ThmRef{3.13} 给出的初等配边标准形式以及 $D(S_R)$ 的定向约定，可见 $D^\lambda$ 在收缩 $r$ 下的像 $r(D^\lambda)$ 表示
+\[
+  D_R\mathbin{\boldsymbol\cdot}D^\lambda
+  =S_R\mathbin{\boldsymbol\cdot}D^\lambda=+1
+\]
+倍的定向生成元
+\[
+  h_2^{-1}\circ h_3^{-1}([D_L])
+  \in H_\lambda(V\cup D_L,V\cup(D_L\setminus\{q\})).
+\]
+所以
+\[
+  h_1(\psi(\alpha))=h_2^{-1}\circ h_3^{-1}([D_L]),
+\]
+即式~\eqref{eq:7-star} 成立。\LemRef{7.2} 得证。
+\EndProof
+
+任给由三元组 $(W;V,V')$ 表示的配边 $c$，由\ThmRef{4.8} 可将其分解为
+\[
+  c=c_0\circ c_1\circ\cdots\circ c_n,
+\]
+使 $c_\lambda$ 有一个 Morse 函数，其临界点全在同一水平集且指标均为 $\lambda$。令子流形 $W_\lambda\subset W$ 表示
+\[
+  c_0\circ c_1\circ\cdots\circ c_\lambda,
+  \qquad \lambda=0,1,\ldots,n,
+\]
+并置 $W_{-1}=V$，于是
+\[
+  V=W_{-1}\subset W_0\subset W_1\subset\cdots\subset W_n=W.
+\]
+定义
+\[
+  C_\lambda=H_\lambda(W_\lambda,W_{\lambda-1})
+  \cong H_*(W_\lambda,W_{\lambda-1}),
+\]
+并令 $\partial:C_\lambda\to C_{\lambda-1}$ 为三元组
+\[
+  W_{\lambda-2}\subset W_{\lambda-1}\subset W_\lambda
+\]
+的正合序列中的边界同态。
+
+\Theorem{7.4}$C_*=\{C_\lambda,\partial\}$ 是\Term{链复形}{chain complex}，即 $\partial^2=0$，而且对每个 $\lambda$ 都有
+\[
+  H_\lambda(C_*)\cong H_\lambda(W,V).
+\]
+
+\Proof 注意，这里不用 $C_\lambda$ 是自由阿贝尔群，只用到 $H_*(W_\lambda,W_{\lambda-1})$ 集中在维数 $\lambda$。由定义立即有 $\partial^2=0$。为证同构，考虑交换图
+\[
+\begin{tikzcd}[column sep=2.15em,row sep=2.35em]
+  & 0 \arrow[d] & & \\
+  H_{\lambda+1}(W_{\lambda+1},W_\lambda)
+    \arrow[r] \arrow[d,equal] \arrow[dr,"\partial"']
+  & H_\lambda(W_\lambda,W_{\lambda-2})
+    \arrow[r] \arrow[d]
+  & H_\lambda(W_{\lambda+1},W_{\lambda-2}) \arrow[r]
+  & 0 \\
+  C_{\lambda+1} \arrow[r,"\partial"']
+  & H_\lambda(W_\lambda,W_{\lambda-1})=C_\lambda
+    \arrow[ur] \arrow[d,"\partial"] \\
+  & H_{\lambda-1}(W_{\lambda-1},W_{\lambda-2})=C_{\lambda-1}
+\end{tikzcd}
+\]
+横行是三元组 $(W_{\lambda+1},W_\lambda,W_{\lambda-2})$ 的正合序列，竖列是 $(W_\lambda,W_{\lambda-1},W_{\lambda-2})$ 的正合序列。容易核对此图交换，因而
+\[
+  H_\lambda(C_*)\cong H_\lambda(W_{\lambda+1},W_{\lambda-2}).
+\]
+又有
+\[
+  H_\lambda(W_{\lambda+1},W_{\lambda-2})\cong H_\lambda(W,V).
+\]
+最后一个同构留给读者验证（见 Milnor~\cite[p.~9]{ref12}），从而得到所需结论。
+\EndProof
+
+\Theorem{7.5（\Term{Poincaré 对偶}{Poincaré duality}）}若 $(W;V,V')$ 是 $n$ 维光滑三元组，且 $W$ 已定向，则对每个 $\lambda$ 都有
+\[
+  H_\lambda(W,V)\cong H^{n-\lambda}(W,V').
+\]
+
+\Proof 对上述 Morse 函数 $f$，令
+\[
+  c=c_0\circ c_1\circ\cdots\circ c_n,
+  \qquad C_*=\{C_\lambda,\partial\},
+\]
+并固定 $f$ 的一个类梯度向量场 $\xi$。给左圆盘选定定向后，$c_\lambda$ 的左圆盘构成
+\[
+  C_\lambda=H_\lambda(W_\lambda,W_{\lambda-1})
+\]
+的一组基。由\CorRef{7.3}，边界同态 $\partial:C_\lambda\to C_{\lambda-1}$ 的矩阵，由 $c_\lambda$ 的已定向左球面与 $c_{\lambda-1}$ 中法丛已定向的右球面之间的相交数给出。
+
+类似地，令 $W'_\mu\subset W$ 表示
+\[
+  c_{n-\mu}\circ c_{n-\mu+1}\circ\cdots\circ c_n,
+  \qquad \mu=0,1,\ldots,n,
+\]
+并置 $W'_{-1}=V'$。定义
+\[
+  C'_\mu=H_\mu(W'_\mu,W'_{\mu-1}),
+  \qquad
+  \partial':C'_\mu\longrightarrow C'_{\mu-1}.
+\]
+任一右圆盘 $D_R$ 的法丛已有定向；它与 $W$ 的定向一起，自然确定 $D_R$ 的定向。因此，$\partial'$ 的矩阵由已定向右球面与法丛已定向的左球面之间的相交数给出。
+
+令
+\[
+  C'^*=\{C'^\mu,\delta'\}
+\]
+为链复形 $C'_* =\{C'_\mu,\partial'\}$ 的\Term{对偶上链复形}{dual cochain complex}，即
+\[
+  C'^\mu=\Hom(C'_\mu,\Z).
+\]
+以 $c_{n-\mu}$ 的已定向右圆盘所确定的 $C'_\mu$ 的基为准，在 $C'^\mu$ 中取其对偶基。
+
+把每个已定向左圆盘送到同一临界点的已定向右圆盘所对应的对偶元，便得到同构
+\[
+  C_\lambda\longrightarrow C'^{\,n-\lambda}.
+\]
+如上所述，$\partial:C_\lambda\to C_{\lambda-1}$ 的矩阵为
+\[
+  (a_{ij})=
+  \bigl(S_R(p_i)\mathbin{\boldsymbol\cdot}S'_L(p'_j)\bigr),
+\]
+而 $\delta':C'^{\,n-\lambda}\to C'^{\,n-\lambda+1}$ 的矩阵为
+\[
+  (b_{ij})=
+  \bigl(S'_L(p'_j)\mathbin{\boldsymbol\cdot}S_R(p_i)\bigr).
+\]
+由于 $W$ 已定向，$b_{ij}=\pm a_{ij}$，符号只依赖于 $\lambda$（参见\RemRef{rem:6-1-2}{6.1 的注记 2}；实际为 $(-1)^{\lambda-1}$）。所以 $\partial$ 对应于 $\pm\delta'$，从而\Term{链群}{chain group}同构诱导
+\[
+  H_\lambda(C_*)\cong H^{n-\lambda}(C'^*).
+\]
+
+由\ThmRef{7.4}，
+\[
+  H_\lambda(C_*)\cong H_\lambda(W,V),
+  \qquad
+  H_\mu(C'_*)\cong H_\mu(W,V').
+\]
+后一个同构又蕴含
+\[
+  H^\mu(C'^*)\cong H^\mu(W,V'),
+\]
+因为两个链复形的同调若同构，其对偶上链复形的上同调也同构；这是\Term{万有系数定理}{universal coefficient theorem}的直接推论。合并以上各式即得
+\[
+  H_\lambda(W,V)\cong H^{n-\lambda}(W,V').\qedhere
+\]
+
+\Theorem{7.6（\Term{基定理}{basis theorem}）}设 $n$ 维三元组 $(W;V,V')$ 有一个 Morse 函数 $f$，其临界点全在同一水平集且指标均为 $\lambda$；设 $\xi$ 是 $f$ 的类梯度向量场。假设
+\[
+  2\leq\lambda\leq n-2,
+\]
+且 $W$ 连通。任给 $H_\lambda(W,V)$ 的一组基，都存在 Morse 函数 $f'$ 及其类梯度向量场 $\xi'$，使它们在 $V\cup V'$ 的一个邻域内分别与 $f,\xi$ 相同；$f'$ 与 $f$ 有相同的临界点，这些临界点仍处于同一水平集；而 $\xi'$ 的左圆盘经适当定向后恰表示给定的基。
+
+\Proof 设 $p_1,\ldots,p_k$ 是 $f$ 的临界点。任意固定其左圆盘的定向。令
+\[
+  b_1,\ldots,b_k
+\]
+为 $D_L(p_1),\ldots,D_L(p_k)$ 所表示的 $H_\lambda(W,V)\cong\Z^k$ 的基。给右圆盘 $D_R(p_1),\ldots,D_R(p_k)$ 的法丛定向，使相交数矩阵
+\[
+  \bigl(D_R(p_i)\mathbin{\boldsymbol\cdot}D_L(p_j)\bigr)
+\]
+为 $k\times k$ 单位矩阵。
+
+先取一个光滑嵌入 $W$ 的已定向 $\lambda$-圆盘 $D$，满足 $\partial D\subset V$。它表示某个元素
+\[
+  \alpha_1b_1+\cdots+\alpha_kb_k\in H_\lambda(W,V),
+\]
+即 $D$ 与 $\alpha_1D_L(p_1)+\cdots+\alpha_kD_L(p_k)$ 同调。由\LemRef{6.3} 容易推出的相对版本，对每个 $j=1,\ldots,k$，
+\begin{align*}
+  D_R(p_j)\mathbin{\boldsymbol\cdot}D
+  &=D_R(p_j)\mathbin{\boldsymbol\cdot}
+    \bigl(\alpha_1D_L(p_1)+\cdots+\alpha_kD_L(p_k)\bigr)\\
+  &=\alpha_1D_R(p_j)\mathbin{\boldsymbol\cdot}D_L(p_1)
+    +\cdots+
+    \alpha_kD_R(p_j)\mathbin{\boldsymbol\cdot}D_L(p_k)\\
+  &=\alpha_j.
+\end{align*}
+所以 $D$ 表示
+\[
+  \bigl(D_R(p_1)\mathbin{\boldsymbol\cdot}D\bigr)b_1
+  +\cdots+
+  \bigl(D_R(p_k)\mathbin{\boldsymbol\cdot}D\bigr)b_k.
+\]
+
+我们将构造 $f',\xi'$，使新的已定向左圆盘为
+\[
+  D'_L(p_1),D_L(p_2),\ldots,D_L(p_k),
+\]
+并满足
+\[
+  D_R(p_1)\mathbin{\boldsymbol\cdot}D'_L(p_1)
+  =D_R(p_2)\mathbin{\boldsymbol\cdot}D'_L(p_1)=+1,
+\]
+以及
+\[
+  D_R(p_j)\mathbin{\boldsymbol\cdot}D'_L(p_1)=0,
+  \qquad j=3,4,\ldots,k.
+\]
+于是新基为
+\[
+  b_1+b_2,b_2,\ldots,b_k.
+\]
+反转相应左圆盘的定向，还可把任一基元换成其负元。任何基变换都可分解为这类初等变换的复合，所以做到上述构造便足够了。
+
+构造的大意是：在 $p_1$ 邻域内抬高 $f$，修改向量场，使 $p_1$ 的左圆盘以正号扫过 $p_2$，最后再调整函数，使临界值重新合并为一个。
+
+具体地，由\ThmRef{4.1} 可取 Morse 函数 $f_1$，使它在 $p_1$ 的一个小邻域外与 $f$ 相同，满足
+\[
+  f_1(p_1)>f(p_1),
+\]
+且临界点和类梯度向量场都与 $f$ 相同。取 $t_0$ 使
+\[
+  f_1(p_1)>t_0>f(p_1),
+\]
+并置 $V_0=f_1^{-1}(t_0)$。
+
+$V_0$ 中，$p_1$ 的左 $(\lambda-1)$-球面 $S_L$ 与 $p_i$（$2\leq i\leq k$）的右 $(n-\lambda-1)$-球面 $S_R(p_i)$ 两两不交。取
+\[
+  a\in S_L,\qquad b\in S_R(p_2).
+\]
+因 $W$ 连通，$V_0$ 也连通，故存在嵌入
+\[
+  \phi_1:(0,3)\longrightarrow V_0,
+\]
+使 $\phi_1(0,3)$ 分别在 $\phi_1(1)=a$ 与 $\phi_1(2)=b$ 处同 $S_L,S_R(p_2)$ 横截相交一次，且
+\[
+  \phi_1(0,3)\cap
+  \bigl(S_R(p_3)\cup\cdots\cup S_R(p_k)\bigr)=\varnothing.
+\]
+
+\Lemma{7.7}存在嵌入
+\[
+  \phi:(0,3)\times\R^{\lambda-1}\times\R^{n-\lambda-1}
+  \longrightarrow V_0
+\]
+使得
+\begin{enumerate}[label=(\arabic*)]
+  \item 对 $s\in(0,3)$，$\phi(s,0,0)=\phi_1(s)$；
+  \item $\phi^{-1}(S_L)=\{1\}\times\R^{\lambda-1}\times\{0\}$，且
+  \[
+    \phi^{-1}(S_R(p_2))
+    =\{2\}\times\{0\}\times\R^{n-\lambda-1};
+  \]
+  \item $\phi$ 的像避开其余右球面。
+\end{enumerate}
+还可要求 $\phi$ 把 $\{1\}\times\R^{\lambda-1}\times\{0\}$ 正向地映入 $S_L$，并使
+\[
+  \phi\bigl((0,3)\times\R^{\lambda-1}\times\{0\}\bigr)
+\]
+与 $S_R(p_2)$ 在 $\phi(2,0,0)=b$ 处的相交数为 $+1$。
+
+\Proof 给 $V_0$ 选取 Riemann 度量，使弧 $A=\phi_1(0,3)$ 与 $S_L,S_R(p_2)$ 正交，并使这两个球面都是 $V_0$ 的全测地子流形（参见\LemRef{6.7}）。
+
+在 $a,b$ 处分别取正交归一 $(\lambda-1)$-标架 $\mu(a),\mu(b)$：$\mu(a)$ 以正向切于 $S_L$，$\mu(b)$ 与 $S_R(p_2)$ 正交且相交数为 $+1$。$A$ 上由垂直于 $A$ 的正交归一 $(\lambda-1)$-标架组成的丛是平凡丛，其纤维为 Stiefel 流形
+\[
+  V_{\lambda-1}(\R^{n-2}).
+\]
+由于 $\lambda-1<n-2$，该流形连通，所以可把 $\mu$ 延拓为整个 $A$ 上的光滑截面。
+
+$A$ 上由同时垂直于 $A$ 和 $\mu$ 的正交归一 $(n-\lambda-1)$-标架组成的丛，也是平凡丛，纤维为
+\[
+  V_{n-\lambda-1}(\R^{n-\lambda-1}).
+\]
+取其一个光滑截面 $\eta$。利用此度量的指数映射和 $(n-2)$-标架 $\mu\eta$，便可定义所需嵌入 $\phi$。细节同\LemRef{6.7} 证明末尾（见\TranslatedPage{proof:lemma6-7-page83}）。\OriginalPageNote{83}{proof:lemma6-7-page83}
+\EndProof
+
+\par\medskip\noindent\textit{基\ThmRef{7.6} 证明的完成.}\quad 利用 $\phi$ 构造 $V_0$ 的同痕，把 $S_L$ 扫过 $S_R(p_2)$（见\FigRef{7.2}）。固定 $\delta>0$，取光滑函数
+\[
+  \alpha:\R\longrightarrow[1,\tfrac52]
+\]
+满足
+\[
+  \alpha(u)=1\quad(u\geq2\delta),
+  \qquad
+  \alpha(u)>2\quad(u\leq\delta).
+\]
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[x=1.4cm,y=1.0cm,>=Stealth]
+    \draw[->] (-1.05,0)--(4.2,0) node[right] {$\R$};
+    \draw[->] (0,-.15)--(0,2.9);
+    \draw[dashed] (1.3,0)--(1.3,2.4);
+    \draw[dashed] (2.6,0)--(2.6,1.1);
+    \draw[thick] (-.95,2.4)--(1.2,2.4)
+      .. controls (1.75,2.4) and (1.9,1.05) .. (2.7,1.0)--(3.8,1.0);
+    \node[anchor=east] at (-.12,1) {$1$};
+    \node[anchor=east,fill=white,inner xsep=2.5pt,inner ysep=1pt]
+      at (-.12,2.4) {$2$};
+    \node[below] at (1.3,0) {$\delta$};
+    \node[below] at (2.6,0) {$2\delta$};
+    \node at (2.1,1.75) {$\alpha$};
+  \end{tikzpicture}
+  \par\smallskip\phantomsection\label{fig:7.1}\textbf{图 7.1}
+\end{figure}
+
+仿照\ThmRef{6.6} 证明末段（见\TranslatedPage{proof:thm6-6-page74}）\OriginalPageNote{74}{proof:thm6-6-page74}，构造
+\[
+  (0,3)\times\R^{\lambda-1}\times\R^{n-\lambda-1}
+\]
+的同痕 $H_t$，使
+\begin{enumerate}[label=(\arabic*)]
+  \item 对 $0\leq t\leq1$，$H_t$ 在某一紧集之外为恒等映射；
+  \item 对 $\vec x\in\R^{\lambda-1}$，
+  \[
+    H_t(1,\vec x,0)
+    =\bigl(t\alpha(|\vec x|^2)+(1-t),\vec x,0\bigr).
+  \]
+\end{enumerate}
+
+\begin{figure}[htbp]
+  \centering
+  \FigSevenTwo
+  \par\smallskip\phantomsection\label{fig:7.2}\textbf{图 7.2}
+\end{figure}
+
+定义 $V_0$ 的同痕 $F_t$：对 $v\in\operatorname{Im}(\phi)$，令
+\[
+  F_t(v)=\phi\circ H_t\circ\phi^{-1}(v),
+\]
+其余各点保持不动。由 $H_t$ 的性质 (1)，$F_t$ 良定义。
+
+由\CorRef{3.5}，在 $V_0$ 右侧取嵌入 $W$ 的积邻域 $V_0\times[0,1]$，使其中没有临界点且 $V_0\times\{0\}=V_0$。依\LemRef{4.6}，用同痕 $F_t$ 修改此邻域内的向量场 $\xi$，得到 $W$ 上的新向量场 $\xi'$。
+
+由于 $\xi$ 与 $\xi'$ 在 $V_0$ 左侧，即 $f_1^{-1}((-\infty,t_0])$ 上相同，$\xi'$ 在 $V_0$ 中的右球面仍是
+\[
+  S_R(p_2),\ldots,S_R(p_k).
+\]
+$p_1$ 的新左球面则为 $S'_L=F_1(S_L)$。由 $H_t$ 的性质 (2)，$S'_L$ 避开 $S_R(p_3),\ldots,S_R(p_k)$。因此由\NamedRef{stmt:4.2}{4.2}，可取 Morse 函数 $f'$：它在 $\partial W$ 的一个邻域内与 $f_1$（从而与 $f$）相同，以 $\xi'$ 为类梯度向量场，并且只有一个临界值。
+
+至此 $f',\xi'$ 已构造完毕，只需验证新的左圆盘确实表示所需的基。$p_2,\ldots,p_k$ 的左圆盘仍为
+\[
+  D_L(p_2),\ldots,D_L(p_k),
+\]
+因为 $\xi'=\xi$ 在积邻域 $V_0\times[0,1]$ 的左侧相同。二者在该邻域右侧也相同，所以新左圆盘 $D'_L(p_1)$ 与 $D_R(p_1)$ 只在 $p_1$ 处相交，且
+\[
+  D_R(p_1)\mathbin{\boldsymbol\cdot}D'_L(p_1)=+1.
+\]
+由 $H_t$ 的性质 (2)，$D'_L(p_1)$ 与 $D_R(p_2)$ 在一点横截相交，且
+\[
+  D_R(p_2)\mathbin{\boldsymbol\cdot}D'_L(p_1)=+1.
+\]
+最后，由 $\phi$ 的性质 (3)（见\LemRef{7.7}），$D'_L(p_1)$ 与 $D_R(p_3),\ldots,D_R(p_k)$ 不交，故
+\[
+  D_R(p_i)\mathbin{\boldsymbol\cdot}D'_L(p_1)=0,
+  \qquad i=3,\ldots,k.
+\]
+所以 $\xi'$ 的左圆盘表示的基确为
+\[
+  b_1+b_2,b_2,\ldots,b_k.
+\]
+\ThmRef{7.6} 得证。
+\EndProof
+
+\Theorem{7.8}设 $n\geq6$，$n$ 维三元组 $(W;V,V')$ 有一个 Morse 函数，不含指标为 $0,1,n-1,n$ 的临界点。又设 $W,V,V'$ 均单连通（因而可定向），且
+\[
+  H_*(W,V)=0.
+\]
+则 $(W;V,V')$ 是积配边。
+
+\Proof 记 $c=(W;V,V')$。由\ThmRef{4.8}，可分解
+\[
+  c=c_2\circ c_3\circ\cdots\circ c_{n-2},
+\]
+使 $c$ 有一个 Morse 函数 $f$，其在每个 $c_\lambda$ 上的限制，所有临界点都处于同一水平集且指标均为 $\lambda$。沿用\ThmRef{7.4} 的记号，得到自由阿贝尔群序列
+\[
+  C_{n-2}\xrightarrow{\partial}C_{n-3}\xrightarrow{\partial}
+  \cdots\xrightarrow{\partial}C_{\lambda+1}\xrightarrow{\partial}
+  C_\lambda\xrightarrow{\partial}\cdots\xrightarrow{\partial}C_2.
+\]
+对每个 $\lambda$，取
+\[
+  z^{\lambda+1}_1,\ldots,z^{\lambda+1}_{k_{\lambda+1}}
+\]
+为 $\partial:C_{\lambda+1}\to C_\lambda$ 的核的一组基。由 $H_*(W,V)=0$ 和\ThmRef{7.4}，上述序列正合。因此可取
+\[
+  b^{\lambda+1}_1,\ldots,b^{\lambda+1}_{k_\lambda}\in C_{\lambda+1}
+\]
+使
+\[
+  \partial b^{\lambda+1}_i=z^\lambda_i,
+  \qquad i=1,\ldots,k_\lambda.
+\]
+于是
+\[
+  z^{\lambda+1}_1,\ldots,z^{\lambda+1}_{k_{\lambda+1}},
+  b^{\lambda+1}_1,\ldots,b^{\lambda+1}_{k_\lambda}
+\]
+构成 $C_{\lambda+1}$ 的一组基。
+
+因为 $2\leq\lambda<\lambda+1\leq n-2$，应用\ThmRef{7.6}，可在 $c$ 上找到 Morse 函数 $f'$ 及其类梯度向量场 $\xi'$，使 $c_\lambda,c_{\lambda+1}$ 的左圆盘分别表示为 $C_\lambda,C_{\lambda+1}$ 选定的基。
+
+令 $p,q$ 分别是 $c_\lambda,c_{\lambda+1}$ 中与 $z^\lambda_1,b^{\lambda+1}_1$ 对应的临界点。在 $p$ 的邻域内抬高 $f'$，在 $q$ 的邻域内降低 $f'$（见\ThmRef{4.1} 与\NamedRef{stmt:4.2}{4.2}），便得到分解
+\[
+  c_\lambda\circ c_{\lambda+1}
+  =c'_\lambda\circ c_p\circ c_q\circ c'_{\lambda+1},
+\]
+其中 $c_p,c_q$ 分别恰有一个临界点 $p,q$。令 $V_0$ 为二者之间的水平流形。容易验证，$c_p\circ c_q$ 及其两个端流形都单连通（比较注记 1，见\TranslatedPage{rem:6-4-1}）。\OriginalPageNote{70}{rem:6-4-1}
+
+由于
+\[
+  \partial b^{\lambda+1}_1=z^\lambda_1,
+\]
+$V_0$ 中的球面 $S_R(p),S_L(q)$ 的相交数为 $+1$。所以第二消去定理（\ThmRef{6.4}）或\CorRef{6.5} 表明，$c_p\circ c_q$ 是积配边；还可在其内部修改 $f'$ 及类梯度向量场，使 $f'$ 在那里没有临界点。如此反复，即可消去全部临界点。最后由\ThmRef{3.4}，$(W;V,V')$ 是积配边。
+\EndProof

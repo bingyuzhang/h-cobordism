@@ -1,0 +1,229 @@
+\OriginalSection{4}{配边的重排}
+
+\label{sec4:page37-notation}本节起，$c$ 表示一个配边，而不再像\SecRef{1}那样表示配边的等价类。设两个初等配边的复合 $cc'$ 等价于另两个初等配边的复合 $dd'$，并且
+\[
+  \operatorname{index}(c)=\operatorname{index}(d'),
+  \qquad
+  \operatorname{index}(c')=\operatorname{index}(d).
+\]
+此时称复合 $cc'$\emph{可以\Term{重排}{rearrangement}}。何时能够重排？
+
+回忆一下，表示 $cc'$ 的三元组 $(W;V,V')$ 上存在 Morse 函数
+$f:W\to[0,1]$，它恰有两个临界点 $p,p'$，满足
+\[
+  \operatorname{index}(p)=\operatorname{index}(c),
+  \qquad
+  \operatorname{index}(p')=\operatorname{index}(c'),
+  \qquad
+  f(p)<\tfrac12<f(p').
+\]
+给定 $f$ 的类梯度向量场 $\xi$，从 $p$ 出发的轨线与
+$V=f^{-1}(\tfrac12)$ 相交成一个嵌入球面 $S_R$，称为 $p$ 的\emph{右球面}；趋向 $p'$ 的轨线与 $V$ 相交成另一个嵌入球面 $S'_L$，称为 $p'$ 的\emph{左球面}。下述定理说明：若 $S_R\cap S'_L=\varnothing$，则 $cc'$ 可以重排。
+
+\Theorem{4.1（初步重排定理）}设三元组 $(W;V_0,V_1)$ 上的 Morse 函数 $f$ 恰有两个临界点 $p,p'$。若存在 $f$ 的类梯度向量场 $\xi$，使由经过 $p$ 的轨线上的点组成的紧集 $K_p$ 与相应的紧集 $K_{p'}$ 不交，则在 $f(W)=[0,1]$ 时，对任意 $a,a'\in(0,1)$，存在新的 Morse 函数 $g$，满足：
+\begin{enumerate}[label=(\alph*)]
+  \item $\xi$ 仍是 $g$ 的类梯度向量场；
+  \item $g$ 的临界点仍为 $p,p'$，且 $g(p)=a$、$g(p')=a'$；
+  \item $g$ 在 $V_0\cup V_1$ 附近与 $f$ 相同，并在 $p$ 和 $p'$ 各自的某个邻域内等于 $f$ 加一个常数。
+\end{enumerate}
+
+\begin{center}
+  \FigFourOne
+
+  \phantomsection\label{fig:4.1}图 4.1
+\end{center}
+
+\Proof 记 $K=K_p\cup K_{p'}$。显然，经过 $W\setminus K$ 中任一点的轨线都从 $V_0$ 通向 $V_1$。把 $q\in W\setminus K$ 映到其轨线与 $V_0$ 的唯一交点，得到光滑映射
+\[
+  \pi:W\setminus K\longrightarrow V_0
+\]
+（参见\ThmRef{3.4}）；而当 $q$ 趋近 $K$ 时，$\pi(q)$ 也趋近 $K\cap V_0$。在 $V_0$ 上取光滑函数 $\mu:V_0\to[0,1]$，使它在左球面 $K_p\cap V_0$ 附近为零，在球面 $K_{p'}\cap V_0$ 附近为一。于是 $\mu$ 唯一延拓为光滑函数
+\[
+  \bar\mu:W\longrightarrow[0,1],
+\]
+使其沿每条轨线为常数，在 $K_p$ 附近为零，在 $K_{p'}$ 附近为一。
+
+定义
+\[
+  g:W\longrightarrow[0,1],
+  \qquad
+  g(q)=G\bigl(f(q),\bar\mu(q)\bigr),
+\]
+其中 $G:[0,1]\times[0,1]\to[0,1]$ 是满足下列条件的任意光滑函数（见\FigRef{4.2}）：
+\begin{enumerate}[label=(\roman*)]
+  \item 对所有 $x,y$，$\dfrac{\partial G}{\partial x}(x,y)>0$；当 $x$ 从 $0$ 增至 $1$ 时，$G(x,y)$ 从 $0$ 增至 $1$；
+  \item $G(f(p),0)=a$，$G(f(p'),1)=a'$；
+  \item 当 $x$ 接近 $0$ 或 $1$ 时，对所有 $y$ 都有 $G(x,y)=x$，并且
+  \begin{align*}
+    \frac{\partial G}{\partial x}(x,0)&=1
+      &&\text{在 $f(p)$ 的某个邻域内},\\
+    \frac{\partial G}{\partial x}(x,1)&=1
+      &&\text{在 $f(p')$ 的某个邻域内}.
+  \end{align*}
+\end{enumerate}
+
+\begin{center}
+  \FigFourTwo
+
+  \phantomsection\label{fig:4.2}图 4.2
+\end{center}
+
+容易验证，$g$ 满足 (a)、(b)、(c)。
+\EndProof
+
+\par\medskip\noindent\phantomsection\label{stmt:4.2}\textbf{4.2. 推广.}\quad
+\ThmRef{4.1} 中，容许 $f$ 有两组临界点
+\[
+  \{p_1,\ldots,p_k\},
+  \qquad
+  \{p'_1,\ldots,p'_\ell\},
+\]
+第一组全在同一\Term{水平集}{level set} $f^{-1}(f(p))$，第二组全在同一水平集 $f^{-1}(f(p'))$，则结论仍然成立；证明不变。
+
+沿用前述记号（见\TranslatedPage{sec4:page37-notation}）\OriginalPageNote{37}{sec4:page37-notation}，令
+\[
+  \lambda=\operatorname{index}(c),
+  \qquad
+  \lambda'=\operatorname{index}(c'),
+  \qquad
+  n=\dim W.
+\]
+若
+\[
+  \dim S_R+\dim S'_L<\dim V,
+\]
+即
+\[
+  (n-\lambda-1)+(\lambda'-1)<n-1,
+\]
+也就是 $\lambda\geq\lambda'$，则维数留出的余地足以把 $S_R$ 移开，使它避开 $S'_L$。这一点由下述定理精确表述。
+
+\Theorem{4.4}若 $\lambda\geq\lambda'$，则可在 $V$ 的任意预先指定的小邻域内修改 $f$ 的类梯度向量场，使 $V$ 中相应的新球面 $S_R$ 与 $S'_L$ 不交。更一般地，若配边 $c$ 上 $f$ 有若干个指标为 $\lambda$ 的临界点 $p_1,\ldots,p_k$，配边 $c'$ 上 $f$ 有若干个指标为 $\lambda'$ 的临界点 $p'_1,\ldots,p'_\ell$，则可同样修改类梯度向量场，使 $V$ 中相应的新球面两两不交。
+
+\Definition{4.5}设 $M^m\subset V^v$ 是子流形。若开邻域 $U$ 微分同胚于 $M^m\times\R^{v-m}$，且在此微分同胚下 $M^m$ 对应于 $M^m\times\{0\}$，则称 $U$ 是 $M^m$ 在 $V^v$ 中的一个\emph{\Term{乘积邻域}{product neighborhood}}。
+
+\Lemma{4.6}设 $M,N$ 是 $v$ 维流形 $V$ 中分别为 $m$ 维、$n$ 维的子流形。若 $M$ 在 $V$ 中有乘积邻域，并且 $m+n<v$，则存在与恒等映射光滑同痕的微分同胚 $h:V\to V$，使 $h(M)\cap N=\varnothing$。
+
+\Remark 要求 $M$ 有乘积邻域并非必要，但有了这一条件，证明会简洁许多。
+
+\Proof 设
+\[
+  k:M\times\R^{v-m}\longrightarrow U\subset V
+\]
+是到 $M$ 的乘积邻域 $U$ 上的微分同胚，并满足
+$k(M\times\{\vec 0\})=M$。令 $N_0=U\cap N$，考察复合映射
+\[
+  g=\pi\circ k^{-1}|_{N_0}:N_0\longrightarrow\R^{v-m},
+\]
+其中 $\pi:M\times\R^{v-m}\to\R^{v-m}$ 为自然投影。
+
+子流形 $k(M\times\{\vec x\})$ 与 $N$ 相交，当且仅当 $\vec x\in g(N_0)$。若 $N_0$ 非空，则
+\[
+  \dim N_0=n<v-m.
+\]
+由 Sard 定理（见 de Rham~\cite[p.~10]{ref01}），$g(N_0)$ 在 $\R^{v-m}$ 中为零测集。因此可以选取
+$\vec u\in\R^{v-m}\setminus g(N_0)$。
+
+下面构造一个与恒等映射同痕、且把 $M$ 映到 $k(M\times\{\vec u\})$ 的自微分同胚。取 $\R^{v-m}$ 上的光滑向量场 $\zeta(\vec x)$，使
+\[
+  \zeta(\vec x)=\vec u\quad (|\vec x|\leq|\vec u|),
+  \qquad
+  \zeta(\vec x)=0\quad (|\vec x|\geq2|\vec u|).
+\]
+$\zeta$ 有紧支集，而 $\R^{v-m}$ 无边界，所以它的积分曲线
+$\psi(t,\vec x)$ 对一切 $t\in\R$ 都有定义（参见 Milnor~\cite[p.~10]{ref04}）。其中 $\psi(0,\vec x)$ 是恒等映射，$\psi(1,\vec x)$ 是把 $\vec 0$ 映到 $\vec u$ 的微分同胚，而 $0\leq t\leq1$ 时的 $\psi(t,\vec x)$ 给出二者之间的光滑同痕。
+
+由于该同痕在 $\R^{v-m}$ 的一个有界集之外保持各点不动，可在 $V$ 上定义
+\[
+  h_t(w)=
+  \begin{cases}
+    k\bigl(q,\psi(t,\vec x)\bigr),&w=k(q,\vec x)\in U,\\
+    w,&w\in V\setminus U.
+  \end{cases}
+\]
+于是 $h=h_1$ 就是所需的微分同胚。
+\EndProof
+
+\par\medskip\noindent\textit{\ThmRef{4.4} 的证明.}\quad
+为简化记号，只证定理的第一个断言；一般情形同理。
+
+球面 $S_R$ 在 $V$ 中有乘积邻域（参见\DefRef{3.9}），故由\LemRef{4.6}，存在与恒等映射光滑同痕的微分同胚 $h:V\to V$，使
+\[
+  h(S_R)\cap S'_L=\varnothing.
+\]
+下面用这条同痕修改 $\xi$。
+
+取充分接近 $\tfrac12$ 的 $a<\tfrac12$，使 $f^{-1}[a,\tfrac12]$ 落在预先指定的 $V$ 的邻域内。归一化向量场
+\[
+  \widehat\xi=\frac{\xi}{\xi(f)}
+\]
+的积分曲线给出微分同胚
+\[
+  \phi:[a,\tfrac12]\times V\longrightarrow f^{-1}[a,\tfrac12],
+\]
+满足
+\[
+  f(\phi(t,q))=t,
+  \qquad
+  \phi(\tfrac12,q)=q\in V.
+\]
+取从恒等映射到 $h$ 的光滑同痕 $h_t:V\to V$，并作调整，使 $t$ 接近 $a$ 时 $h_t$ 为恒等映射，$t$ 接近 $\tfrac12$ 时 $h_t=h$。定义
+\[
+  H:[a,\tfrac12]\times V\longrightarrow[a,\tfrac12]\times V,
+  \qquad
+  H(t,q)=(t,h_t(q)).
+\]
+则
+\[
+  \xi'=(\phi\circ H\circ\phi^{-1})_*\widehat\xi
+\]
+是 $f^{-1}[a,\tfrac12]$ 上的光滑向量场；它在 $f^{-1}(a)$ 与 $f^{-1}(\tfrac12)=V$ 附近同 $\widehat\xi$ 一致，并恒有 $\xi'(f)=1$。因此，在 $f^{-1}[a,\tfrac12]$ 上取 $\xi(f)\xi'$、在其余各处仍取 $\xi$，便得到 $f$ 的新类梯度向量场。
+
+\begin{center}
+  \FigFourFour
+
+  \phantomsection\label{fig:4.4}图 4.4
+\end{center}
+
+对每个固定的 $q\in V$，曲线 $\phi(t,h_t(q))$ 是新向量场的积分曲线，它在 $V$ 中从
+\[
+  \phi(\tfrac12,h(q))=h(q)
+\]
+出发。于是，$p$ 在 $f^{-1}(a)$ 中的右球面 $\phi(\{a\}\times S_R)$ 沿新轨线被送到 $h(S_R)$；故 $h(S_R)$ 正是 $p$ 的新右球面。左球面 $S'_L$ 未变，所以新球面满足
+\[
+  S_R\cap S'_L=h(S_R)\cap S'_L=\varnothing.
+\]
+\ThmRef{4.4} 证毕。
+\EndProof
+
+上述论证还给出一个以后经常用到的引理。
+
+\Lemma{4.7}设三元组 $(W;V_0,V_1)$ 上给定 Morse 函数 $f$ 及类梯度向量场 $\xi$，$V=f^{-1}(b)$ 是\Term{非临界水平集}{noncritical level set}，$h:V\to V$ 是与恒等映射同痕的微分同胚。若 $a<b$，且 $f^{-1}[a,b]$ 内没有临界点，则可构造 $f$ 的新类梯度向量场 $\bar\xi$，使：
+\begin{enumerate}[label=(\alph*)]
+  \item $\bar\xi$ 在 $f^{-1}(a,b)$ 之外与 $\xi$ 相同；
+  \item $\bar\phi=h\circ\phi$，其中 $\phi,\bar\phi:f^{-1}(a)\to V$ 分别由沿 $\xi$、$\bar\xi$ 的轨线前行得到。
+\end{enumerate}
+
+把 $f$ 换成 $-f$，可得右侧的对应结论：可在 $f^{-1}(b,c)$（$b<c$）内修改向量场。
+
+由\CorRef{2.12}，每个配边都可分解为有限多个初等配边的复合。结合初步重排\ThmRef{4.1}、\NamedRef{stmt:4.2}{4.2} 与\ThmRef{4.4}，便得：
+
+\Theorem{4.8（重排定理）}任一配边 $c$ 都可写成
+\[
+  c=c_0c_1\cdots c_n,
+  \qquad n=\dim c,
+\]
+其中每个 $c_k$ 都有一个只含一个临界水平的 Morse 函数，且该水平集上的全部临界点指标均为 $k$。
+
+不用配边的语言，可将结论改述为 Morse 函数的下述命题。
+
+\par\medskip\noindent\textbf{\ThmRef{4.8} 的另一表述.}\quad
+给定三元组 $(W;V_0,V_1)$ 上的任一 Morse 函数，都存在一个新的 Morse 函数（仍记为 $f$），其临界点不变、各临界点指标不变，并且
+\begin{enumerate}[label=(\arabic*)]
+  \item $f(V_0)=-\tfrac12$，$f(V_1)=n+\tfrac12$；
+  \item 对 $f$ 的每个临界点 $p$，$f(p)=\operatorname{index}(p)$。
+\end{enumerate}
+
+\Definition{4.9}这样的 Morse 函数称为\emph{\Term{自指标 Morse 函数}{self-indexing Morse function}}，原文亦称“好”。
+
+\ThmRef{4.8} 归功于 Smale~\cite{ref08} 与 Wallace~\cite{ref09}。

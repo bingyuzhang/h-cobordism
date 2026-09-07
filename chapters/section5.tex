@@ -1,0 +1,535 @@
+\OriginalSection{5}{消去定理}
+
+重排定理自然引出另一个问题：指标为 $\lambda$ 的初等配边与指标为 $\lambda+1$ 的初等配边复合后，何时等价于乘积配边？\FigRef{5.1}给出了二维情形的一种可能。
+
+\begin{center}
+  \FigFiveOne
+
+  \phantomsection\label{fig:5.1}图 5.1
+\end{center}
+
+\label{sec5:page45-setup}设 $f$ 是表示 $cc'$ 的三元组 $(W^n;V_0,V_1)$ 上的 Morse 函数，临界点 $p,p'$ 的指标分别为 $\lambda,\lambda+1$，且
+\[
+  f(p)<\tfrac12<f(p').
+\]
+$f$ 的类梯度向量场 $\xi$ 在 $V=f^{-1}(\tfrac12)$ 中确定 $p$ 的右球面 $S_R$ 和 $p'$ 的左球面 $S'_L$。注意
+\[
+  \dim S_R+\dim S'_L=(n-\lambda-1)+\lambda=n-1=\dim V.
+\]
+
+\Definition{5.1}设 $M^m,N^n\subset V^v$ 是两个子流形。若对每个 $q\in M\cap N$，$M$ 与 $N$ 在 $q$ 处的切向量合起来张成 $T_qV$，则称 $M,N$\emph{\Term{横截相交}{intersect transversely}}。（若 $m+n<v$，上述张成不可能发生，此时“横截相交”只表示 $M\cap N=\varnothing$。）
+
+为证明本节的主要结果\ThmRef{5.4}，先作准备。
+
+\Theorem{5.2}可以适当选择类梯度向量场 $\xi$，使 $S_R$ 与 $S'_L$ 在 $V$ 中横截相交。
+
+证明要用到下述引理，记号沿用\DefRef{5.1}。
+
+\Lemma{5.3}若 $M$ 在 $V$ 中有乘积邻域，则存在与恒等映射光滑同痕的自微分同胚 $h:V\to V$，使 $h(M)$ 与 $N$ 横截相交。
+
+\Remark 该引理表面上包含\LemRef{4.6}；事实上，两者的证明几乎相同。这里对 $M$ 所作的乘积邻域假设也并非必要。
+
+\Proof 与\LemRef{4.6} 一样，取乘积邻域上的微分同胚
+\[
+  k:M\times\R^{v-m}\longrightarrow U\subset V,
+  \qquad k(M\times\{\vec0\})=M.
+\]
+令 $N_0=U\cap N$，并考察
+\[
+  g=\pi\circ k^{-1}|_{N_0}:N_0\longrightarrow\R^{v-m},
+\]
+其中 $\pi:M\times\R^{v-m}\to\R^{v-m}$ 是自然投影。
+
+$k(M\times\{\vec x\})$ 不与 $N$ 横截相交，当且仅当 $\vec x$ 是 $g$ 的某个临界点 $q\in N_0$ 的像，且 $g$ 在 $q$ 处秩小于最大值 $v-m$。由 Sard 定理（见 Milnor~\cite[p.~10]{ref10} 与 de Rham~\cite[p.~10]{ref01}），$g$ 的临界点集合 $C\subset N_0$ 的像 $g(C)$ 在 $\R^{v-m}$ 中为零测集。因此可取
+\[
+  \vec u\in\R^{v-m}\setminus g(C).
+\]
+再像\LemRef{4.6} 那样，构造从 $V$ 的恒等映射到某个自微分同胚 $h$ 的同痕，使 $h(M)=k(M\times\{\vec u\})$。后者与 $N$ 横截相交，引理得证。
+\EndProof
+
+
+
+\par\medskip\noindent\textit{\ThmRef{5.2} 的证明.}\quad
+由\LemRef{5.3}，存在与恒等映射光滑同痕的微分同胚 $h:V\to V$，使 $h(S_R)$ 与 $S'_L$ 横截相交。应用\LemRef{4.7} 修改 $\xi$，使新右球面为 $h(S_R)$，左球面保持不变。定理得证。
+\EndProof
+
+本节以下均假设 $S_R$ 与 $S'_L$ 横截相交。由于
+$\dim S_R+\dim S'_L=\dim V$，交集由有限多个孤立点组成。事实上，若 $q_0\in S_R\cap S'_L$，则 $q_0$ 在 $V$ 中有坐标邻域 $U$，坐标函数为
+$x^1(q),\ldots,x^{n-1}(q)$，使 $x^i(q_0)=0$，并且
+\[
+  U\cap S_R=\{x^1=\cdots=x^\lambda=0\},
+  \qquad
+  U\cap S'_L=\{x^{\lambda+1}=\cdots=x^{n-1}=0\}.
+\]
+显然，$S_R\cap S'_L\cap U$ 只有 $q_0$。因此，从 $p$ 通向 $p'$ 的轨线只有有限条，并与 $S_R\cap S'_L$ 中的点一一对应。
+
+沿用前述记号（见\TranslatedPage{sec5:page45-setup}）\OriginalPageNote{45}{sec5:page45-setup}，现给出本节的主要定理。
+
+\Theorem{5.4（第一消去定理）}若 $S_R$ 与 $S'_L$ 横截相交，且交集只有一点，则该配边是乘积配边。更确切地说，可在从 $p$ 到 $p'$ 的唯一轨线 $T$ 的任意小邻域内修改 $\xi$，得到处处非零的向量场 $\xi'$；它的每条轨线都从 $V_0$ 通向 $V_1$。此外，$\xi'$ 是某个无临界点的 Morse 函数 $f'$ 的类梯度向量场，而 $f'$ 在 $V_0\cup V_1$ 附近与 $f$ 相同。（见\FigRef{5.2}。）
+
+\Remark 这一证明源于 M. Morse~\cite{ref11,ref32}，颇为艰深。不计技术性的\ThmRef{5.6}，证明占下文十页。
+
+\begin{center}
+  \FigFiveTwo
+
+  \phantomsection\label{fig:5.2}图 5.2
+\end{center}
+
+先在 $\xi$ 沿 $T$ 具有特殊形式的假设下证明定理。
+
+\par\medskip\noindent\phantomsection\label{assump:5.5}\textbf{预备假设 5.5.}\quad
+从 $p$ 到 $p'$ 的轨线 $T$ 有邻域 $U_T$ 及坐标卡
+$g:U_T\to\R^n$，满足：
+\begin{enumerate}[label=\arabic*)]
+  \item $p,p'$ 分别对应于 $(0,\ldots,0)$ 与 $(1,0,\ldots,0)$；
+  \item 若 $g(q)=\vec x$，则
+  \[
+    g_*\xi(q)=\vec\eta(\vec x)
+      =\bigl(v(x_1),-x_2,\ldots,-x_\lambda,
+        -x_{\lambda+1},x_{\lambda+2},\ldots,x_n\bigr);
+  \]
+  \item $v(x_1)$ 是光滑函数，在 $(0,1)$ 上为正，在 $0,1$ 处为零，在其余各处为负；并且在 $x_1=0,1$ 附近有
+  $|v'(x_1)|=1$。
+\end{enumerate}
+
+\begin{center}
+  \FigFiveThree
+
+  \phantomsection\label{fig:5.3}图 5.3
+\end{center}
+
+\par\medskip\noindent\phantomsection\label{claim:5.1}\textbf{断言 1.}\quad
+给定 $T$ 的开邻域 $U$，总能在其中找到更小的邻域 $U'$，使任何轨线都不会从 $U'$ 出发，离开 $U$ 后又返回 $U'$。
+
+\Proof 反设不然。则存在部分轨线序列 $T_1,T_2,\ldots$，其中 $T_k$ 从 $r_k$ 出发，经过 $U$ 外的一点 $s_k$，再到 $t_k$，且 $r_k,t_k$ 都趋近 $T$。由于 $W\setminus U$ 紧，可假设 $s_k\to s\in W\setminus U$。
+
+经过 $s$ 的积分曲线 $\psi(t,s)$ 必从 $V_0$ 来，或向 $V_1$ 去，或两者兼有；否则就会出现第二条从 $p$ 到 $p'$ 的轨线。且设它从 $V_0$ 来。由积分曲线对初值 $s'$ 的连续依赖性，$s$ 附近各点的轨线也都起于 $V_0$。从 $V_0$ 到 $s'$ 的部分轨线 $T_{s'}$ 紧，因而在任一度量下，它到 $T$ 的最短距离 $d(s')$ 连续依赖于 $s'$；在 $s$ 的某个邻域内，$d(s')$ 有统一的正下界。然而 $r_k\in T_{s_k}$，故 $r_k$ 不可能趋近 $T$，矛盾。
+\EndProof
+
+取 $T$ 的任意开邻域 $U$，使 $\overline U\subset U_T$；再取\NamedRef{claim:5.1}{断言 1}给出的“安全”邻域
+\[
+  T\subset U'\subset U.
+\]
+
+\par\medskip\noindent\phantomsection\label{claim:5.2}\textbf{断言 2.}\quad
+可以只在 $U'$ 的一个紧子集上修改 $\xi$，得到处处非零的向量场 $\xi'$，使每条经过 $U$ 中某点的 $\xi'$-积分曲线都曾在某个时刻 $t'<0$ 位于 $U$ 外，并会在某个时刻 $t''>0$ 再次离开 $U$。
+
+\Proof 在局部坐标中，把
+\[
+  \vec\eta(\vec x)=\bigl(v(x_1),-x_2,\ldots,-x_{\lambda+1},
+    x_{\lambda+2},\ldots,x_n\bigr)
+\]
+换成光滑向量场
+\[
+  \vec\eta'(\vec x)=\bigl(v'(x_1,\rho),-x_2,\ldots,-x_{\lambda+1},
+    x_{\lambda+2},\ldots,x_n\bigr),
+  \qquad
+  \rho=(x_2^2+\cdots+x_n^2)^{1/2},
+\]
+其中
+\begin{enumerate}[label=(\roman*)]
+  \item 在 $g(U')$ 中 $g(T)$ 的某个紧邻域之外，
+  $v'(x_1,\rho(\vec x))=v(x_1)$；
+  \item $v'(x_1,0)$ 处处为负。
+\end{enumerate}
+
+\begin{center}
+  \FigFiveFour
+
+  \phantomsection\label{fig:5.4}图 5.4
+\end{center}
+
+这样便在 $W$ 上得到处处非零的向量场 $\xi'$。它在 $U_T$ 内的积分曲线满足
+\begin{align*}
+  \frac{dx_1}{dt}&=v'(x_1,\rho),&
+  \frac{dx_2}{dt}&=-x_2,&\ldots,&
+  \frac{dx_{\lambda+1}}{dt}=-x_{\lambda+1},\\
+  \frac{dx_{\lambda+2}}{dt}&=x_{\lambda+2},&\ldots,&
+  \frac{dx_n}{dt}=x_n.
+\end{align*}
+考察初值为 $(x_1^0,\ldots,x_n^0)$ 的积分曲线
+$\vec x(t)=(x_1(t),\ldots,x_n(t))$，让 $t$ 增大。
+
+若 $x_{\lambda+2}^0,\ldots,x_n^0$ 中有一个非零，不妨设 $x_n^0\neq0$，则
+\[
+  |x_n(t)|=|x_n^0e^t|
+\]
+指数增长，所以 $\vec x(t)$ 终将离开 $g(U)$，因为 $g(\overline U)$ 紧，因而有界。
+
+若 $x_{\lambda+2}^0=\cdots=x_n^0=0$，则
+\[
+  \rho(\vec x(t))
+  =\bigl((x_2^0)^2+\cdots+(x_{\lambda+1}^0)^2\bigr)^{1/2}e^{-t}
+\]
+指数衰减。假设 $\vec x(t)$ 始终留在 $g(U)$ 内。由于 $v'(x_1,\rho)$ 在 $x_1$ 轴上为负，可取充分小的 $\delta>0$，使它在紧集
+\[
+  K_\delta=\{\vec x\in g(\overline U)\mid\rho(\vec x)\leq\delta\}
+\]
+上为负。因此它在 $K_\delta$ 上有负的上界 $-\alpha<0$。当 $t$ 充分大时，$\rho(\vec x(t))\leq\delta$，此后
+\[
+  \frac{dx_1(t)}{dt}\leq-\alpha.
+\]
+于是 $\vec x(t)$ 终究仍要离开有界集 $g(U)$。让 $t$ 减小时，同样的论证也说明 $\vec x(t)$ 必离开 $g(U)$。
+\EndProof
+
+\par\medskip\noindent\phantomsection\label{claim:5.3}\textbf{断言 3.}\quad\label{sec5:page53}
+$\xi'$ 的每条轨线都从 $V_0$ 通向 $V_1$。
+
+\Proof 若一条 $\xi'$-积分曲线曾进入 $U'$，由\NamedRef{claim:5.2}{断言 2}，它最终会离开 $U$。离开 $U'$ 后，它沿 $\xi$ 的轨线运行；一旦走出 $U$，由\NamedRef{claim:5.1}{断言 1}，它便永远不会再进入 $U'$，故必沿 $\xi$ 的某条轨线通向 $V_1$。反向同理，它必起于 $V_0$。若一条 $\xi'$-积分曲线从未进入 $U'$，它就是一条从 $V_0$ 通向 $V_1$ 的 $\xi$-积分曲线。
+\EndProof
+
+\par\medskip\noindent\phantomsection\label{claim:5.4}\textbf{断言 4.}\quad
+$\xi'$ 自然确定一个微分同胚
+\[
+  \phi:([0,1]\times V_0;\{0\}\times V_0,\{1\}\times V_0)
+  \longrightarrow(W;V_0,V_1).
+\]
+
+\Proof 设 $\psi(t,q)$ 是 $\xi'$ 的积分曲线族。$\xi'$ 在 $\partial W$ 上处处不相切；由隐函数定理，每点 $q\in W$ 到达 $V_1$ 所需的时间 $\tau_1(q)$，以及它自 $V_0$ 出发所历时间 $\tau_0(q)$，都光滑依赖于 $q$。故投影
+\[
+  \pi:W\longrightarrow V_0,
+  \qquad
+  \pi(q)=\psi(-\tau_0(q),q)
+\]
+也是光滑的。向量场 $\tau_1(\pi(q))\xi'(q)$ 的积分曲线都恰用单位时间从 $V_0$ 走到 $V_1$。为简化记号，不妨从一开始就假定 $\xi'$ 已有此性质。于是
+\[
+  \phi(t,q_0)=\psi(t,q_0),
+  \qquad
+  \phi^{-1}(q)=(\tau_0(q),\pi(q)),
+\]
+所需结论即得。
+\EndProof
+
+\par\medskip\noindent\phantomsection\label{claim:5.5}\textbf{断言 5.}\quad\label{sec5:page54}
+$\xi'$ 是 $W$ 上某个 Morse 函数 $g$ 的类梯度向量场；$g$ 没有临界点，并在 $V_0\cup V_1$ 的某个邻域内与 $f$ 相同。
+
+\Proof 由\NamedRef{claim:5.4}{断言 4}，只需构造 Morse 函数
+\[
+  g:[0,1]\times V_0\longrightarrow[0,1]
+\]
+使 $\partial g/\partial t>0$，并使 $g$ 在
+$\{0\}\times V_0\cup\{1\}\times V_0$ 附近与 $f_1=f\circ\phi$ 相同；可假设 $V_0=f^{-1}(0)$、$V_1=f^{-1}(1)$。
+
+显然存在 $\delta>0$，使对所有 $q\in V_0$，当 $t<\delta$ 或 $t>1-\delta$ 时都有 $\partial f_1/\partial t(t,q)>0$。取光滑函数 $\lambda:[0,1]\to[0,1]$，使它在 $[\delta,1-\delta]$ 上为零，在 $0,1$ 附近为一。令
+\[
+  g(u,q)=\int_0^u
+  \left(
+    \lambda(t)\frac{\partial f_1}{\partial t}(t,q)
+    +(1-\lambda(t))k(q)
+  \right)dt,
+\]
+其中
+\[
+  k(q)=
+  \frac{
+    1-\displaystyle\int_0^1
+      \lambda(t)\frac{\partial f_1}{\partial t}(t,q)\,dt
+  }{
+    \displaystyle\int_0^1(1-\lambda(t))\,dt
+  }.
+\]
+取 $\delta$ 充分小，可使 $k(q)>0$ 对一切 $q\in V_0$ 成立。于是 $g$ 具备所需性质。
+\EndProof
+
+在预备假设成立时，第一消去\ThmRef{5.4} 已证。为证明一般情形，还须证明：
+
+\par\medskip\noindent\phantomsection\label{claim:5.6}\textbf{断言 6.}\quad\label{assertion:5-6-page55}
+若 $S_R$ 与 $S'_L$ 只有一个横截交点，则总能另选类梯度向量场 $\xi'$，使\NamedRef{assump:5.5}{预备假设 5.5}成立。
+
+\Remark 余下十二页的证明分两步：先把问题归结为一个技术性引理（\ThmRef{5.6}），再证明该引理。
+
+\Proof 在 $\R^n$ 上取\NamedRef{assump:5.5}{预备假设 5.5}所述形式的向量场 $\vec\eta(\vec x)$，其奇点为原点 $0$ 和 $x_1$ 轴上的单位点 $e$。函数
+\[
+  F(\vec x)=f(p)+2\int_0^{x_1}v(t)\,dt
+  -x_1^2-\cdots-x_{\lambda+1}^2
+  +x_{\lambda+2}^2+\cdots+x_n^2
+\]
+是 $\R^n$ 上的 Morse 函数，$\vec\eta$ 是它的类梯度向量场。适当选择 $v(x_1)$，可以使 $F(e)=f(p')$，即
+\[
+  2\int_0^1v(t)\,dt=f(p')-f(p).
+\]
+
+由类梯度向量场的\DefRef{3.1}，在临界点 $p,p'$ 各自的某个坐标系中，$f$ 都可写成指标相应的二次型 $\pm x_1^2\pm\cdots\pm x_n^2$，而 $\xi$ 的坐标为 $(\pm x_1,\ldots,\pm x_n)$。由此容易验证，存在水平集
+\[
+  a_1=f(p)<b_1<b_2<f(p')=a_2
+\]
+以及从 $0,e$ 的互不相交闭邻域 $L_1,L_2$ 到 $p,p'$ 的邻域上的微分同胚 $g_1,g_2$，满足：
+\begin{enumerate}[label=(\alph*)]
+  \item $g_i$ 把 $\vec\eta$ 映到 $\xi$、把 $F$ 映到 $f$，并把线段 $0e$ 上的点映到 $T$ 上；
+  \item 令 $p_i=T\cap f^{-1}(b_i)$，$i=1,2$。则 $g_1(L_1)$ 是 $f^{-1}[a_1,b_1]$ 中线段 $pp_1$ 的邻域，而 $g_2(L_2)$ 是 $f^{-1}[b_2,a_2]$ 中线段 $p_2p'$ 的邻域（见\FigRef{5.5}）。\footnote{译注：原书后图的图号误作“图 5.2”；依本节图号次序应为“图 5.5”。}
+\end{enumerate}
+
+\begin{center}
+  \FigFiveFive
+
+  \phantomsection\label{fig:5.5}图 5.5
+\end{center}
+
+$\vec\eta$ 的轨线从 $g_1^{-1}(p_1)$ 在 $g_1^{-1}f^{-1}(b_1)$ 中的一个小邻域 $U_1$ 出发，到达 $g_2^{-1}f^{-1}(b_2)$ 中的点；这些点构成 $U_1$ 的微分同胚像 $U_2$。轨线扫出的集合 $L_0$ 微分同胚于 $U_1\times[0,1]$，而 $L_1\cup L_0\cup L_2$ 是线段 $0e$ 的邻域。$g_1$ 唯一延拓为 $L_1\cup L_0$ 到 $W$ 中的光滑嵌入 $\bar g_1$，使 $\vec\eta$ 的轨线映到 $\xi$ 的轨线，$F$ 的水平集映到 $f$ 的水平集。
+
+暂且假设 $U_2$ 到 $f^{-1}(b_2)$ 中由 $\bar g_1,g_2$ 给出的两个嵌入，在 $U_2$ 中 $g_2^{-1}(p_2)$ 的某个小邻域上相同。于是 $\bar g_1,g_2$ 合成线段 $0e$ 的一个小邻域 $A$ 到 $W$ 中 $T$ 的邻域上的微分同胚 $\bar g$，并保持轨线和水平集。因此在 $\bar g(A)$ 上存在正光滑函数 $k$，使
+\[
+  \bar g_*\vec\eta=k\xi.
+\]
+缩小 $A$ 后，可把 $k$ 延拓为 $W$ 上处处为正的光滑函数。于是 $\xi'=k\xi$ 是满足\NamedRef{assump:5.5}{预备假设 5.5}的类梯度向量场。上述假设成立时，\NamedRef{claim:5.6}{断言 6}已证。
+
+一般情形下，$\xi$ 给出微分同胚
+\[
+  h:f^{-1}(b_1)\longrightarrow f^{-1}(b_2),
+\]
+而 $\vec\eta$ 给出微分同胚 $h':U_1\to U_2$。前段的假设成立，当且仅当 $h$ 在 $p_1$ 附近与
+\[
+  h_0=g_2\circ h'\circ g_1^{-1}
+\]
+相同。由\LemRef{4.7}，任何与 $h$ 同痕的微分同胚都对应于一个新的类梯度向量场，而且只在 $f^{-1}(b_1,b_2)$ 内有别于 $\xi$。所以，只需把 $h$ 变形为微分同胚 $\bar h$，使它在 $p_1$ 附近与 $h_0$ 相同，同时让水平集 $f^{-1}(b_2)$ 中的新右球面
+$\bar h(S_R(b_1))$ 与 $S'_L(b_2)$ 仍只有一个横截交点 $p_2$。括号中的 $b_1,b_2$ 表示球面所在的水平。
+
+为方便起见，改为给出 $h_0^{-1}h$ 的同痕：在 $p_1$ 的极小邻域内把它变形，使它在更小邻域上等于恒等映射。必要时先略作调整 $g_2$，可使 $h_0^{-1}h$ 在
+\[
+  p_1=h_0^{-1}h(p_1)
+\]
+处保持定向，并使 $h_0^{-1}h(S_R(b_1))$ 与 $S_R(b_1)$ 在 $p_1$ 处同 $S_L(b_1)$ 的相交数相同（均为 $+1$ 或均为 $-1$）。相交数的定义见\SecRef{6}。下述局部定理给出所需同痕。
+
+令 $n=a+b$。把 $x\in\R^n$ 写成 $x=(u,v)$，其中 $u\in\R^a$、$v\in\R^b$；并分别把 $u,v$ 视为 $\R^n$ 中的 $(u,0),(0,v)$。
+
+\Theorem{5.6}设 $h:\R^n\to\R^n$ 是保持定向的嵌入，并且：
+\begin{enumerate}[label=\arabic*)]
+  \item $h(0)=0$，其中 $0$ 表示 $\R^n$ 的原点；
+  \item $h(\R^a)$ 与 $\R^b$ 只交于原点，交是横截的，相交数为 $+1$；约定 $\R^a$ 与 $\R^b$ 的相交数为 $+1$。
+\end{enumerate}
+则对原点的任意邻域 $N$，存在光滑同痕
+\[
+  h'_t:\R^n\longrightarrow\R^n,
+  \qquad 0\leq t\leq1,
+  \qquad h'_0=h,
+\]
+满足：
+\begin{enumerate}[label=(\Roman*)]
+  \item 对 $x=0$ 以及 $x\in\R^n\setminus N$，均有
+  $h'_t(x)=h(x)$，$0\leq t\leq1$；
+  \item 在原点的某个小邻域 $N_1$ 上，$h'_1(x)=x$；
+  \item $h'_1(\R^a)\cap\R^b=\{0\}$。
+\end{enumerate}
+
+\begin{center}
+  \FigFiveSix
+
+  \phantomsection\label{fig:5.6}图 5.6
+\end{center}
+
+\Lemma{5.7}设 $h:\R^n\to\R^n$ 满足\ThmRef{5.6} 的假设。则存在光滑同痕 $h_t:\R^n\to\R^n$，$0\leq t\leq1$，使：
+\begin{enumerate}[label=(\roman*)]
+  \item $h_0=h$，$h_1$ 是 $\R^n$ 的恒等映射；
+  \item 对每个 $t\in[0,1]$，$h_t(\R^a)\cap\R^b=\{0\}$，且交是横截的。
+\end{enumerate}
+
+\Proof 因 $h(0)=0$，可写
+\[
+  h(x)=x_1h^1(x)+\cdots+x_nh^n(x),
+  \qquad x=(x_1,\ldots,x_n),
+\]
+其中 $h^i(x)$ 是光滑向量值函数，且
+\[
+  h^i(0)=\frac{\partial h}{\partial x_i}(0),
+  \qquad i=1,\ldots,n
+\]
+（见 Milnor~\cite[p.~6]{ref04}）。定义
+\[
+  h_{1-t}(x)=
+  \begin{cases}
+    t^{-1}h(tx)=x_1h^1(tx)+\cdots+x_nh^n(tx),&t>0,\\
+    x_1h^1(0)+\cdots+x_nh^n(0),&t=0.
+  \end{cases}
+\]
+这给出从 $h$ 到线性映射
+\[
+  h_1(x)=x_1h^1(0)+\cdots+x_nh^n(0)
+\]
+的光滑同痕。$h(\R^a)$ 与 $h_t(\R^a)$ 在原点具有同一个定向切基
+$h^1(0),\ldots,h^a(0)$，故对所有 $t$，$h_t(\R^a)$ 与 $\R^b$ 在原点横截相交且相交数为正；并且显然
+$h_t(\R^a)\cap\R^b=\{0\}$。若 $h_1$ 是恒等线性映射，证明结束。
+
+否则，考虑集合 $\Lambda\subset GL(n,\R)$：它由所有保持定向、可逆的线性变换 $L$ 组成，并要求 $L(\R^a)$ 与 $\R^b$ 横截相交且相交数为正。换言之，$L$ 的矩阵形如
+\[
+  L=\begin{pmatrix}A&*\\ *&*\end{pmatrix},
+\]
+其中 $A$ 为 $a\times a$ 矩阵，且
+\[
+  \det L>0,
+  \qquad
+  \det A>0.
+\]
+
+\par\medskip\noindent\textbf{断言.}\quad
+任给 $L\in\Lambda$，存在光滑同痕 $L_t$，$0\leq t\leq1$，在 $\Lambda$ 内把 $L$ 变形到恒等映射；等价地，$\Lambda$ 中有一条从 $L$ 到恒等映射的光滑道路。
+
+\Proof 把前 $a$ 行（列）之一的数乘加到后 $b$ 行（相应地，列）之一上，可由 $\Lambda$ 内的光滑变形实现。有限次这类运算把 $L$ 化为
+\[
+  L'=\begin{pmatrix}A&0\\0&B\end{pmatrix},
+\]
+其中 $B$ 为 $b\times b$ 矩阵，并且必有 $\det B>0$。众所周知，对 $A$ 作有限次初等运算，每次都可在 $GL(a,\R)$ 内实现为变形，便可把 $A$ 化为恒等矩阵；$B$ 亦然。因此存在光滑变形 $A_t,B_t$，$0\leq t\leq1$，分别把 $A,B$ 化为恒等矩阵，并始终满足
+$\det A_t>0$、$\det B_t>0$。它们给出 $\Lambda$ 内从 $L'$ 到恒等映射的变形。断言得证，\LemRef{5.7} 也随之得证。
+\EndProof
+
+\par\medskip\noindent\textit{\ThmRef{5.6} 的证明.}\quad\label{construction:page61}
+取\LemRef{5.7} 给出的同痕 $h_t$。在 $N$ 中取以 $0$ 为心的开球 $E$，并令 $d$ 为 $0$ 到 $\R^n\setminus h(E)$ 的距离。由于 $h_t(0)=0$，且 $[0,1]$ 紧，可取以 $0$ 为心的小开球 $E_1$，使 $\overline E_1\subset E$，并使
+\[
+  |h_t(x)|<d
+  \qquad(x\in\overline E_1,\ 0\leq t\leq1).
+\]
+先定义
+\[
+  \bar h_t(x)=
+  \begin{cases}
+    h_t(x),&x\in\overline E_1,\\
+    h(x),&x\in\R^n\setminus E.
+  \end{cases}
+\]
+此时它只在 $\overline E_1\cup(\R^n\setminus E)$ 上给出 $h$ 的同痕。第一步是把它延拓为 $h$ 的同痕，并至少满足\ThmRef{5.6} 的 (I)、(II)。
+
+\label{construction:page62}先注意，$h$ 的任一同痕 $h_t$ 都与\Term{保水平的光滑嵌入}{level-preserving smooth embedding}
+\[
+  H:[0,1]\times\R^n\longrightarrow[0,1]\times\R^n
+\]
+一一对应，关系为
+\[
+  H(t,x)=(t,h_t(x)).
+\]
+$H$ 在其像上确定向量场
+\[
+  \vec\tau(t,y)
+  =H(t,x)_*\frac{\partial}{\partial t}
+  =\left(1,\frac{\partial h_t(x)}{\partial t}\right),
+  \qquad (t,y)=H(t,x).
+\]
+该向量场与嵌入 $h_0$ 一起，完全确定 $h_t$，从而也确定 $H$。事实上
+\[
+  \psi(t,y)=\bigl(t,h_t\circ h_0^{-1}(y)\bigr)
+\]
+是以 $(0,y)\in\{0\}\times h_0(\R^n)$ 为初值的唯一积分曲线族。
+
+这提示我们采用 R. Thom 的方法：先把向量场
+\[
+  \vec\tau(t,y)
+  =\left(1,
+    \frac{\partial\bar h_t}{\partial t}
+      (\bar h_t^{-1}(y))
+   \right)
+\]
+延拓为 $[0,1]\times\R^n$ 上形如 $(1,\vec\zeta(t,y))$ 的向量场，从而把同痕 $\bar h_t$ 延拓到整个 $[0,1]\times\R^n$。
+
+\begin{center}
+  \FigFiveEight
+
+  \phantomsection\label{fig:5.8}图 5.8：向量场 $\vec\tau(t,y)$
+\end{center}
+
+$\bar h_t$ 显然可以延拓到其闭定义域
+\[
+  [0,1]\times\bigl(\overline E_1\cup(\R^n\setminus E)\bigr)
+\]
+的某个小开邻域；这便把 $\vec\tau(t,y)$ 延拓到其闭定义域的某个邻域 $U$。乘以一个在原闭定义域上恒为一、在 $U$ 外为零的光滑函数，就得到 $[0,1]\times\R^n$ 上的延拓。最后把第一坐标改为一，得到光滑延拓
+\[
+  \vec\tau'(t,y)=(1,\vec\zeta(t,y)).
+\]
+
+对所有 $y\in\R^n$、$t\in[0,1]$，相应的积分曲线族 $\psi(t,y)$ 都有定义。若 $y\in\R^n\setminus h(E)$，结论显然；若 $y\in h(E)$，则积分曲线始终留在紧集 $[0,1]\times h(\overline E)$ 中。$\psi$ 给出保水平的光滑嵌入
+\[
+  \psi:[0,1]\times\R^n\longrightarrow[0,1]\times\R^n.
+\]
+方程
+\[
+  \psi(t,y)=\bigl(t,\bar h_t\circ h^{-1}(y)\bigr)
+\]
+反过来定义 $\bar h_t$ 的所需延拓；它是 $h$ 的光滑同痕，并至少满足\ThmRef{5.6} 的 (I)、(II)。
+
+\label{construction:page63}类似的论证给出 R. Thom 的下述定理，\SecRef{8}还会用到它。完整证明见 Milnor~\cite[p.~5]{ref12} 或 Thom~\cite{ref13}。
+
+\Theorem{5.8（\Term{同痕扩张定理}{isotopy extension theorem}）}设 $M$ 是无边界光滑流形 $N$ 的紧光滑子流形。若 $h_t$（$0\leq t\leq1$）是包含映射 $i:M\subset N$ 的光滑同痕，则它是恒等映射 $N\to N$ 的某个光滑同痕 $h'_t$ 的限制，并且 $h'_t$ 在 $N$ 的某个紧子集之外保持各点不动。
+
+\Proof 回到\ThmRef{5.6} 的证明，以 $\bar h_t$ 表示上述延拓。若 $\bar h_t$ 使 $\R^a$ 的像与 $\R^b$ 产生新的交点，\ThmRef{5.6} 的条件 (III) 就会失效，如\FigRef{5.9}所示。
+
+\begin{center}
+  \FigFiveNine
+
+  \phantomsection\label{fig:5.9}图 5.9
+\end{center}
+
+因此，只能先取很小的 $t$，例如 $t\leq t'$，以免产生新交点。随后重复上述过程，继续变形 $\bar h_{t'}$；这一次只改动 $E_1$ 中的点，而 $\bar h_{t'}$ 在那里同 $h_{t'}$ 一致。有限步后便得到所需同痕。细节如下。
+
+\LemRef{5.7} 的同痕 $h_t$ 可写成
+\[
+  h_t(x)=x_1h^1(t,x)+\cdots+x_nh^n(t,x), \tag{$\star$}\label{eq:5-star}
+\]
+其中 $h^i(t,x)$ 关于 $t,x$ 光滑，且
+\[
+  h^i(t,0)=\frac{\partial h_t}{\partial x_i}(0).
+\]
+Milnor~\cite[p.~6]{ref04} 中的证明可原样带入参数 $t$。
+
+\Lemma{5.9}存在正常数 $K,k$，使对原点某邻域内的所有 $x$ 及一切 $t\in[0,1]$，都有
+\begin{enumerate}[label=\arabic*)]
+  \item $\left|\dfrac{\partial h_t(x)}{\partial t}\right|<K|x|$；
+  \item 当 $x\in\R^a$ 时，$|\pi_a\circ h_t(x)|>k|x|$，其中
+  $\pi_a:\R^n\to\R^a$ 是自然投影。
+\end{enumerate}
+
+\Proof 第一式由微分\eqref{eq:5-star}得到。第二式来自如下事实：对紧区间 $[0,1]$ 中的每个 $t$，$h_t(\R^a)$ 都与 $\R^b$ 横截。
+\EndProof
+
+最后用归纳步骤完成\ThmRef{5.6} 的证明。假设已经得到与 $h$ 同痕的嵌入 $\widetilde h:\R^n\to\R^n$，满足：
+\begin{enumerate}[label=\arabic*)]
+  \item 对某个 $t_0\in[0,1]$，$\widetilde h(x)$ 在 $0$ 附近与 $h_{t_0}(x)$ 相同，在 $N$ 外与 $h(x)$ 相同；
+  \item $\widetilde h(\R^a)\cap\R^b=\{0\}$。
+\end{enumerate}
+把前述构造（见\TranslatedPageRange{construction:page61}{construction:page63}）\OriginalPageRangeNote{61--63}{construction:page61}{construction:page63}应用于 $\bar h_t$，其中以 $\widetilde h$ 代替 $h$，以 $[t_0,1]$ 代替 $[0,1]$，并作以下两项特殊选择。
+
+\begin{enumerate}[label=(\alph*)]
+  \item 在 $N$ 中取球 $E$，小到使 $x\in E$ 时 $\widetilde h(x)=h_{t_0}(x)$，且\LemRef{5.9} 的不等式成立。
+\end{enumerate}
+在 $\bar h_t$ 的初始定义域
+\[
+  [t_0,1]\times\bigl(\overline E_1\cup(\R^n\setminus E)\bigr)
+\]
+上有
+\[
+  \left|\frac{\partial\bar h_t(x)}{\partial t}\right|<Kr,
+  \qquad r=E\text{ 的半径}. \tag{$\clubsuit$}
+\]
+$\partial\bar h_t(x)/\partial t$ 是 $\vec\tau(t,y)$ 的 $\R^n$ 分量。由前述构造（见\TranslatedPage{construction:page62}）\OriginalPageNote{62}{construction:page62}，可以再作选择：
+\begin{enumerate}[label=(\alph*),start=2]
+  \item 使 $\vec\tau(t,y)$ 延拓后的 $\R^n$ 分量 $\vec\zeta(t,y)$ 的模处处小于 $K_1r$。
+\end{enumerate}
+于是 $\bar h_t$ 在 $[t_0,1]\times\R^n$ 上处处满足 $(\clubsuit)$。
+
+断言在
+\[
+  t_0\leq t\leq t_0+\frac{k}{K}
+\]
+内，$\bar h_t(\R^a)$ 与 $\R^b$ 不会产生新交点。事实上，若
+$x\in\R^a\cap(E\setminus E_1)$，则 $h_{t_0}(x)$ 到 $\R^b$ 的距离为
+\[
+  |\pi_a\bar h_{t_0}(x)|
+  =|\pi_a h_{t_0}(x)|>kr.
+\]
+故由 $(\clubsuit)$，在上述 $t$ 的范围内，
+\[
+  |\pi_a\bar h_t(x)|
+  >kr-(t-t_0)Kr\geq0.
+\]
+
+最后，为使这类同痕能够复合，可重参数化，使
+\[
+  t_0\leq t\leq t'_0
+  =\min\left(1,t_0+\frac{k}{K}\right)
+\]
+时
+\[
+  \bar h_t(x)=
+  \begin{cases}
+    \widetilde h(x),&t\text{ 接近 }t_0,\\
+    \bar h_{t'_0}(x),&t\text{ 接近 }t'_0.
+  \end{cases}
+\]
+常数 $k/K$ 只依赖于 $h_t$，所以有限次复合上述同痕便得到所需的光滑同痕。\ThmRef{5.6} 得证，从而\NamedRef{claim:5.6}{断言 6}（见\TranslatedPage{assertion:5-6-page55}）\OriginalPageNote{55}{assertion:5-6-page55}成立，第一消去定理也在一般情形下得证。
+\EndProof

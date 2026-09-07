@@ -1,0 +1,115 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+\documentclass[UTF8,zihao=-4,openright]{ctexbook}
+
+\usepackage[a4paper,inner=27mm,outer=23mm,top=25mm,bottom=27mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{array,booktabs,longtable,enumitem,graphicx,microtype}
+\usepackage{emptypage}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,calc,decorations.pathmorphing,patterns,positioning}
+\usepackage[hidelinks,unicode]{hyperref}
+\allowdisplaybreaks[2]
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setlist{nosep,leftmargin=3.2em}
+\numberwithin{equation}{chapter}
+
+% 原书中的定义、定理、引理、推论、命题和注记均采用显式编号，
+% 不由 LaTeX 计数器生成；标签只提供超链接，不参与编号。
+\newcommand{\MilnorHeading}[2]{\par\medskip\noindent\textbf{#1~#2.}\quad}
+\makeatletter
+\def\MilnorLeadingNumber#1（#2\@nil{#1}
+\newcommand{\MilnorAutoTarget}[2]{%
+  \begingroup
+  \edef\MilnorTargetCommand{\endgroup
+    \noexpand\phantomsection
+    \noexpand\label{#1:\MilnorLeadingNumber#2（\@nil}}%
+  \MilnorTargetCommand}
+\makeatother
+\newcommand{\MilnorSectionNumber}{0}
+\newcommand{\Definition}[1]{\MilnorHeading{定义}{#1}\MilnorAutoTarget{def}{#1}}
+\newcommand{\Theorem}[1]{\MilnorHeading{定理}{#1}\MilnorAutoTarget{thm}{#1}}
+\newcommand{\Lemma}[1]{\MilnorHeading{引理}{#1}\MilnorAutoTarget{lem}{#1}}
+\newcommand{\Corollary}[1]{\MilnorHeading{推论}{#1}\MilnorAutoTarget{cor}{#1}}
+\newcommand{\Proposition}[1]{\MilnorHeading{命题}{#1}\MilnorAutoTarget{prop}{#1}}
+\newcommand{\RemarkLabel}[1]{\MilnorHeading{注记}{#1}}
+\newcommand{\Remark}{\par\medskip\noindent\textbf{注记.}\quad}
+\newcommand{\Proof}{\par\medskip\noindent\textit{证明.}\quad}
+\newcommand{\EndProof}{\hfill$\square$\par}
+
+\newcommand{\OriginalSection}[2]{%
+  \clearpage
+  \gdef\MilnorSectionNumber{#1}%
+  \phantomsection\label{sec:#1}%
+  \chapter*{第 #1 节\texorpdfstring{\quad}{ }#2}%
+  \addcontentsline{toc}{chapter}{第 #1 节\texorpdfstring{\quad}{ }#2}%
+  \markboth{第 #1 节\quad #2}{第 #1 节\quad #2}}
+
+\newcommand{\SecRef}[1]{\hyperref[sec:#1]{第~#1~节}}
+\newcommand{\DefRef}[1]{\hyperref[def:#1]{定义~#1}}
+\newcommand{\ThmRef}[1]{\hyperref[thm:#1]{定理~#1}}
+\newcommand{\LemRef}[1]{\hyperref[lem:#1]{引理~#1}}
+\newcommand{\CorRef}[1]{\hyperref[cor:#1]{推论~#1}}
+\newcommand{\PropRef}[1]{\hyperref[prop:#1]{命题~#1}}
+\newcommand{\RemRef}[2]{\hyperref[#1]{#2}}
+\newcommand{\NamedRef}[2]{\hyperref[#1]{#2}}
+\newcommand{\FigRef}[1]{\hyperref[fig:#1]{图~#1}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\Hom}{\operatorname{Hom}}
+% 术语只在正文第一次出现时调用 \Term；顺序编号供术语表反向链接。
+\newcounter{termoccurrence}
+\newcommand{\Term}[2]{%
+  \refstepcounter{termoccurrence}%
+  \label{term:first:\arabic{termoccurrence}}%
+  #1（\textup{#2}）}
+\newcounter{glossaryentry}
+\newcommand{\GlossaryFirstPage}{%
+  \stepcounter{glossaryentry}%
+  \edef\GlossaryTermLabel{term:first:\arabic{glossaryentry}}%
+  \hyperref[\GlossaryTermLabel]{\getpagerefnumber{\GlossaryTermLabel}}}
+\newcommand{\TranslatedPageRange}[2]{%
+  \ifnum\getpagerefnumber{#1}=\getpagerefnumber{#2}%
+    第~\pageref{#1}~页%
+  \else
+    第~\pageref{#1}--\pageref{#2}~页%
+  \fi}
+\newcommand{\TranslatedPage}[1]{第~\pageref{#1}~页}
+\newcommand{\OriginalPageNote}[2]{%
+  \footnote{译注：原文指向第~#1~页，在本译本中为\TranslatedPage{#2}。}}
+\newcommand{\OriginalPageRangeNote}[3]{%
+  \footnote{译注：原文指向第~#1~页，在本译本中为\TranslatedPageRange{#2}{#3}。}}
+\input{chapters/tikzfigures}
+
+\date{\today}
+
+\begin{document}
+
+\input{chapters/titlepage}
+\input{chapters/copyright}
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+\input{chapters/translation-notes}
+\input{chapters/introduction}
+\input{chapters/section1}
+\input{chapters/section2}
+\input{chapters/section3}
+\input{chapters/section4}
+\input{chapters/section5}
+\input{chapters/section6}
+\input{chapters/section7}
+\input{chapters/section8}
+\input{chapters/section9}
+\input{chapters/references}
+\input{chapters/glossary}
+
+\end{document}

@@ -1,0 +1,305 @@
+\OriginalSection{8}{指标为 0 和 1 的临界点的消去}
+
+考虑光滑三元组 $(W^n;V,V')$。下文总假设它带有自指标 Morse 函数 $f$（见\DefRef{4.9}）及其类梯度向量场 $\xi$。记
+\[
+  W_k=f^{-1}[-\tfrac12,k+\tfrac12],
+  \qquad k=0,1,\ldots,n,
+\]
+以及
+\[
+  V_{k+}=f^{-1}(k+\tfrac12).
+\]
+
+\Theorem{8.1}
+
+\noindent\textit{指标 0.}\quad 若 $H_0(W,V)=0$，则所有指标为 0 的临界点都可同等量的指标为 1 的临界点相消。
+
+\noindent\textit{指标 1.}\quad 设 $W,V$ 单连通且 $n\geq5$。若没有指标为 0 的临界点，则可为每个指标为 1 的临界点添入一对\Term{辅助临界点}{auxiliary critical point}，其指标分别为 2 和 3，再把原指标为 1 的临界点同辅助的指标 2 临界点相消。（换言之，以等量的指标 3 临界点替代指标 1 临界点。）
+
+\Remark \ThmRef{7.8} 中消去指标 $2\leq\lambda\leq n-2$ 临界点的方法，在指标 1 处失效，原因如下。第二消去\ThmRef{6.4} 在 $\lambda=1,n\geq6$ 时仍成立（见\TranslatedPage{rem:6-4-2}）\OriginalPageNote{70}{rem:6-4-2}；但我们需要应用它时，多个指标 1 临界点的存在会破坏\ThmRef{6.4} 所要求的单连通性。
+
+\par\medskip\noindent\textit{指标 0 的证明.}\quad 若在 $V_{0+}$ 中总能找到只相交一点的右 $(n-1)$-球面 $S_R^{n-1}$ 与左 $0$-球面 $S_L^0$，则由\NamedRef{stmt:4.2}{4.2}、第一消去\ThmRef{5.4} 和有限归纳，结论即得（比较下文指标 1 的证明）。
+
+取 $\Z_2=\Z/2\Z$ 系数的同调。因
+\[
+  H_0(W,V;\Z_2)=0,
+\]
+\ThmRef{7.4} 表明
+\[
+  H_1(W_1,W_0;\Z_2)
+  \xrightarrow{\partial}
+  H_0(W_0,V;\Z_2)
+\]
+满射。显然，$\partial$ 的矩阵就是 $V_{0+}$ 中右 $(n-1)$-球面与左 $0$-球面的相交数模 2 所成的矩阵。因此，对任一 $S_R^{n-1}$，至少有一个 $S_L^0$ 满足
+\[
+  S_R^{n-1}\mathbin{\boldsymbol\cdot}S_L^0
+  \not\equiv0\pmod2.
+\]
+这说明 $S_R^{n-1}\cap S_L^0$ 含奇数个点；而左 $0$-球面只有两个点，所以交点只能恰有一个。指标 0 的情形得证。
+\EndProof
+
+为构造辅助临界点，需要下述引理。
+
+\Lemma{8.2}给定 $0\leq\lambda<n$，存在光滑映射 $f:\R^n\to\R$，在某个紧集之外满足
+\[
+  f(x_1,\ldots,x_n)=x_1,
+\]
+并且恰有两个非退化临界点 $p_1,p_2$，其指标分别为 $\lambda,\lambda+1$，且 $f(p_1)<f(p_2)$。
+
+\Proof 把 $\R^n$ 视为
+\[
+  \R\times\R^\lambda\times\R^{n-\lambda-1},
+\]
+一般点记为 $(x,y,z)$，并用 $y^2,z^2$ 表示相应向量长度的平方。选取有紧支集的函数 $s(x)$，使 $x+s(x)$ 恰有两个非退化临界点 $x_0,x_1$。先考虑 $\R^n$ 上的函数
+\[
+  x+s(x)-y^2+z^2.
+\]
+它恰有两个非退化临界点 $(x_0,0,0)$ 和 $(x_1,0,0)$，指标正是 $\lambda,\lambda+1$。
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[x=1.15cm,y=1cm,>=Stealth]
+    \draw[->] (-2.5,0)--(2.7,0) node[right] {$x$};
+    \draw[->] (0,-1.45)--(0,2.35) node[above] {$x+s(x)$};
+    \draw[thick] (-2.05,-1.25)
+      .. controls (-1.55,-.85) and (-1.42,1.2) .. (-.62,1.2)
+      .. controls (-.05,1.2) and (.18,-.8) .. (.92,-.8)
+      .. controls (1.52,-.8) and (1.55,.95) .. (2.35,2.05);
+    \draw[dashed] (-.62,0)--(-.62,1.2);
+    \draw[dashed] (.92,0)--(.92,-.8);
+    \node[below] at (-.62,0) {$x_0$};
+    \node[above] at (.92,0) {$x_1$};
+  \end{tikzpicture}
+  \par\smallskip\phantomsection\label{fig:8.1}\textbf{图 8.1}
+\end{figure}
+
+现在让此函数在远处逐渐收束为 $x$。选取三个取非负值且有紧支集的光滑函数 $\alpha,\beta,\gamma:\R\to\R_+$，使
+\begin{enumerate}[label=(\arabic*)]
+  \item 当 $|t|\leq1$ 时，$\alpha(t)=1$；
+  \item 对所有 $t$，$\displaystyle |\alpha'(t)|<1/\max_x|s(x)|$；
+  \item 只要 $\alpha(t)\neq0$，便有 $\beta(t)=1$；
+  \item 只要 $s'(x)\neq0$，便有 $\gamma(x)=1$；
+  \item $\displaystyle |\gamma'(x)|<1/\max_t(t\beta(t))$。
+\end{enumerate}
+这里撇号表示导数。
+
+\begin{figure}[htbp]
+  \centering
+  % 两幅函数图改为上下两行，给曲线和标记留下充分空间。
+  \begin{tikzpicture}[x=1.65cm,y=1.10cm,>=Stealth,line cap=round,line join=round]
+    \draw[->] (-.42,0)--(4.12,0) node[right] {$t$};
+    \draw[->] (0,-.22)--(0,2.14);
+    \draw[thick] (0,1.62)--(1.42,1.62)
+      .. controls (1.92,1.62) and (2.02,.20) .. (2.85,0)--(3.72,0);
+    \draw[thick] (0,1.62)
+      .. controls (.62,1.62) and (1.02,.74) .. (1.82,.30)
+      .. controls (2.45,-.02) and (3.18,0) .. (3.70,0);
+    \node[above=6pt] at (1.18,1.62) {图像 $\beta$};
+    \node[anchor=north] at (1.55,-.10) {图像 $\alpha$};
+    \node[anchor=east,fill=white,inner xsep=2.5pt,inner ysep=1pt]
+      at (-.12,1.62) {$1$};
+  \end{tikzpicture}
+
+  \par\medskip
+
+  \begin{tikzpicture}[x=1.42cm,y=1.02cm,>=Stealth,line cap=round,line join=round]
+    \draw[->] (-2.72,0)--(2.92,0) node[right] {$x$};
+    \draw[->] (0,-1.52)--(0,2.14);
+    \draw[thick] (-2.38,.16)
+      .. controls (-1.90,.55) and (-1.58,1.62) .. (-.95,1.62)
+      --(.88,1.62)
+      .. controls (1.42,1.62) and (1.82,.55) .. (2.38,.16);
+    \draw[thick] (-2.34,0)
+      .. controls (-1.78,0) and (-1.55,1.30) .. (-1.03,1.35)
+      .. controls (-.50,1.40) and (-.34,.10) .. (0,0)
+      .. controls (.38,-.18) and (.42,-1.14) .. (.88,-1.18)
+      .. controls (1.28,-1.20) and (1.22,-.32) .. (1.62,-.18)
+      .. controls (1.94,0) and (2.18,0) .. (2.42,0);
+    \draw (1,4pt)--(1,-4pt) node[below=5pt] {$1$};
+    \node[above=6pt] at (.74,1.62) {图像 $\gamma$};
+    \node[anchor=east] (slabel) at (-1.62,-.42) {图像 $s$};
+    \draw[->,thin] (slabel.north east)--(-1.46,.36);
+    \node[left=5pt] at (0,1.62) {$1$};
+  \end{tikzpicture}
+  \par\smallskip\phantomsection\label{fig:8.2}\textbf{图 8.2}
+\end{figure}
+
+定义
+\[
+  f=x+s(x)\alpha(y^2+z^2)
+  +\gamma(x)(-y^2+z^2)\beta(y^2+z^2).
+\]
+注意：
+\begin{enumerate}[label=(\alph*)]
+  \item $f-x$ 有紧支集；
+  \item 在 $\alpha=1$（从而 $\beta=1$）且 $\gamma=1$ 的区域内部，$f$ 就是上面的旧函数，因而保留原有的两个临界点；
+  \item
+  \[
+    \frac{\partial f}{\partial x}
+    =1+s'(x)\alpha(y^2+z^2)
+     +\gamma'(x)(-y^2+z^2)\beta(y^2+z^2).
+  \]
+  由 (5)，第三项的绝对值小于 1。因此，若 $s'(x)=0$ 或 $\alpha(y^2+z^2)=0$，则 $\partial f/\partial x\neq0$。所以，只需在 $s'(x)\neq0$（从而 $\gamma=1$）且 $\alpha(y^2+z^2)\neq0$（从而 $\beta=1$）的区域寻找临界点；
+  \item 在 $\gamma=\beta=1$ 的区域，
+  \[
+  \operatorname{grad}f=
+  \begin{pmatrix}
+    1+s'(x)\alpha(y^2+z^2)\\
+    2y\bigl(s(x)\alpha'(y^2+z^2)-1\bigr)\\
+    2z\bigl(s(x)\alpha'(y^2+z^2)+1\bigr)
+  \end{pmatrix}.
+  \]
+  由 (2)，$s(x)\alpha'(y^2+z^2)\pm1\neq0$。故梯度消失必有 $y=z=0$，于是 $\alpha=1$；这正是 (b) 已讨论的情形。
+\end{enumerate}
+引理得证。
+\EndProof
+
+\par\medskip\noindent\textit{\ThmRef{8.1} 指标 1 情形的证明.}\quad 所给情形可示意为
+\begin{center}
+  \FigEightIndexOneSchematic
+\end{center}
+证明的第一步是：对临界点 $p$ 在 $V_{1+}$ 中的任一右 $(n-2)$-球面，构造一个合适的 $1$-球面，作为将同 $p$ 相消的指标 2 临界点的左球面。
+
+\Lemma{8.3}若 $S_R^{n-2}$ 是 $V_{1+}$ 中的一个右球面，则 $V_{1+}$ 中存在嵌入的 $1$-球面，它与 $S_R^{n-2}$ 横截相交一次，并避开其余右球面。
+
+\Proof 显然可在 $V_{1+}$ 中取一个小嵌入 $1$-圆盘 $D$，使它在中点 $q_0$ 同 $S_R^{n-2}$ 横截相交，并且不再与任何右球面相交。沿 $\xi$ 的轨线把 $D$ 的两个端点向左移到 $V$ 中。由于 $V$ 连通且
+\[
+  \dim V=n-1\geq2,
+\]
+可在 $V$ 中用一条避开左 $0$-球面的光滑道路连接这两点。再把这条道路向右移回 $V_{1+}$，得到一条连接 $D$ 两端且避开所有右球面的光滑道路。于是容易构造光滑映射
+\[
+  g:S^1\longrightarrow V_{1+}
+\]
+满足：
+\begin{enumerate}[label=(\alph*)]
+  \item $g^{-1}(q_0)$ 是一点 $a\in S^1$，且 $g$ 把 $a$ 的某个闭邻域 $A$ 光滑嵌入到 $D$ 中 $q_0$ 的一个邻域上；
+  \item $g(S^1\setminus\{a\})$ 不与任何右 $(n-2)$-球面相交。
+\end{enumerate}
+由于 $\dim V=n-1\geq3$，Whitney 定理（\LemRef{6.12}）给出具有上述性质的光滑嵌入。
+\EndProof
+
+下面还要用到\LemRef{6.11}、\LemRef{6.12} 的一个推论。
+
+\Theorem{8.4}光滑 $m$-流形到光滑 $n$-流形 $N^n$ 的两个光滑嵌入若同伦，且
+\[
+  n\geq2m+3,
+\]
+则它们光滑同痕。
+
+\Remark 事实上，只需 $n\geq2m+2$，\ThmRef{8.4} 仍成立（见~\cite{ref10}）。
+
+\par\medskip\noindent\textit{\ThmRef{8.1} 指标 1 情形的证明（续）.}\quad 注意 $V_{2+}$ 总是单连通。事实上，包含映射 $V_{2+}\subset W$ 可分解为一串包含映射，交替对应于添附胞腔和同伦等价（见\CorRef{3.15}）。向左时添附的胞腔维数为 $n-2,n-1$，向右时则为 $3,4,\ldots$。所以，$W$ 连通蕴含 $V_{2+}$ 连通，并且
+\[
+  \pi_1(V_{2+})=\pi_1(W)=1
+\]
+（参见注记 1，见\TranslatedPage{rem:6-4-1}）。\OriginalPageNote{70}{rem:6-4-1}
+
+任取一个指标 1 临界点 $p$，依\LemRef{8.3} 在 $V_{1+}$ 中构造理想的 $1$-球面 $S$。必要时在 $V_{2+}$ 右侧调整 $\xi$，可设 $S$ 不与 $V_{1+}$ 中的任何左 $1$-球面相交（见\LemRef{4.6}、\LemRef{4.7}）。于是可把 $S$ 向右移到 $V_{2+}$ 中的 $1$-球面 $S_1$。
+
+在向 $V_{2+}$ 右侧延伸的领状领域中，可选坐标函数 $x_1,\ldots,x_n$，把某个开集 $U$ 嵌入 $\R^n$，并使
+\[
+  f|_U=x_n
+\]
+（比较\LemRef{2.11} 的证明）。应用\LemRef{8.2}，在 $U$ 的一个紧子集上修改 $f$，添入一对辅助临界点 $q,r$，使
+\[
+  f(q)<f(r),
+\]
+且二者指标分别为 2、3（见\FigRef{8.3}）。
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[x=1.48cm,y=1.04cm,>=Stealth,
+      line cap=round,line join=round]
+    % 四条有名水平集和 V_{2+},V_{3+} 之间的一条无名水平集。
+    \foreach \x/\lab in {-4/$V_{0+}$/,-2/$V_{1+}$/,
+                           0/$V_{2+}$/,4/$V_{3+}$/}{
+      \draw[thick] (\x,-1.72)
+        .. controls (\x-.16,-1.06) and (\x+.14,-.48) .. (\x,0)
+        .. controls (\x-.15,.56) and (\x+.15,1.10) .. (\x,1.72);
+      \node[above=7pt] at (\x,1.72) {\lab};
+    }
+    \draw[thick] (2,-1.72)
+      .. controls (1.84,-1.06) and (2.14,-.48) .. (2,0)
+      .. controls (1.85,.56) and (2.15,1.10) .. (2,1.72);
+
+    % V_{0+} 与 V_{1+} 之间：两条线穿过临界点 p 横截相交。
+    \foreach \y in {1.24,.64,.08,-1.20}
+      \fill (-3,\y) circle (1.45pt);
+    \coordinate (p) at (-3,-.45);
+    \draw[thick] (-3.98,-.12)
+      .. controls (-3.58,-.14) and (-3.25,-.30) .. (p)
+      .. controls (-2.73,-.58) and (-2.34,-.63) .. (-2,-.62);
+    \draw[thick] (-4.03,-1.05)
+      .. controls (-3.57,-.98) and (-3.25,-.67) .. (p)
+      .. controls (-2.72,-.22) and (-2.35,-.15) .. (-1.976,-.14);
+    \fill (p) circle (1.75pt);
+    \node[below=4pt] at (p) {$p$};
+
+    % V_{1+} 与 V_{2+} 之间：平凡配变，画成带两个端截面的柱体。
+    \draw[thick] (-2,-.42)
+      .. controls (-1.48,-.36) and (-.52,-.36) .. (0,-.42);
+    \draw[thick] (-2,-.82)
+      .. controls (-1.48,-.88) and (-.52,-.88) .. (0,-.82);
+    \draw[thick,fill=white] (-2,-.62) ellipse (.12 and .28);
+    \draw[thick,fill=white] (0,-.62) ellipse (.12 and .28);
+    % 在端截面之上连续重绘整条右下支，使其穿入 S_2 并终止于中心。
+    \draw[thick] (p)
+      .. controls (-2.73,-.58) and (-2.34,-.63) .. (-2,-.62);
+    \foreach \y in {1.24,.64,.08,-1.20}
+      \fill (-1,\y) circle (1.45pt);
+
+    % V_{2+} 与无名线之间：辅助临界点 q,r 处各有一个小叉。
+    \coordinate (q) at (.58,.56);
+    \coordinate (r) at (1.35,-.30);
+    \draw[thick] (.02,.84)
+      .. controls (.29,.82) and (.45,.69) .. (q)
+      .. controls (.73,.39) and (.85,.31) .. (.98,.28);
+    \draw[thick] (-.04,.27)
+      .. controls (.30,.30) and (.45,.41) .. (q)
+      .. controls (.73,.73) and (.85,.80) .. (.99,.82);
+    \draw[thick] (.92,.02)
+      .. controls (1.08,-.02) and (1.22,-.15) .. (r)
+      .. controls (1.56,-.50) and (1.79,-.57) .. (2.035,-.58);
+    \draw[thick] (.94,-.59)
+      .. controls (1.09,-.55) and (1.22,-.43) .. (r)
+      .. controls (1.56,-.10) and (1.78,-.02) .. (2,.01);
+    \fill (q) circle (1.75pt);
+    \fill (r) circle (1.75pt);
+    \node[above=8pt] at (q) {$q$};
+    \node[below=8pt] at (r) {$r$};
+
+    % 无名线与 V_{3+} 之间：四个未参与形变的普通临界点。
+    \foreach \y in {1.25,.61,-.24,-1.08}
+      \fill (3,\y) circle (1.45pt);
+
+    % 左、右端截面及指标标记。
+    \node (s2label) at (-2.42,-1.52) {$S_2$};
+    \node (s1label) at (.42,-1.52) {$S_1$};
+    \draw[->,thin] (s2label.north east)--(-2.085,-.818);
+    \draw[->,thin] (s1label.north west)--(.085,-.818);
+    \node at (-4.58,-2.10) {指标};
+    \node at (-3,-2.10) {$1$};
+    \node at (-1,-2.10) {$2$};
+    \node at (3,-2.10) {$3$};
+    \path[use as bounding box] (-4.74,-2.36) rectangle (4.38,2.07);
+  \end{tikzpicture}
+  \par\smallskip\phantomsection\label{fig:8.3}\textbf{图 8.3}
+\end{figure}
+
+令 $S_2$ 为 $q$ 在 $V_{2+}$ 中的左 $1$-球面。因 $V_{2+}$ 单连通，\ThmRef{5.8}、\ThmRef{8.4} 表明，恒等映射 $V_{2+}\to V_{2+}$ 有一个同痕把 $S_2$ 映到 $S_1$。所以在 $V_{2+}$ 右侧调整 $\xi$ 后（见\LemRef{4.6}），可使 $q$ 在 $V_{2+}$ 中的左球面变为 $S_1$。于是 $q$ 在 $V_{1+}$ 中的左球面就是 $S$；依构造，它与 $p$ 的右球面恰在一点横截相交。
+
+保持 $\xi$ 不变，应用\NamedRef{stmt:4.2}{4.2}分别在
+\[
+  f^{-1}[\tfrac12,\tfrac32]
+  \quad\text{和}\quad
+  f^{-1}[\tfrac32,k],
+  \qquad k=\frac{f(q)+f(r)}2,
+\]
+的内部修改 $f$：增大 $p$ 的临界值，减小 $q$ 的临界值，使某个 $\delta>0$ 满足
+\[
+  1+\delta<f(p)<\tfrac32<f(q)<2-\delta.
+\]
+现在应用第一消去定理，在 $f^{-1}[1+\delta,2-\delta]$ 上修改 $f,\xi$，消去 $p,q$。最后再用\NamedRef{stmt:4.2}{4.2}把 $r$ 的临界值移到 3。
+
+这样便以 $r$ 替代了 $p$。重复此过程，直至所有指标 1 临界点都被消去。\ThmRef{8.1} 得证。
+\EndProof

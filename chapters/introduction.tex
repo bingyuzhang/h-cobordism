@@ -1,0 +1,20 @@
+\OriginalSection{0}{导言}
+
+这些讲义记录了 John Milnor 于 1963 年 10 月和 11 月在 Princeton University \Term{微分拓扑}{differential topology}讨论班所作的讲演。
+
+设 $W$ 是一个紧\Term{光滑流形}{smooth manifold}，具有两个\Term{边界分支}{boundary component} $V$ 与 $V'$，并且 $V$ 和 $V'$ 都是 $W$ 的\Term{形变收缩核}{deformation retract}。于是称 $W$ 为 $V$ 与 $V'$ 之间的一个 \Term{$h$-配边}{$h$-cobordism}。$h$-配边定理断言：如果再假定 $V$（从而 $V'$）\Term{单连通}{simply connected}且维数大于 $4$，那么 $W$ \Term{微分同胚}{diffeomorphic}于 $V\times[0,1]$，因而 $V$ 微分同胚于 $V'$。此定理的证明由 Stephen Smale 给出~\cite{ref06}。它有许多重要应用，其中包括证明维数大于 $4$ 时的\Term{广义 Poincaré 猜想}{generalized Poincaré conjecture}；\SecRef{9}将给出若干应用。不过，我们的主要任务是相当详细地描述该定理的一个证明。
+
+下面粗略勾勒证明思路。首先为 $W$ 构造一个 \Term{Morse 函数}{Morse function}（见\DefRef{2.1}），即一个光滑函数
+\[
+  f:W\longrightarrow[0,1],\qquad V=f^{-1}(0),\quad V'=f^{-1}(1),
+\]
+使 $f$ 只有有限多个\Term{非退化临界点}{nondegenerate critical point}，且均位于 $W$ 内部。证明的出发点是\ThmRef{3.4}中的如下观察：$W$ 微分同胚于 $V\times[0,1]$，当且仅当 $W$ 上存在一个没有\Term{临界点}{critical point}的上述 Morse 函数。因此，第~4--8 节将在定理的假设下逐步简化 $f$，直至消去全部临界点。\SecRef{4}重排临界点的高度，使 $f(p)$ 随\Term{指标}{index}递增。\SecRef{5}给出一对指标分别为 $\lambda$ 与 $\lambda+1$ 的临界点 $p,q$ 能够抵消的几何条件；在单连通的假设下，\SecRef{6}把它们化为代数条件。\SecRef{8}先消去指标为 $0$ 或 $n$ 的临界点，再把指标为 $1$ 和 $n-1$ 的临界点分别换成等量的指标为 $3$ 和 $n-3$ 的临界点。\SecRef{7}证明：当 $2\leq\lambda\leq n-2$ 时，可以重排同指标临界点（\ThmRef{7.6}），使其能够反复应用\SecRef{6}的结果而成对抵消。证明至此完成。
+
+这里应作两项致谢。在\SecRef{5}中，我们的论证受到 M. Morse 近期思想~\cite{ref11,ref32} 的启发：改变的是 $f$ 的一个\Term{类梯度向量场}{gradient-like vector field}，而不是像 Smale 的原始证明那样使用\Term{柄体}{handlebody}。事实上，这些讲义从未明确提及\Term{柄}{handle}或柄体。在\SecRef{6}中，我们吸收了 Dennis Barden 的博士论文~\cite{ref33} 中的一项改进，即见\TranslatedPageRange{barden:page72}{barden:page73}对\ThmRef{6.4} 在 $\lambda=2$ 情形下的论证，以及见\TranslatedPageRange{barden:thm66-start}{barden:thm66-end}\ThmRef{6.6} 在 $r=2$ 情形下的陈述。\footnote{译注：原文指向第~72--73 页，在本译本中为\TranslatedPageRange{barden:page72}{barden:page73}；\ThmRef{6.6}的陈述见\TranslatedPageRange{barden:thm66-start}{barden:thm66-end}。}
+
+$h$-配边定理可以沿若干方向推广。尚无人成功去掉 $V$ 与 $V'$ 的维数大于 $4$ 这一限制（见\TranslatedPage{sec9:concluding-remarks}）。\OriginalPageNote{113}{sec9:concluding-remarks}若去掉 $V$（从而 $V'$）单连通的限制，定理将不再成立（见 Milnor~\cite{ref34}）。不过，如果同时假定包含映射 $V\hookrightarrow W$（或 $V'\hookrightarrow W$）是 J. H. C. Whitehead 意义下的\Term{单同伦等价}{simple homotopy equivalence}，结论仍然成立。这个推广称为\Term{$s$-配边定理}{$s$-cobordism theorem}，由 Mazur~\cite{ref35}、Barden~\cite{ref33} 与 Stallings 得到。关于这一结果及进一步的推广，尤其可参见 Wall~\cite{ref36}。最后还要指出，对于\Term{分片线性流形}{piecewise linear manifold}也有类似的 $h$-配边定理和 $s$-配边定理。
+
+\begin{flushright}
+J. W. M.\\
+Princeton University，1963 年 11 月
+\end{flushright}
