@@ -4,15 +4,15 @@
 \[
   \nu,\tau_1,\ldots,\tau_{n-1}
 \]
-在 $T_xW$ 中为正向，则称前一标架为正向；这里 $\nu$ 是 $x$ 处任一切于 $W$、不切于 $X$ 且指向 $W$ 外部的向量（即 $X$ 的外法向量）。
+在 $T_xW$ 中为正向，则称前一标架为正向；这里 $\nu$ 是 $x$ 处任一切于 $W$、不切于 $X$ 且指向 $W$ 外部的向量（即 $X$ 的\Term{外法向量}{outward normal vector}）。
 
-也可等价地指定 $[X]\in H_{n-1}(X)$ 为 $X$ 的诱导\Term{定向生成元}{orientation generator}：在偶对 $(W,X)$ 的\Term{正合序列}{exact sequence}中，$[X]$ 是 $W$ 的定向生成元 $[W]\in H_n(W,X)$ 在\Term{边界同态}{boundary homomorphism}
+也可等价地指定 $[X]\in H_{n-1}(X)$ 为 $X$ 的诱导定向生成元：在偶对 $(W,X)$ 的\Term{正合序列}{exact sequence}中，$[X]$ 是 $W$ 的定向生成元 $[W]\in H_n(W,X)$ 在\Term{边界同态}{boundary homomorphism}
 \[
   \partial:H_n(W,X)\longrightarrow H_{n-1}(X)
 \]
 下的像。
 
-\Remark 紧流形 $M^n$ 的定向既可用切丛的有序标架指定，也可用生成元 $[M]\in H_n(M;\Z)$ 指定；二者之间有自然的一一对应（参见 Milnor~\cite[p.~21]{ref12}）。在此对应下，上述两种 $\partial W$ 定向彼此等价。下文一律采用第二种方式，证明从略。
+\Remark 紧流形 $M^n$ 的定向既可用\Term{切丛}{tangent bundle}的有序标架指定，也可用生成元 $[M]\in H_n(M;\Z)$ 指定；二者之间有自然的一一对应（参见 Milnor~\cite[p.~21]{ref19}）。在此对应下，上述两种 $\partial W$ 定向彼此等价。下文一律采用第二种方式，证明从略。
 
 现设有 $n$ 维三元组
 \[
@@ -113,11 +113,11 @@
 \[
 \begin{tikzcd}[column sep=4.0em,row sep=2.15em]
   & H_\lambda(M)
-      \arrow[d,"\iota_*"']
-      \arrow[rrd,"{\times(S_R\mathbin{\boldsymbol\cdot}M)}"]
+      \arrow[d]
+      \arrow[rrd,"h_0","{\times(S_R\mathbin{\boldsymbol\cdot}M)}"']
       \arrow[ldddd,"h"']
   && {} \\
-  {} & H_\lambda(V') \arrow[d] \arrow[rr,"h_0"']
+  {} & H_\lambda(V') \arrow[d,"\iota_*"'] \arrow[rr]
   && H_\lambda(V',V'\setminus S_R) \arrow[d,"h_1"] \\
   {} & H_\lambda(W) \arrow[ldd]
   && H_\lambda\bigl(V\cup D_L,V\cup(D_L\setminus\{q\})\bigr)
@@ -174,11 +174,11 @@
 
 任给由三元组 $(W;V,V')$ 表示的配边 $c$，由\ThmRef{4.8} 可将其分解为
 \[
-  c=c_0\circ c_1\circ\cdots\circ c_n,
+  c=c_0c_1\circ\cdots\circ c_n,
 \]
 使 $c_\lambda$ 有一个 Morse 函数，其临界点全在同一水平集且指标均为 $\lambda$。令子流形 $W_\lambda\subset W$ 表示
 \[
-  c_0\circ c_1\circ\cdots\circ c_\lambda,
+  c_0c_1\circ\cdots\circ c_\lambda,
   \qquad \lambda=0,1,\ldots,n,
 \]
 并置 $W_{-1}=V$，于是
@@ -225,7 +225,7 @@
 \[
   H_\lambda(W_{\lambda+1},W_{\lambda-2})\cong H_\lambda(W,V).
 \]
-最后一个同构留给读者验证（见 Milnor~\cite[p.~9]{ref12}），从而得到所需结论。
+最后一个同构留给读者验证（见 Milnor~\cite[p.~9]{ref19}），从而得到所需结论。
 \EndProof
 
 \Theorem{7.5（\Term{Poincaré 对偶}{Poincaré duality}）}若 $(W;V,V')$ 是 $n$ 维光滑三元组，且 $W$ 已定向，则对每个 $\lambda$ 都有
@@ -235,7 +235,7 @@
 
 \Proof 对上述 Morse 函数 $f$，令
 \[
-  c=c_0\circ c_1\circ\cdots\circ c_n,
+  c=c_0c_1\circ\cdots\circ c_n,
   \qquad C_*=\{C_\lambda,\partial\},
 \]
 并固定 $f$ 的一个类梯度向量场 $\xi$。给左圆盘选定定向后，$c_\lambda$ 的左圆盘构成
@@ -246,7 +246,7 @@
 
 类似地，令 $W'_\mu\subset W$ 表示
 \[
-  c_{n-\mu}\circ c_{n-\mu+1}\circ\cdots\circ c_n,
+  c_{n-\mu}c_{n-\mu+1}\circ\cdots\circ c_n,
   \qquad \mu=0,1,\ldots,n,
 \]
 并置 $W'_{-1}=V'$。定义
@@ -286,7 +286,7 @@
   H_\lambda(C_*)\cong H^{n-\lambda}(C'^*).
 \]
 
-由\ThmRef{7.4}，
+由\ThmRef{7.4}\footnote{译注：原文此处误引为 7.1；计算同调的结果是定理 7.4。}，
 \[
   H_\lambda(C_*)\cong H_\lambda(W,V),
   \qquad
@@ -296,10 +296,12 @@
 \[
   H^\mu(C'^*)\cong H^\mu(W,V'),
 \]
-因为两个链复形的同调若同构，其对偶上链复形的上同调也同构；这是\Term{万有系数定理}{universal coefficient theorem}的直接推论。合并以上各式即得
+因为两个自由阿贝尔链复形的同调若同构，其对偶上链复形的上同调也同构；这是\Term{万有系数定理}{universal coefficient theorem}的直接推论。合并以上各式即得
+\begin{MilnorProofEnd}
 \[
   H_\lambda(W,V)\cong H^{n-\lambda}(W,V').\qedhere
 \]
+\end{MilnorProofEnd}
 
 \Theorem{7.6（\Term{基定理}{basis theorem}）}设 $n$ 维三元组 $(W;V,V')$ 有一个 Morse 函数 $f$，其临界点全在同一水平集且指标均为 $\lambda$；设 $\xi$ 是 $f$ 的类梯度向量场。假设
 \[
@@ -476,7 +478,7 @@ $A$ 上由同时垂直于 $A$ 和 $\mu$ 的正交归一 $(n-\lambda-1)$-标架�
 \]
 其余各点保持不动。由 $H_t$ 的性质 (1)，$F_t$ 良定义。
 
-由\CorRef{3.5}，在 $V_0$ 右侧取嵌入 $W$ 的积邻域 $V_0\times[0,1]$，使其中没有临界点且 $V_0\times\{0\}=V_0$。依\LemRef{4.6}，用同痕 $F_t$ 修改此邻域内的向量场 $\xi$，得到 $W$ 上的新向量场 $\xi'$。
+由\CorRef{3.5}，在 $V_0$ 右侧取嵌入 $W$ 的乘积邻域 $V_0\times[0,1]$，使其中没有临界点且 $V_0\times\{0\}=V_0$。依\LemRef{4.7}，用同痕 $F_t$ 修改此邻域内的向量场 $\xi$，得到 $W$ 上的新向量场 $\xi'$。
 
 由于 $\xi$ 与 $\xi'$ 在 $V_0$ 左侧，即 $f_1^{-1}((-\infty,t_0])$ 上相同，$\xi'$ 在 $V_0$ 中的右球面仍是
 \[
@@ -488,7 +490,7 @@ $p_1$ 的新左球面则为 $S'_L=F_1(S_L)$。由 $H_t$ 的性质 (2)，$S'_L$ �
 \[
   D_L(p_2),\ldots,D_L(p_k),
 \]
-因为 $\xi'=\xi$ 在积邻域 $V_0\times[0,1]$ 的左侧相同。二者在该邻域右侧也相同，所以新左圆盘 $D'_L(p_1)$ 与 $D_R(p_1)$ 只在 $p_1$ 处相交，且
+因为 $\xi'=\xi$ 在乘积邻域 $V_0\times[0,1]$ 的左侧相同。二者在该邻域右侧也相同，所以新左圆盘 $D'_L(p_1)$ 与 $D_R(p_1)$ 只在 $p_1$ 处相交，且
 \[
   D_R(p_1)\mathbin{\boldsymbol\cdot}D'_L(p_1)=+1.
 \]
@@ -512,11 +514,11 @@ $p_1$ 的新左球面则为 $S'_L=F_1(S_L)$。由 $H_t$ 的性质 (2)，$S'_L$ �
 \[
   H_*(W,V)=0.
 \]
-则 $(W;V,V')$ 是积配边。
+则 $(W;V,V')$ 是乘积配边。
 
 \Proof 记 $c=(W;V,V')$。由\ThmRef{4.8}，可分解
 \[
-  c=c_2\circ c_3\circ\cdots\circ c_{n-2},
+  c=c_2c_3\circ\cdots\circ c_{n-2},
 \]
 使 $c$ 有一个 Morse 函数 $f$，其在每个 $c_\lambda$ 上的限制，所有临界点都处于同一水平集且指标均为 $\lambda$。沿用\ThmRef{7.4} 的记号，得到自由阿贝尔群序列
 \[
@@ -549,13 +551,13 @@ $p_1$ 的新左球面则为 $S'_L=F_1(S_L)$。由 $H_t$ 的性质 (2)，$S'_L$ �
 令 $p,q$ 分别是 $c_\lambda,c_{\lambda+1}$ 中与 $z^\lambda_1,b^{\lambda+1}_1$ 对应的临界点。在 $p$ 的邻域内抬高 $f'$，在 $q$ 的邻域内降低 $f'$（见\ThmRef{4.1} 与\NamedRef{stmt:4.2}{4.2}），便得到分解
 \[
   c_\lambda\circ c_{\lambda+1}
-  =c'_\lambda\circ c_p\circ c_q\circ c'_{\lambda+1},
+  =c'_\lambda\circ c_pc_qc'_{\lambda+1},
 \]
-其中 $c_p,c_q$ 分别恰有一个临界点 $p,q$。令 $V_0$ 为二者之间的水平流形。容易验证，$c_p\circ c_q$ 及其两个端流形都单连通（比较注记 1，见\TranslatedPage{rem:6-4-1}）。\OriginalPageNote{70}{rem:6-4-1}
+其中 $c_p,c_q$ 分别恰有一个临界点 $p,q$。令 $V_0$ 为二者之间的水平流形。容易验证，$c_pc_q$ 及其两个端流形都单连通（比较注记 1，见\TranslatedPage{rem:6-4-1}）。\OriginalPageNote{70}{rem:6-4-1}
 
 由于
 \[
   \partial b^{\lambda+1}_1=z^\lambda_1,
 \]
-$V_0$ 中的球面 $S_R(p),S_L(q)$ 的相交数为 $+1$。所以第二消去定理（\ThmRef{6.4}）或\CorRef{6.5} 表明，$c_p\circ c_q$ 是积配边；还可在其内部修改 $f'$ 及类梯度向量场，使 $f'$ 在那里没有临界点。如此反复，即可消去全部临界点。最后由\ThmRef{3.4}，$(W;V,V')$ 是积配边。
+$V_0$ 中的球面 $S_R(p),S_L(q)$ 的相交数为 $+1$。所以第二消去定理（\ThmRef{6.4}）或\CorRef{6.5} 表明，$c_pc_q$ 是乘积配边；还可在其内部修改 $f'$ 及类梯度向量场，使 $f'$ 在那里没有临界点。如此反复，即可消去全部临界点。最后由\ThmRef{3.4}，$(W;V,V')$ 是乘积配边。
 \EndProof

@@ -1,6 +1,6 @@
 % !TeX program = xelatex
 % !TeX encoding = UTF-8
-\documentclass[UTF8,zihao=-4,openright]{ctexbook}
+\documentclass[UTF8,zihao=-4,openright,fontset=fandol]{ctexbook}
 
 \usepackage[a4paper,inner=27mm,outer=23mm,top=25mm,bottom=27mm,headheight=15pt]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -38,13 +38,15 @@
 \newcommand{\RemarkLabel}[1]{\MilnorHeading{注记}{#1}}
 \newcommand{\Remark}{\par\medskip\noindent\textbf{注记.}\quad}
 \newcommand{\Proof}{\par\medskip\noindent\textit{证明.}\quad}
-\newcommand{\EndProof}{\hfill$\square$\par}
+\newcommand{\EndProof}{\qed\par}
+% 为以行间公式结束的证明建立独立 QED 栈；兼容正文中的分段证明。
+\newenvironment{MilnorProofEnd}{\pushQED{\qed}}{\popQED}
 
 \newcommand{\OriginalSection}[2]{%
   \clearpage
   \gdef\MilnorSectionNumber{#1}%
-  \phantomsection\label{sec:#1}%
   \chapter*{第 #1 节\texorpdfstring{\quad}{ }#2}%
+  \phantomsection\label{sec:#1}%
   \addcontentsline{toc}{chapter}{第 #1 节\texorpdfstring{\quad}{ }#2}%
   \markboth{第 #1 节\quad #2}{第 #1 节\quad #2}}
 
@@ -76,18 +78,19 @@
   \hyperref[\GlossaryTermLabel]{\getpagerefnumber{\GlossaryTermLabel}}}
 \newcommand{\TranslatedPageRange}[2]{%
   \ifnum\getpagerefnumber{#1}=\getpagerefnumber{#2}%
-    第~\pageref{#1}~页%
+    \pageref{#1}~页%
   \else
-    第~\pageref{#1}--\pageref{#2}~页%
+    \pageref{#1}--\pageref{#2}~页%
   \fi}
-\newcommand{\TranslatedPage}[1]{第~\pageref{#1}~页}
+\newcommand{\TranslatedPage}[1]{\pageref{#1}~页}
 \newcommand{\OriginalPageNote}[2]{%
   \footnote{译注：原文指向第~#1~页，在本译本中为\TranslatedPage{#2}。}}
 \newcommand{\OriginalPageRangeNote}[3]{%
   \footnote{译注：原文指向第~#1~页，在本译本中为\TranslatedPageRange{#2}{#3}。}}
+  \newcommand{\Source}[1]{\noindent\textit{原书位置：#1。}\par}
 \input{chapters/tikzfigures}
 
-\date{\today}
+\date{2026年9月7日}
 
 \begin{document}
 
@@ -111,5 +114,8 @@
 \input{chapters/section9}
 \input{chapters/references}
 \input{chapters/glossary}
+\input{chapters/potential-mistakes}
+
+
 
 \end{document}

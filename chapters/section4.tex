@@ -6,9 +6,9 @@
   \qquad
   \operatorname{index}(c')=\operatorname{index}(d).
 \]
-此时称复合 $cc'$\emph{可以\Term{重排}{rearrangement}}。何时能够重排？
+此时称复合 $cc'$\emph{可以重排}。何时能够重排？
 
-回忆一下，表示 $cc'$ 的三元组 $(W;V,V')$ 上存在 Morse 函数
+回忆一下，表示 $cc'$ 的三元组 $(W;V_0,V_1)$ 上存在 Morse 函数
 $f:W\to[0,1]$，它恰有两个临界点 $p,p'$，满足
 \[
   \operatorname{index}(p)=\operatorname{index}(c),
@@ -20,7 +20,7 @@ $f:W\to[0,1]$，它恰有两个临界点 $p,p'$，满足
 给定 $f$ 的类梯度向量场 $\xi$，从 $p$ 出发的轨线与
 $V=f^{-1}(\tfrac12)$ 相交成一个嵌入球面 $S_R$，称为 $p$ 的\emph{右球面}；趋向 $p'$ 的轨线与 $V$ 相交成另一个嵌入球面 $S'_L$，称为 $p'$ 的\emph{左球面}。下述定理说明：若 $S_R\cap S'_L=\varnothing$，则 $cc'$ 可以重排。
 
-\Theorem{4.1（初步重排定理）}设三元组 $(W;V_0,V_1)$ 上的 Morse 函数 $f$ 恰有两个临界点 $p,p'$。若存在 $f$ 的类梯度向量场 $\xi$，使由经过 $p$ 的轨线上的点组成的紧集 $K_p$ 与相应的紧集 $K_{p'}$ 不交，则在 $f(W)=[0,1]$ 时，对任意 $a,a'\in(0,1)$，存在新的 Morse 函数 $g$，满足：
+\Theorem{4.1（初步重排定理）}设三元组 $(W;V_0,V_1)$ 上的 Morse 函数 $f$ 恰有两个临界点 $p,p'$。若存在 $f$ 的类梯度向量场 $\xi$，使由趋向 $p$ 或从 $p$ 出发的轨线上的点连同 $p$ 组成的紧集 $K_p$ 与相应的紧集 $K_{p'}$ 不交，则在 $f(W)=[0,1]$ 时，对任意 $a,a'\in(0,1)$，存在新的 Morse 函数 $g$，满足：
 \begin{enumerate}[label=(\alph*)]
   \item $\xi$ 仍是 $g$ 的类梯度向量场；
   \item $g$ 的临界点仍为 $p,p'$，且 $g(p)=a$、$g(p')=a'$；
@@ -185,13 +185,13 @@ $\psi(t,\vec x)$ 对一切 $t\in\R$ 都有定义（参见 Milnor~\cite[p.~10]{re
   \phantomsection\label{fig:4.4}图 4.4
 \end{center}
 
-对每个固定的 $q\in V$，曲线 $\phi(t,h_t(q))$ 是新向量场的积分曲线，它在 $V$ 中从
+对每个固定的 $q\in V$，曲线 $\phi(t,h_t(q))$ 给出新向量场的一条轨线，它在 $V$ 中从
 \[
   \phi(\tfrac12,h(q))=h(q)
 \]
-出发。于是，$p$ 在 $f^{-1}(a)$ 中的右球面 $\phi(\{a\}\times S_R)$ 沿新轨线被送到 $h(S_R)$；故 $h(S_R)$ 正是 $p$ 的新右球面。左球面 $S'_L$ 未变，所以新球面满足
+相交。于是，$p$ 在 $f^{-1}(a)$ 中的右球面 $\phi(\{a\}\times S_R)$ 沿新轨线被送到 $h(S_R)$；故 $h(S_R)$ 正是 $p$ 的新右球面。左球面 $S'_L$ 未变。记新右球面为 $\overline S_R=h(S_R)$，则
 \[
-  S_R\cap S'_L=h(S_R)\cap S'_L=\varnothing.
+  \overline S_R\cap S'_L=h(S_R)\cap S'_L=\varnothing.
 \]
 \ThmRef{4.4} 证毕。
 \EndProof
@@ -206,7 +206,7 @@ $\psi(t,\vec x)$ 对一切 $t\in\R$ 都有定义（参见 Milnor~\cite[p.~10]{re
 
 把 $f$ 换成 $-f$，可得右侧的对应结论：可在 $f^{-1}(b,c)$（$b<c$）内修改向量场。
 
-由\CorRef{2.12}，每个配边都可分解为有限多个初等配边的复合。结合初步重排\ThmRef{4.1}、\NamedRef{stmt:4.2}{4.2} 与\ThmRef{4.4}，便得：
+由\CorRef{2.10}\footnote{译注：原文此处误引为推论 2.11；原书对应结果的编号为 2.10。}，每个配边都可分解为有限多个初等配边的复合。结合初步重排\ThmRef{4.1}、\NamedRef{stmt:4.2}{4.2} 与\ThmRef{4.4}，便得：
 
 \Theorem{4.8（重排定理）}任一配边 $c$ 都可写成
 \[

@@ -1,6 +1,6 @@
 \OriginalSection{3}{初等配边}
 
-\Definition{3.1}设 $f$ 是三元组 $(W^n;V,V')$ 上的 Morse 函数。若 $W^n$ 上的向量场 $\xi$ 满足：
+\Definition{3.1}设 $f$ 是三元组 $(W^n;V,V')$ 上的 Morse 函数。若 $W^n$ 上的\Term{向量场}{vector field} $\xi$ 满足：
 \begin{enumerate}[label=(\Roman*)]
   \item 在 $f$ 的临界点集合之外处处有 $\xi(f)>0$；
   \item 对 $f$ 的每个临界点 $p$，在 $p$ 的某个邻域 $U$ 中存在坐标
@@ -39,7 +39,7 @@
 \[
   (W;V_0,V_1;\operatorname{Id}_0,\operatorname{Id}_1)
 \]
-视为同一对象，其中 $\operatorname{Id}_i:V_i\to V_i$ 是恒等映射。
+视为同一对象，其中 $\operatorname{Id}_i:V_i\to V_i$ 是\Term{恒等映射}{identity map}。
 
 \Definition{3.3}若三元组 $(W;V_0,V_1)$ 微分同胚于
 \[
@@ -68,9 +68,11 @@
   h:V_0\times[0,1]\longrightarrow W,\qquad h(y_0,s)=\psi_{y_0}(s),
 \]
 其逆映射是
+\begin{MilnorProofEnd}
 \[
   h^{-1}(y)=(\psi_y(0),f(y)).\qedhere
 \]
+\end{MilnorProofEnd}
 
 \Corollary{3.5（领状领域定理）}设 $W$ 是紧的带边界光滑流形。则 $\partial W$ 有一个邻域，称为\emph{\Term{领状领域}{collar neighborhood}}，它微分同胚于 $\partial W\times[0,1)$。
 
@@ -81,15 +83,15 @@
 
 \Corollary{3.6（双侧领状领域定理）}设 $W$ 的光滑子流形 $M$ 的每个分支都紧且双侧。则 $M$ 在 $W$ 中有一个\emph{\Term{双侧领状领域}{bicollar neighborhood}}，它微分同胚于 $M\times(-1,1)$，并使 $M$ 对应于 $M\times0$。
 
-\Proof $M$ 的各分支可被 $W$ 中两两不交的开集覆盖，所以只需考虑 $M$ 只有一个分支的情形。取 $M$ 在 $W^n\setminus\partial W^n$ 中的开邻域 $U$，使 $\overline U$ 紧，并位于一个删去 $M$ 后分成两部分的邻域中。于是 $\overline U$ 分解成两个子流形 $U_1,U_2$，且 $U_1\cap U_2=M$ 是二者的边界。
+\Proof $M$ 的各分支可被 $W$ 中两两不交的开集覆盖，所以只需考虑 $M$ 只有一个分支的情形。取 $M$ 在 $W^n\setminus\partial W^n$ 中的开邻域 $U$，使 $\overline U$ 紧，并位于一个删去 $M$ 后分成两部分的邻域中。于是 $U$ 分解成两个子流形 $U_1,U_2$，且 $U_1\cap U_2=M$ 是二者的边界。
 
-与\LemRef{2.6} 的证明一样，利用坐标覆盖和单位分解构造光滑映射 $\phi:U\to\R$，使 $d\phi$ 在 $M$ 上不为零，并且
+与\LemRef{2.6} 的证明一样，利用坐标覆盖和单位分解构造光滑映射 $\phi:\overline U\to\R$，使 $d\phi$ 在 $M$ 上不为零，并且
 \[
-  \phi<0\text{ 于 }U\setminus U_1,\qquad
+  \phi<0\text{ 于 }\overline U\setminus U_1,\qquad
   \phi=0\text{ 于 }M,\qquad
-  \phi>0\text{ 于 }U\setminus U_2.
+  \phi>0\text{ 于 }\overline U\setminus U_2.
 \]
-可取 $M$ 的开邻域 $V$，$\overline V\subset U$，使 $\phi$ 在 $V$ 中没有临界点。令 $2\varepsilon''>0$ 为 $\phi$ 在紧集 $U_1\setminus V$ 上的最小上界，令 $2\varepsilon'<0$ 为 $\phi$ 在紧集 $U_2\setminus V$ 上的最大下界。则 $\phi^{-1}[\varepsilon',\varepsilon'']$ 是 $V$ 中的紧 $n$ 维带边界子流形，且 $\phi$ 是其上的 Morse 函数。应用\ThmRef{3.4}，$\phi^{-1}(\varepsilon',\varepsilon'')$ 就是 $M$ 在 $V$ 中、从而也是在 $W$ 中的双侧领状领域。
+可取 $M$ 的开邻域 $V$，$\overline V\subset U$，使 $\phi$ 在 $V$ 中没有临界点。令 $2\varepsilon''>0$ 为 $\phi$ 在紧集 $\overline U_1\setminus V$ 上的最小上界，令 $2\varepsilon'<0$ 为 $\phi$ 在紧集 $\overline U_2\setminus V$ 上的最大下界。则 $\phi^{-1}[\varepsilon',\varepsilon'']$ 是 $V$ 中的紧 $n$ 维带边界子流形，且 $\phi$ 是其上的 Morse 函数。应用\ThmRef{3.4}\footnote{译注：原文此处误引“定理 3.1”；应为无临界点情形的乘积配边定理，即定理 3.4。}，$\phi^{-1}(\varepsilon',\varepsilon'')$ 就是 $M$ 在 $V$ 中、从而也是在 $W$ 中的双侧领状领域。
 \EndProof
 
 \Remark 领状领域定理和双侧领状领域定理在没有紧性假设时仍然成立（Munkres~\cite[p.~51]{ref05}）。
@@ -188,7 +190,7 @@ g(x,t)=
   \phantomsection\label{fig:3.2}\textbf{图 3.2}
 \end{center}
 
-\Definition{3.11}设 $V$ 是 $(n-1)$ 维流形，$\phi:S^{\lambda-1}\times\mathring D^{n-\lambda}\to V$ 是嵌入。以 $\chi(V,\phi)$ 表示如下商流形：从不交并
+\Definition{3.11}设 $V$ 是 $(n-1)$ 维流形，$\phi:S^{\lambda-1}\times\mathring D^{n-\lambda}\to V$ 是嵌入。以 $\chi(V,\phi)$ 表示如下\Term{商流形}{quotient manifold}：从不交并
 \[
  \bigl(V\setminus\phi(S^{\lambda-1}\times0)\bigr)
  \sqcup(\mathring D^\lambda\times S^{n-\lambda-1})
@@ -295,11 +297,11 @@ f=
 
 \Theorem{3.14}设初等配边 $(W;V,V')$ 有一个恰有一个临界点、且该点指标为 $\lambda$ 的 Morse 函数。固定一个类梯度向量场，令 $D_L$ 为与之对应的左圆盘。则 $V\cup D_L$ 是 $W$ 的形变收缩核。
 
-\Corollary{3.15}$H_*(W,V)$ 在维数 $\lambda$ 上同构于 $\Z$，在其他维数上为零。$D_L$ 表示 $H_\lambda(W,V)$ 的一个生成元。
+\Corollary{3.15}$H_*(W,V)$ 在维数 $\lambda$ 上同构于 $\Z$，在其他维数上为零。$D_L$ 表示 $H_\lambda(W,V)$ 的一个\Term{生成元}{generator}。
 
 \par\medskip\noindent\textit{推论的证明.}\quad 由\Term{切除性}{excision}，
-\[
-\begin{aligned}
+\begin{MilnorProofEnd}
+\begin{align*}
 H_*(W,V)&\cong H_*(V\cup D_L,V)\\
 &\cong H_*(D_L,S_L)\\
 &\cong
@@ -307,8 +309,8 @@ H_*(W,V)&\cong H_*(V\cup D_L,V)\\
 \Z,&\text{维数为 }\lambda,\\
 0,&\text{其他维数}.
 \end{cases}\qedhere
-\end{aligned}
-\]
+\end{align*}
+\end{MilnorProofEnd}
 
 \par\medskip\noindent\textit{\ThmRef{3.14} 的证明.}\quad 由\ThmRef{3.13}，可假定
 \[
@@ -323,7 +325,7 @@ H_*(W,V)&\cong H_*(V\cup D_L,V)\\
 \[
  C=\{(\vec x,\vec y)\in L_\lambda\mid |\vec y|\leq\tfrac1{10}\},
 \]
-即 $D_L$ 的 $1/10$ 柱状邻域。先定义从 $W$ 到 $V\cup C$ 的形变收缩 $r_t$，再定义从 $V\cup C$ 到 $V\cup D_L$ 的形变收缩 $r'_t$，二者复合即为所需收缩。
+即 $D_L$ 的 $1/10$ 柱状邻域。先定义从 $W$ 到 $V\cup C$ 的\Term{形变收缩}{deformation retraction} $r_t$，再定义从 $V\cup C$ 到 $V\cup D_L$ 的形变收缩 $r'_t$，二者复合即为所需收缩。
 
 \textit{第一次收缩：}在 $L_\lambda$ 外沿轨线退回 $V$；在 $L_\lambda$ 中沿轨线走到 $C$ 或 $V$ 为止。具体地，对
 \[

@@ -67,7 +67,7 @@ $x^1(q),\ldots,x^{n-1}(q)$，使 $x^i(q_0)=0$，并且
 
 \Theorem{5.4（第一消去定理）}若 $S_R$ 与 $S'_L$ 横截相交，且交集只有一点，则该配边是乘积配边。更确切地说，可在从 $p$ 到 $p'$ 的唯一轨线 $T$ 的任意小邻域内修改 $\xi$，得到处处非零的向量场 $\xi'$；它的每条轨线都从 $V_0$ 通向 $V_1$。此外，$\xi'$ 是某个无临界点的 Morse 函数 $f'$ 的类梯度向量场，而 $f'$ 在 $V_0\cup V_1$ 附近与 $f$ 相同。（见\FigRef{5.2}。）
 
-\Remark 这一证明源于 M. Morse~\cite{ref11,ref32}，颇为艰深。不计技术性的\ThmRef{5.6}，证明占下文十页。
+\Remark 这一证明源于 M. Morse~\cite{ref11,ref32}，颇为艰深。不计技术性的\ThmRef{5.6}，证明见\TranslatedPageRange{proof:5-4-start}{proof:5-4-local-end}。\footnote{译注：原文称证明占下文十页；在本译本中见\TranslatedPageRange{proof:5-4-start}{proof:5-4-local-end}。}
 
 \begin{center}
   \FigFiveTwo
@@ -77,7 +77,7 @@ $x^1(q),\ldots,x^{n-1}(q)$，使 $x^i(q_0)=0$，并且
 
 先在 $\xi$ 沿 $T$ 具有特殊形式的假设下证明定理。
 
-\par\medskip\noindent\phantomsection\label{assump:5.5}\textbf{预备假设 5.5.}\quad
+\par\medskip\noindent\phantomsection\label{assump:5.5}\label{proof:5-4-start}\textbf{预备假设 5.5.}\quad
 从 $p$ 到 $p'$ 的轨线 $T$ 有邻域 $U_T$ 及坐标卡
 $g:U_T\to\R^n$，满足：
 \begin{enumerate}[label=\arabic*)]
@@ -231,12 +231,12 @@ $\{0\}\times V_0\cup\{1\}\times V_0$ 附近与 $f_1=f\circ\phi$ 相同；可假�
 取 $\delta$ 充分小，可使 $k(q)>0$ 对一切 $q\in V_0$ 成立。于是 $g$ 具备所需性质。
 \EndProof
 
-在预备假设成立时，第一消去\ThmRef{5.4} 已证。为证明一般情形，还须证明：
+\phantomsection\label{proof:5-4-local-end}在预备假设成立时，第一消去\ThmRef{5.4}\footnote{译注：原文此处两次将第一消去定理误记为 5.5，应为 5.4；5.5 是预备假设的编号。}已证。为证明一般情形，还须证明：
 
 \par\medskip\noindent\phantomsection\label{claim:5.6}\textbf{断言 6.}\quad\label{assertion:5-6-page55}
 若 $S_R$ 与 $S'_L$ 只有一个横截交点，则总能另选类梯度向量场 $\xi'$，使\NamedRef{assump:5.5}{预备假设 5.5}成立。
 
-\Remark 余下十二页的证明分两步：先把问题归结为一个技术性引理（\ThmRef{5.6}），再证明该引理。
+\Remark 余下的证明见\TranslatedPageRange{assertion:5-6-page55}{proof:5-6-end}，分两步进行：\footnote{译注：原文称证明占本节最后十二页；在本译本中见\TranslatedPageRange{assertion:5-6-page55}{proof:5-6-end}。}先把问题归结为一个技术性引理（\ThmRef{5.6}），再证明该引理。
 
 \Proof 在 $\R^n$ 上取\NamedRef{assump:5.5}{预备假设 5.5}所述形式的向量场 $\vec\eta(\vec x)$，其奇点为原点 $0$ 和 $x_1$ 轴上的单位点 $e$。函数
 \[
@@ -249,14 +249,14 @@ $\{0\}\times V_0\cup\{1\}\times V_0$ 附近与 $f_1=f\circ\phi$ 相同；可假�
   2\int_0^1v(t)\,dt=f(p')-f(p).
 \]
 
-由类梯度向量场的\DefRef{3.1}，在临界点 $p,p'$ 各自的某个坐标系中，$f$ 都可写成指标相应的二次型 $\pm x_1^2\pm\cdots\pm x_n^2$，而 $\xi$ 的坐标为 $(\pm x_1,\ldots,\pm x_n)$。由此容易验证，存在水平集
+由类梯度向量场的\DefRef{3.1}，在临界点 $p,p'$ 各自的某个坐标系中，$f$ 都可写成指标相应的二次型 $\pm x_1^2\pm\cdots\pm x_n^2$，而 $\xi$ 的坐标为 $(\pm x_1,\ldots,\pm x_n)$。由此容易验证，存在水平值
 \[
   a_1=f(p)<b_1<b_2<f(p')=a_2
 \]
 以及从 $0,e$ 的互不相交闭邻域 $L_1,L_2$ 到 $p,p'$ 的邻域上的微分同胚 $g_1,g_2$，满足：
 \begin{enumerate}[label=(\alph*)]
   \item $g_i$ 把 $\vec\eta$ 映到 $\xi$、把 $F$ 映到 $f$，并把线段 $0e$ 上的点映到 $T$ 上；
-  \item 令 $p_i=T\cap f^{-1}(b_i)$，$i=1,2$。则 $g_1(L_1)$ 是 $f^{-1}[a_1,b_1]$ 中线段 $pp_1$ 的邻域，而 $g_2(L_2)$ 是 $f^{-1}[b_2,a_2]$ 中线段 $p_2p'$ 的邻域（见\FigRef{5.5}）。\footnote{译注：原书后图的图号误作“图 5.2”；依本节图号次序应为“图 5.5”。}
+  \item 令 $p_i=T\cap f^{-1}(b_i)$，$i=1,2$。则 $g_1(L_1)$ 是 $f^{-1}[a_1,b_1]$ 中线段 $pp_1$ 的邻域，而 $g_2(L_2)$ 是 $f^{-1}[b_2,a_2]$ 中线段 $p_2p'$ 的邻域（见\FigRef{5.5}）。
 \end{enumerate}
 
 \begin{center}
@@ -288,7 +288,7 @@ $\bar h(S_R(b_1))$ 与 $S'_L(b_2)$ 仍只有一个横截交点 $p_2$。括号中
 \[
   p_1=h_0^{-1}h(p_1)
 \]
-处保持定向，并使 $h_0^{-1}h(S_R(b_1))$ 与 $S_R(b_1)$ 在 $p_1$ 处同 $S_L(b_1)$ 的相交数相同（均为 $+1$ 或均为 $-1$）。相交数的定义见\SecRef{6}。下述局部定理给出所需同痕。
+处保持\Term{定向}{orientation}，并使 $h_0^{-1}h(S_R(b_1))$ 与 $S_R(b_1)$ 在 $p_1$ 处同 $S_L(b_1)$ 的\Term{相交数}{intersection number}相同（均为 $+1$ 或均为 $-1$）。相交数的定义见\SecRef{6}。下述局部定理给出所需同痕。
 
 令 $n=a+b$。把 $x\in\R^n$ 写成 $x=(u,v)$，其中 $u\in\R^a$、$v\in\R^b$；并分别把 $u,v$ 视为 $\R^n$ 中的 $(u,0),(0,v)$。
 
@@ -312,9 +312,11 @@ $\bar h(S_R(b_1))$ 与 $S'_L(b_2)$ 仍只有一个横截交点 $p_2$。括号中
 \end{enumerate}
 
 \begin{center}
+  \begin{minipage}{\linewidth}\centering
   \FigFiveSix
 
   \phantomsection\label{fig:5.6}图 5.6
+  \end{minipage}
 \end{center}
 
 \Lemma{5.7}设 $h:\R^n\to\R^n$ 满足\ThmRef{5.6} 的假设。则存在光滑同痕 $h_t:\R^n\to\R^n$，$0\leq t\leq1$，使：
@@ -447,7 +449,7 @@ $\bar h_t$ 显然可以延拓到其闭定义域
 
 \Theorem{5.8（\Term{同痕扩张定理}{isotopy extension theorem}）}设 $M$ 是无边界光滑流形 $N$ 的紧光滑子流形。若 $h_t$（$0\leq t\leq1$）是包含映射 $i:M\subset N$ 的光滑同痕，则它是恒等映射 $N\to N$ 的某个光滑同痕 $h'_t$ 的限制，并且 $h'_t$ 在 $N$ 的某个紧子集之外保持各点不动。
 
-\Proof 回到\ThmRef{5.6} 的证明，以 $\bar h_t$ 表示上述延拓。若 $\bar h_t$ 使 $\R^a$ 的像与 $\R^b$ 产生新的交点，\ThmRef{5.6} 的条件 (III) 就会失效，如\FigRef{5.9}所示。
+\par\medskip\noindent\textit{\ThmRef{5.6} 的证明（续）.}\quad 回到\ThmRef{5.6} 的证明，以 $\bar h_t$ 表示上述延拓。若 $\bar h_t$ 使 $\R^a$ 的像与 $\R^b$ 产生新的交点，\ThmRef{5.6} 的条件 (III) 就会失效，如\FigRef{5.9}所示。
 
 \begin{center}
   \FigFiveNine
@@ -494,13 +496,13 @@ Milnor~\cite[p.~6]{ref04} 中的证明可原样带入参数 $t$。
 上有
 \[
   \left|\frac{\partial\bar h_t(x)}{\partial t}\right|<Kr,
-  \qquad r=E\text{ 的半径}. \tag{$\clubsuit$}
+  \qquad r=E\text{ 的半径}. \tag{\S}
 \]
 $\partial\bar h_t(x)/\partial t$ 是 $\vec\tau(t,y)$ 的 $\R^n$ 分量。由前述构造（见\TranslatedPage{construction:page62}）\OriginalPageNote{62}{construction:page62}，可以再作选择：
 \begin{enumerate}[label=(\alph*),start=2]
-  \item 使 $\vec\tau(t,y)$ 延拓后的 $\R^n$ 分量 $\vec\zeta(t,y)$ 的模处处小于 $K_1r$。
+  \item 使 $\vec\tau(t,y)$ 延拓后的 $\R^n$ 分量 $\vec\zeta(t,y)$ 的模处处小于 $k_1r$。
 \end{enumerate}
-于是 $\bar h_t$ 在 $[t_0,1]\times\R^n$ 上处处满足 $(\clubsuit)$。
+于是 $\bar h_t$ 在 $[t_0,1]\times\R^n$ 上处处满足 (\S)。
 
 断言在
 \[
@@ -512,7 +514,7 @@ $x\in\R^a\cap(E\setminus E_1)$，则 $h_{t_0}(x)$ 到 $\R^b$ 的距离为
   |\pi_a\bar h_{t_0}(x)|
   =|\pi_a h_{t_0}(x)|>kr.
 \]
-故由 $(\clubsuit)$，在上述 $t$ 的范围内，
+故由 (\S)，在上述 $t$ 的范围内，
 \[
   |\pi_a\bar h_t(x)|
   >kr-(t-t_0)Kr\geq0.
@@ -531,5 +533,5 @@ $x\in\R^a\cap(E\setminus E_1)$，则 $h_{t_0}(x)$ 到 $\R^b$ 的距离为
     \bar h_{t'_0}(x),&t\text{ 接近 }t'_0.
   \end{cases}
 \]
-常数 $k/K$ 只依赖于 $h_t$，所以有限次复合上述同痕便得到所需的光滑同痕。\ThmRef{5.6} 得证，从而\NamedRef{claim:5.6}{断言 6}（见\TranslatedPage{assertion:5-6-page55}）\OriginalPageNote{55}{assertion:5-6-page55}成立，第一消去定理也在一般情形下得证。
+常数 $k/K$ 只依赖于 $h_t$，所以有限次复合上述同痕便得到所需的光滑同痕。\ThmRef{5.6} 得证，从而\NamedRef{claim:5.6}{断言 6}（见\TranslatedPage{assertion:5-6-page55}）\OriginalPageNote{55}{assertion:5-6-page55}成立，第一消去定理也在一般情形下得证。\label{proof:5-6-end}
 \EndProof
